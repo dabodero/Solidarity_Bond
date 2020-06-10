@@ -20,10 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b76a27c-01e8-4106-ab7b-ca0700b1d124" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/apropos.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/apropos.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/apropos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/apropos.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +174,8 @@
       <option name="presentableId" value="Default" />
       <updated>1591693757749</updated>
       <workItem from="1591693762078" duration="6712000" />
-      <workItem from="1591706412847" duration="501000" />
+      <workItem from="1591706412847" duration="5477000" />
+      <workItem from="1591773432653" duration="230000" />
     </task>
     <servers />
   </component>
@@ -192,5 +192,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
