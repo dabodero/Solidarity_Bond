@@ -15,8 +15,8 @@ class CreateComposerTable extends Migration
     {
         Schema::create('composer', function (Blueprint $table) {
             $table->engine='InnoDB';
-            $table->foreignId("ID_Produit")->references("ID")->on("produits");
-            $table->foreignId("ID_Commande")->references("ID")->on("commandes");
+            $table->foreignId("ID_Produit")->references("ID")->on("produits")->cascadeOnDelete();
+            $table->foreignId("ID_Commande")->references("ID")->on("commandes")->cascadeOnDelete();
             $table->integer("Quantite");
             $table->primary(['ID_Produit', 'ID_Commande']);
         });

@@ -16,7 +16,7 @@ class CreateCommandesTable extends Migration
         Schema::create('commandes', function (Blueprint $table) {
             $table->engine='InnoDB';
             $table->id("ID")->unsigned();
-            $table->foreignId("ID_Utilisateur")->references("ID")->on("utilisateurs");
+            $table->foreignId("ID_Utilisateur")->references("ID")->on("utilisateurs")->cascadeOnDelete();
             $table->boolean("Terminee");
         });
     }
