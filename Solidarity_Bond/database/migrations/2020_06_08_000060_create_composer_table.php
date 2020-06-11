@@ -17,7 +17,7 @@ class CreateComposerTable extends Migration
             $table->engine='InnoDB';
             $table->foreignId("ID_Produit")->references("ID")->on("produits");
             $table->foreignId("ID_Commande")->references("ID")->on("commandes");
-            $table->integer("Quantité");
+            $table->integer("Quantite");
             $table->primary(['ID_Produit', 'ID_Commande']);
         });
     }

@@ -16,7 +16,7 @@ class CreateCommentairesTable extends Migration
         Schema::create('commentaires', function (Blueprint $table) {
             $table->engine='InnoDB';
             $table->id("ID")->unsigned();
-            $table->foreignId("ID_Client")->references("ID")->on("clients");
+            $table->foreignId("ID_Utilisateur")->references("ID")->on("utilisateurs");
             $table->foreignId("ID_Produit")->references("ID")->on("produits");
             $table->string("Commentaire", 500);
             $table->date("Date");

@@ -15,9 +15,9 @@ class CreateLikerTable extends Migration
     {
         Schema::create('liker', function (Blueprint $table) {
             $table->engine='InnoDB';
-            $table->foreignId("ID_Client")->references("ID")->on("clients");
+            $table->foreignId("ID_Utilisateur")->references("ID")->on("utilisateurs");
             $table->foreignId("ID_Commentaire")->references("ID")->on("commentaires");
-            $table->primary(['ID_Client', 'ID_Commentaire']);
+            $table->primary(['ID_Utilisateur', 'ID_Commentaire']);
         });
     }
 
