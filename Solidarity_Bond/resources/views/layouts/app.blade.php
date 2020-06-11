@@ -30,6 +30,7 @@
 
 </head>
 <body>
+  
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -100,7 +101,7 @@
     <br>
 
 
-
+@section('content')
 
 
 
@@ -108,7 +109,7 @@
 
 
     <!-- Footer -->
-<footer class="page-footer font-small indigo text-cesi">
+<footer class="page-footer font-small indigo text-cesi bg-light">
 
   <!-- Footer Links -->
   <div class="container">
@@ -158,7 +159,6 @@
     <!-- Grid row-->
 
     <!-- Grid row-->
-    <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
       <!-- Grid column -->
 
     </div>
@@ -169,7 +169,7 @@
 
       <!-- Grid column -->
       <div class="col-md-12">
-
+             
         <div class="mb-5 flex-center">
 
           <!-- Facebook -->
