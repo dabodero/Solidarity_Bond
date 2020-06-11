@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    protected $table = 'produits';
+    protected $table = 'images';
 
     protected $primaryKey = 'ID';
 

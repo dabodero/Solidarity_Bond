@@ -10,6 +10,8 @@ class Role extends Model
 
     protected $primaryKey = 'ID';
 
+    protected $fillable = ['Role'];
+
     public $timestamps = false;
 
     public function utilisateurs(){

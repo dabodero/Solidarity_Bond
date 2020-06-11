@@ -10,6 +10,8 @@ class Liker extends Model
 
     protected $primaryKey = ['ID_Utilisateur', 'ID_Commentaire'];
 
+    protected $fillable = ['ID_Utilisateur', 'ID_Commentaire'];
+
     public $timestamps = false;
 
     public $incrementing = false;

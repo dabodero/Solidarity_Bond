@@ -10,6 +10,8 @@ class Photo extends Model
 
     protected $primaryKey = 'ID';
 
+    protected $fillable = ['ID_Produit', 'Nom', 'CheminAcces'];
+
     public $timestamps = false;
 
     public function produit(){

@@ -10,6 +10,8 @@ class Produit extends Model
 
     protected $primaryKey = 'ID';
 
+    protected $fillable = ['Nom', 'Description'];
+
     public $timestamps = false;
 
     public function commandes(){

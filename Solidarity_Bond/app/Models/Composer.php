@@ -12,7 +12,7 @@ class Composer extends Model
 
     protected $primaryKey = ['ID_Produit', 'ID_Commande'];
 
-    protected $fillable = ['ID_Produit', 'ID_Commande', 'Quantite', 'Mail', 'MotDePasse', 'Entreprise', 'Telephone', 'SIRET'];
+    protected $fillable = ['ID_Produit', 'ID_Commande', 'Quantite'];
 
     public $timestamps = false;
 
