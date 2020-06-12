@@ -29,6 +29,7 @@
     <link href="{{ asset('assets/css/produit.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/apropos.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/register.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/login.css') }}" rel="stylesheet">
 
 
 

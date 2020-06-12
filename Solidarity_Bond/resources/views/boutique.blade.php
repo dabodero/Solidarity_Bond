@@ -1,4 +1,4 @@
-@extends('5446.Solidarity_Bond.resources.views.layouts.app')
+@extends('layouts.app')
 @section('content')
 
 
