@@ -27,4 +27,15 @@ Route::get('/apropos', function () {
 Route::get('/test', function () {
     return view('test');
 });
+Route::get('/boutique', function () {
+    return view('boutique');
+});
+Route::get('/a-propos', function () {
+    return view('apropos');
+});
+Route::get('/produit', function () {
+    return view('produit');
+});
+
+
 
