@@ -27,3 +27,4 @@ Route::get('/apropos', function () {
 Route::get('/test', function () {
     return view('test');
 });
+
