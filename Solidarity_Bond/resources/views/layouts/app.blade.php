@@ -15,9 +15,9 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
@@ -25,12 +25,16 @@
     <link href="{{ asset('assets/vendor/bootstrap-4.3.1-dist/css/bootstrap.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/boutique.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/produit.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/apropos.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/register.css') }}" rel="stylesheet">
 
 
 
 </head>
 <body>
-  
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -46,14 +50,14 @@
                     <ul class="navbar-nav mr-1 text-center ">
 
                         <li class="nav-item">
-                        <a class="nav-link" href="#">A propos</a> 
+                        <a class="nav-link" href="#">A propos</a>
                         <li class="nav-item">
                         <a class="nav-link" href="#">Boutique</a>
                         <li class="nav-item">
                         <a class="nav-link" href="#">Nos partenaires</a>
                         <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
-         
+
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto text-center">
@@ -169,7 +173,7 @@
 
       <!-- Grid column -->
       <div class="col-md-12">
-             
+
         <div class="mb-5 flex-center">
 
           <!-- Facebook -->
