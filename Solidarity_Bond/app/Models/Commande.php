@@ -30,4 +30,12 @@ class Commande extends Model
         return $this->hasMany(\App\Models\Composer::class, 'ID_Commande');//Commande::where('commandes.ID','=', $this->ID)->join('composer', 'commandes.ID', '=', 'composer.ID_Commande');
     }
 
+    public static function nonTerminees(){
+        return Commande::where('Terminee','=', 0)->get();
+    }
+
+    public static function terminees(){
+        return Commande::where('Terminee', '=', 1)->get();
+    }
+
 }

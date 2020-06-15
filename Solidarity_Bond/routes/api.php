@@ -18,6 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['prefix'=>'commande'], function (){
+    Route::get('terminees', 'API\CommandeController@terminees')->name('commande.terminees');
+    Route::get('nonterminees', 'API\CommandeController@nonTerminees')->name('commande.nonterminees');
+});
+
 Route::apiResource('role', 'API\RoleController');
 Route::apiResource('produit', 'API\ProduitController');
 Route::apiResource('utilisateur', 'API\UtilisateurController');

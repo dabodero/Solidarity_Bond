@@ -62,4 +62,13 @@ class CommandeController extends Controller
     {
         $commande->delete();
     }
+
+    public function terminees(){
+        return Commande::terminees();
+    }
+
+    public function nonTerminees(){
+        return Commande::nonTerminees();
+    }
+
 }

@@ -5,9 +5,15 @@
 use App\Models\Produit;
 use Faker\Generator as Faker;
 
-$factory->define(Produit::class, function (Faker $faker) {
+$autoIncrement = autoIncrement();
+
+$factory->define(Produit::class, function (Faker $faker) use ($autoIncrement) {
+    $current = $autoIncrement->current();
+    $produits = ['Vitre de protection', 'Attache', 'Support'];
+
+    $autoIncrement->next();
     return [
-        'Nom' => $faker->monthName,
+        'Nom' => $produits[$current],
         'Description' => $faker->text(200)
     ];
 });

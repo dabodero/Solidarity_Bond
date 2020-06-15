@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Composer::class, function (Faker $faker) {
     return [
-        'ID_Produit' => $faker->numberBetween(1,5),
+        'ID_Produit' => $faker->numberBetween(1,3),
         'ID_Commande' => $faker->unique()->numberBetween(1,10),
         'Quantite' => $faker->numberBetween(1,20)
     ];

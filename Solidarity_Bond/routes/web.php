@@ -24,9 +24,8 @@ Route::get('/apropos', function () {
     return view('apropos');
 });
 
-Route::get('/test', function () {
-    return view('test');
-});
+Route::get('/test', 'WEB\TestController@sandbox');
+
 Route::get('/boutique', function () {
     return view('boutique');
 });

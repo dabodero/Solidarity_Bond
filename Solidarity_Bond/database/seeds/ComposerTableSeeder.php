@@ -11,6 +11,6 @@ class ComposerTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Models\Composer::class, 8)->create();
+        factory(\App\Models\Composer::class, 8);
     }
 }
