@@ -3,11 +3,17 @@
 
 @section('content')
 
-    <ol>
+    <div>
         @foreach($data as $d)
-            <li>{{$d}}</li>
+            @php $user = $d->utilisateur(); @endphp
+            <p>Commande {{$d->ID}} par {{$user->Nom}} {{$user->Prenom}} chez {{$user->Entreprise}}</p>
+        <ul>
+            @foreach($d->produits() as $produit)
+                <li>{{$produit->Quantite}} {{$produit->Nom}}</li>
+            @endforeach
+        </ul>
         @endforeach
-    </ol>
+    </div>
 
 
 

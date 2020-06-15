@@ -18,18 +18,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix'=>'commande'], function (){
-    Route::get('terminees', 'API\CommandeController@terminees')->name('commande.terminees');
-    Route::get('nonterminees', 'API\CommandeController@nonTerminees')->name('commande.nonterminees');
+Route::namespace('API')->group(function (){
+
+    Route::group(['prefix'=>'commande'], function (){
+        Route::get('terminees', 'CommandeController@terminees')->name('commande.terminees');
+        Route::get('nonterminees', 'CommandeController@nonTerminees')->name('commande.nonterminees');
+    });
+
+    Route::apiResource('role', 'RoleController');
+    Route::apiResource('produit', 'ProduitController');
+    Route::apiResource('utilisateur', 'UtilisateurController');
+    Route::apiResource('photo', 'PhotoController');
+    Route::apiResource('commande', 'CommandeController');
+    Route::apiResource('composer', 'ComposerController');
+    Route::apiResource('commentaire', 'CommentaireController');
+    Route::apiResource('liker', 'LikerController');
+    Route::apiResource('image', 'ImageController');
 });
 
-Route::apiResource('role', 'API\RoleController');
-Route::apiResource('produit', 'API\ProduitController');
-Route::apiResource('utilisateur', 'API\UtilisateurController');
-Route::apiResource('photo', 'API\PhotoController');
-Route::apiResource('commande', 'API\CommandeController');
-Route::apiResource('composer', 'API\ComposerController');
-Route::apiResource('commentaire', 'API\CommentaireController');
-Route::apiResource('liker', 'API\LikerController');
-Route::apiResource('image', 'API\ImageController');
 

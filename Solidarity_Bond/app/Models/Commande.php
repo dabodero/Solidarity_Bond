@@ -15,7 +15,7 @@ class Commande extends Model
     protected $fillable = ['ID_Utilisateur', 'Terminee'];
 
     public function utilisateur(){
-        return $this->belongsTo(\App\Models\Utilisateur::class, 'ID_Utilisateur')->get();
+        return $this->belongsTo(\App\Models\Utilisateur::class, 'ID_Utilisateur')->first();
     }
 
     public function composition(){

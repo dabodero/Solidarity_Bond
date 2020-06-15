@@ -24,7 +24,11 @@ Route::get('/apropos', function () {
     return view('apropos');
 });
 
-Route::get('/test', 'WEB\TestController@sandbox');
+Route::namespace('WEB')->group(function (){
+    Route::get('/test', 'TestController@sandbox')->name('test');
+});
+
+
 
 Route::get('/boutique', function () {
     return view('boutique');

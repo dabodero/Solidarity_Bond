@@ -11,8 +11,9 @@ use App\Http\Controllers\Controller;
 class TestController extends Controller
 {
     public function sandbox(){
-        $data = Commande::terminees();
-        //dd($data);
+        $data = Commande::nonTerminees();
+
+        //dd($data->first()->utilisateur());
         return view('test', compact('data'));
     }
 }
