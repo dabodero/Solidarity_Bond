@@ -13,36 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('accueil');
-});
+Route::namespace('WEB')->group(function (){
 
-Auth::routes();
+    Route::get('/test', 'TestController@sandbox')->name('test');
+
+    Route::prefix('/')->group(function(){
+        Route::get('/', 'GeneralController@accueil')->name('accueil');
+        Route::get('a-propos', 'GeneralController@a_propos')->name('a-propos');
+        Route::get('mentions-legales', 'GeneralController@mentions_legales')->name('mentions-legales');
+        Route::get('contact', 'GeneralController@contact')->name('contact');
+        Route::get('cgv', 'GeneralController@cgv')->name('cgv');
+        Route::get('partenaires', 'GeneralController@partenaires')->name('partenaires');
+    });
+
+    Route::prefix('boutique')->group(function(){
+        Route::get('/', 'BoutiqueController@boutique')->name('boutique');
+        Route::get('commande','BoutiqueController@commande')->name('commande');
+        Route::get('produit/{ID_Produit}', 'BoutiqueController@produit')->name('produit');
+        Route::get('panier', 'BoutiqueController@panier')->name('panier');
+    });
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/apropos', function () {
-    return view('apropos');
-});
-
-Route::namespace('WEB')->group(function (){
-    Route::get('/test', 'TestController@sandbox')->name('test');
-});
-
-
-
-Route::get('/boutique', function () {
-    return view('boutique');
-});
-Route::get('/a-propos', function () {
-    return view('apropos');
-});
-Route::get('/produit', function () {
-    return view('produit');
-});
-
-Route::get('/commande', function () {
-    return view('commande');
-});
-
-
+Auth::routes();
 
