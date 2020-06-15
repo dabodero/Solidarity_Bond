@@ -21,6 +21,8 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    protected $table = "utilisateurs";
+
     /**
      * Where to redirect users after login.
      *
