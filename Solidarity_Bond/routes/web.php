@@ -37,5 +37,9 @@ Route::get('/produit', function () {
     return view('produit');
 });
 
+Route::get('/commande', function () {
+    return view('commande');
+});
+
 
 

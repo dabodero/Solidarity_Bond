@@ -50,9 +50,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'nom' => ['required', 'string', 'max:40'],
+            'Prénom' => ['required', 'string', 'max:40'],
+            'entreprise' => ['required', 'string', 'max:100'],
+            'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
+            'telephone' => ['required', 'string', 'max:10'],
+            'motdepasse' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -64,10 +67,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $response = $client->request('POST', 'http://httpbin.org/post', [
+            'form_params' => [
+                'nom' => $data['Nom'],
+                'prenom' => $data['Prenom'],
+                'entreprise' => $data['entreprise'],
+                'siret' => $data['SIRET'],
+                'telephone' => $data['Telephone'],
+                'email' => $data['Mail'],
+                'motdepasse' => Hash::make($data['MotDePasse']),
+                ]
+            ]);
+
+
+
     }
 }
