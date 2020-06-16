@@ -1,0 +1,16 @@
+.card-head{
+    background-color: #222222;
+    color:white;
+}
+
+.card-middle{
+    background-color: #FAFAFF;
+}
+
+.card-bottom{
+    background-color: #222222;
+}
+
+.card{
+    max-width: 18rem;
+}

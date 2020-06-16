@@ -21,7 +21,7 @@ class TestController extends Controller
             dd($d);
             $dataProduit[$d->ID] = $d->produits();
         }*/
-        //dd($data);
+        dd($data);
         return view('test', compact('data'));
     }
 }
