@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use phpDocumentor\Reflection\Types\Boolean;
+use Ramsey\Collection\Collection;
 
 class Commande extends Model
 {
@@ -28,7 +29,7 @@ class Commande extends Model
     }
 
     public function produitsFormates(){
-        return $this->produitsBuilder()->select('ID_Produit','Nom', 'Description')->get();
+        return $this->produitsBuilder()->select('composer.ID_Produit','produits.Nom','composer.Quantite', 'produits.Description')->get();
     }
 
     private function produitsBuilder(){
@@ -39,36 +40,43 @@ class Commande extends Model
         return $this->hasMany(\App\Models\Composer::class, 'ID_Commande');
     }
 
-    public static function nonTerminees(){
-        return self::commandeFormateeSelonTerminee(0)->get();
-    }
-
-    public static function terminees(){
-        return self::commandeFormateeSelonTerminee(1)->get();
-    }
-
-    private static function commandeFormatee(){
-        $utilisateurs = Utilisateur::select('ID as Utilisateur', 'Nom', 'Prenom', 'Entreprise');
-        return Commande::join('composer', 'composer.ID_Commande', '=', 'commandes.ID')
-            ->join('produits', 'composer.ID_Produit', '=', 'produits.ID')
-            ->joinSub($utilisateurs, 'utilisateurs', function($join){
-                $join->on('commandes.ID_Utilisateur', '=', 'utilisateurs.Utilisateur');
-            })
-            ->select('commandes.Date', 'commandes.ID_Utilisateur', 'utilisateurs.Nom', 'utilisateurs.Prenom', 'utilisateurs.Entreprise',
-                'commandes.ID as ID_Commande', 'produits.ID as ID_Produit', 'produits.Nom as Produit', 'composer.Quantite')
-            ->orderBy('Date', 'asc')->orderBy('ID_Utilisateur', 'asc');
-    }
-
-    private static function commandeFormateeSelonTerminee($intBoolean){
-        return self::commandeFormatee()->where('Terminee','=', $intBoolean);
-    }
-
     public static function commandeNumero($ID){
-        return self::commandeFormateeSelonID($ID)->get();
+        return self::liaisonCommandesProduits(self::liaisonCommandesUtilisateursSelonID($ID)->get());
     }
 
-    private static function commandeFormateeSelonID($ID){
-        return self::commandeFormatee()->where('ID_Commande','=',$ID);
+    public static function commandesTerminees(){
+        return self::commandesSelonTerminees(1);
+    }
+
+    public static function commandesNonTerminees(){
+        return self::commandesSelonTerminees(0);
+    }
+
+    private static function commandesSelonTerminees($intBoolean){
+        return self::liaisonCommandesProduits(self::liaisonCommandesUtilisateursSelonTerminees($intBoolean)->get());
+    }
+
+    private static function liaisonCommandesProduits(\Illuminate\Support\Collection $collection){
+        $collection->each(function($item, $key){
+            $item['ID_Commande'] = $item->ID;
+            $item['Produits'] = $item->produitsFormates();
+            unset($item['ID']);
+        });
+        return $collection;
+    }
+
+    private static function liaisonCommandesUtilisateurs(){
+        return Commande::join('utilisateurs','utilisateurs.ID','=','commandes.ID_Utilisateur')
+            ->select('commandes.Date', 'commandes.ID_Utilisateur', 'utilisateurs.Nom', 'utilisateurs.Prenom',
+                'utilisateurs.Entreprise', 'commandes.ID');
+    }
+
+    private static function liaisonCommandesUtilisateursSelonTerminees($intBoolean){
+        return self::liaisonCommandesUtilisateurs()->where('Terminee','=',$intBoolean);
+    }
+
+    private static function liaisonCommandesUtilisateursSelonID($ID){
+        return self::liaisonCommandesUtilisateurs()->where('commandes.ID','=',$ID);
     }
 
 }

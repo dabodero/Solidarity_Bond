@@ -5,6 +5,7 @@
 
 .card-middle{
     background-color: #FAFAFF;
+    min-height: 7rem;
 }
 
 .card-bottom{
@@ -13,4 +14,8 @@
 
 .card{
     max-width: 18rem;
+}
+
+.produit{
+    font-weight: bold;
 }

@@ -10,8 +10,8 @@ use const http\Client\Curl\Features\HTTP2;
 class FablabController extends Controller
 {
     public function commandes(){
-        $commandesNonTerminees = Commande::nonTerminees();
-        $commandesTerminees = Commande::terminees();
+        $commandesNonTerminees = Commande::commandesNonTerminees();
+        $commandesTerminees = Commande::commandesTerminees();
         return view('fablab.fablab', compact('commandesNonTerminees', 'commandesTerminees'));
     }
 }

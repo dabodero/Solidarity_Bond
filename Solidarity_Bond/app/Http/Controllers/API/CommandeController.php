@@ -64,11 +64,11 @@ class CommandeController extends Controller
     }
 
     public function terminees(){
-        return Commande::terminees();
+        return Commande::commandesTerminees();
     }
 
     public function nonTerminees(){
-        return Commande::nonTerminees();
+        return Commande::commandesNonTerminees();
     }
 
     public function produitsCommande(Commande $commande){

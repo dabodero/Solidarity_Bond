@@ -6,18 +6,20 @@
     <div class="row justify-content-center m-2">
         @foreach($commandesNonTerminees as $commandeNonTerminee)
             <div class="col-xl-2 col-lg-3 col-md-4 m-2">
-                <div class="card border-dark">
+                <div class="card border-dark" id="{{$commandeNonTerminee->ID_Commande}}">
                     <div class="card-text card-head p-2">
                         <h5 class="card-title text-center m-0">Commande n°{{$commandeNonTerminee->ID_Commande}}</h5>
                     </div>
                     <ul class="list-group card-middle list-group-flush m-0 p-0">
                         <div class="row col-12 m-0 p-3">
-                            <li class="list-group col-lg-10 col-md-9 col-sm-8 m-0 p-0">
-                                {{$commandeNonTerminee->Produit}}
+                            @foreach($commandeNonTerminee->Produits as $produit)
+                            <li class="list-group col-lg-10 col-md-9 col-sm-8 m-0 p-0 produit">
+                                {{$produit->Nom}}
                             </li>
-                            <li class="list-group col-lg-2 col-md-3 col-sm-4 text-right m-0 p-0">
-                                {{$commandeNonTerminee->Quantite}}
+                            <li class="list-group col-lg-2 col-md-3 col-sm-4 text-right m-0 p-0 produit">
+                                {{$produit->Quantite}}
                             </li>
+                            @endforeach
                         </div>
                     </ul>
                     <div class="card-text card-bottom text-center p-2">
