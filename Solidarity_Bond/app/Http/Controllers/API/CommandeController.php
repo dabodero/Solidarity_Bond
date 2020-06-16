@@ -37,7 +37,7 @@ class CommandeController extends Controller
      */
     public function show(Commande $commande)
     {
-        return $commande;
+        return Commande::commandeNumero($commande->ID);
     }
 
     /**
@@ -69,6 +69,10 @@ class CommandeController extends Controller
 
     public function nonTerminees(){
         return Commande::nonTerminees();
+    }
+
+    public function produitsCommande(Commande $commande){
+        return $commande->produitsFormates();
     }
 
 }

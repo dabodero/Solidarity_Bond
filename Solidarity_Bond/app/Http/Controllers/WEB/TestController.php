@@ -11,9 +11,17 @@ use App\Http\Controllers\Controller;
 class TestController extends Controller
 {
     public function sandbox(){
-        $data = Commande::nonTerminees();
-
-        //dd($data->first()->utilisateur());
+        $data = Commande::commandeNumero(6);/*
+        $dataProduit = $data->each(function($item, $key){
+           $key = $item->produits();
+            dd($item, $key);
+        });*/
+        /*$dataProduit = [];
+        foreach($data as $d){
+            dd($d);
+            $dataProduit[$d->ID] = $d->produits();
+        }*/
+        //dd($data);
         return view('test', compact('data'));
     }
 }

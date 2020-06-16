@@ -23,6 +23,11 @@ Route::namespace('API')->group(function (){
     Route::group(['prefix'=>'commande'], function (){
         Route::get('terminees', 'CommandeController@terminees')->name('commande.terminees');
         Route::get('nonterminees', 'CommandeController@nonTerminees')->name('commande.nonterminees');
+        Route::get('{commande}/produits', 'CommandeController@produitsCommande')->name('commande.produits');
+    });
+
+    Route::group(['prefix'=>'utilisateur'], function (){
+        Route::get('{utilisateur}/commandes', 'UtilisateurController@commandes')->name('utilisateur.commandes');
     });
 
     Route::apiResource('role', 'RoleController');
