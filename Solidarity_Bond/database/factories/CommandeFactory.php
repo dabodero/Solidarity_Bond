@@ -8,6 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Commande::class, function (Faker $faker) {
     return [
         'ID_Utilisateur' => $faker->numberBetween(1,10),
+        'Date' => now(),
         'Terminee' => $faker->boolean(50)
     ];
 });

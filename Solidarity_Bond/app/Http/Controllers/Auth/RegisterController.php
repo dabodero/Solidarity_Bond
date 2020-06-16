@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Utilisateur;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -23,6 +25,8 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+
+    protected $table = "utilisateurs";
 
     /**
      * Where to redirect users after registration.
@@ -49,10 +53,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        return Validator::make($data, [/*
+            'Nom' => ['required', 'string', 'max:40'],
+            'Prenom' => ['required', 'string', 'max:40'],
+            'Entreprise' => ['required', 'string', 'max:100'],
+            'Mail' => ['required', 'string', 'email', 'max:100', 'unique:utilisateurs'],
+            'Telephone' => ['required', 'string', 'max:10'],
+            'MotDePasse' => ['required', 'string', 'min:8', 'confirmed'],*/
         ]);
     }
 
@@ -64,10 +71,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $data['ID_Role']=1;
+        $data['MotDePasse']=Hash::make($data['MotDePasse']);
+        unset($data['password_confirmation']);
+        dd($data);
+        return Utilisateur::create($data);
+
     }
 }

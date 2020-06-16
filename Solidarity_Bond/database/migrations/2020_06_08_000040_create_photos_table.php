@@ -16,7 +16,7 @@ class CreatePhotosTable extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->engine='InnoDB';
             $table->id("ID")->unsigned();
-            $table->foreignId("ID_Produit")->references("ID")->on("produits");
+            $table->foreignId("ID_Produit")->references("ID")->on("produits")->cascadeOnDelete();
             $table->string("Nom", 50);
             $table->string("CheminAcces", 250);
         });

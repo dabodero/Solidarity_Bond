@@ -12,3 +12,4 @@ npm-debug.log
 yarn-error.log
 .idea
 /resources/views/test.blade.php
+/app/Http/Controllers/WEB/TestController.php

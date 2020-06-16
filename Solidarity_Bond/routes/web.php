@@ -13,20 +13,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('accueil');
-});
+Route::namespace('WEB')->group(function (){
 
-Auth::routes();
+    Route::get('/test', 'TestController@sandbox')->name('test');
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/apropos', function () {
-    return view('apropos');
-});
+    Route::prefix('/')->group(function(){
+        Route::get('/', 'GeneralController@accueil')->name('accueil');
+        Route::get('a-propos', 'GeneralController@a_propos')->name('a-propos');
+        Route::get('mentions-legales', 'GeneralController@mentions_legales')->name('mentions-legales');
+        Route::get('contact', 'GeneralController@contact')->name('contact');
+        Route::get('cgv', 'GeneralController@cgv')->name('cgv');
+        Route::get('partenaires', 'GeneralController@partenaires')->name('partenaires');
+    });
 
-Route::get('/test', function () {
-    return view('test');
+    Route::prefix('boutique')->group(function(){
+        Route::get('/', 'BoutiqueController@boutique')->name('boutique');
+        Route::get('commande','BoutiqueController@commande')->name('commande');
+        Route::get('produit/{ID_Produit}', 'BoutiqueController@produit')->name('produit');
+        Route::get('panier', 'BoutiqueController@panier')->name('panier');
+    });
 });
+<<<<<<< HEAD
 Route::get('/profile', function () {
     return view('profile');
 });
+=======
+
+Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+
+>>>>>>> 03cbf5dd31edb93b2de5cca7f3a31ef935effa59

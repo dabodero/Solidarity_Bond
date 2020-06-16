@@ -15,7 +15,7 @@ class Commande extends Model
     protected $fillable = ['ID_Utilisateur', 'Terminee'];
 
     public function utilisateur(){
-        return $this->belongsTo(\App\Models\Utilisateur::class, 'ID_Utilisateur')->get();
+        return $this->belongsTo(\App\Models\Utilisateur::class, 'ID_Utilisateur')->first();
     }
 
     public function composition(){
@@ -28,6 +28,14 @@ class Commande extends Model
 
     private function compositionEloquentBuilder(){
         return $this->hasMany(\App\Models\Composer::class, 'ID_Commande');//Commande::where('commandes.ID','=', $this->ID)->join('composer', 'commandes.ID', '=', 'composer.ID_Commande');
+    }
+
+    public static function nonTerminees(){
+        return Commande::where('Terminee','=', 0)->get();
+    }
+
+    public static function terminees(){
+        return Commande::where('Terminee', '=', 1)->get();
     }
 
 }

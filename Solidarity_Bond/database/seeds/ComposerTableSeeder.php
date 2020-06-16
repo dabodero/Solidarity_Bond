@@ -9,8 +9,24 @@ class ComposerTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public static function run()
     {
-        factory(\App\Models\Composer::class, 8)->create();
+        $faker = Faker\Factory::create();
+
+        factory(\App\Models\Composer::class, 20)->make()->each(function($composer) use ($faker){
+            $autoIncrementProduit = autoIncrement();
+
+            $limit = $faker->numberBetween(0,3);
+            $tour=0;
+            while($tour<$limit){
+                $autoIncrementProduit->next();
+                $composer->setAttribute('ID_Produit', $autoIncrementProduit->current());
+                $composer->setAttribute('Quantite', $faker->numberBetween(1,20));
+                $composerSave = clone $composer;
+                $composerSave->save();
+                $tour++;
+            }
+
+        });
     }
 }

@@ -5,8 +5,17 @@
 use App\Models\Role;
 use Faker\Generator as Faker;
 
-$factory->define(Role::class, function (Faker $faker) {
+$autoIncrement = autoIncrement();
+
+$factory->define(Role::class, function (Faker $faker) use ($autoIncrement) {
+    $current = $autoIncrement->current();
+    $roles = ['Client', 'Admin', 'Fablab'];
+
+    $autoIncrement->next();
     return [
-        'Role'=> $faker->colorName
+        'Role'=> $roles[$current]
     ];
 });
+
+
+
