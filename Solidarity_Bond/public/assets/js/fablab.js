@@ -1,15 +1,3 @@
-function preparePopover(){
-    $(function () {
-        $('[data-toggle="popover"]').popover({
-            html:true
-        })
-    })
-
-    $('.popover-dismiss').popover({
-        trigger: 'focus'
-    })
-}
-
 function preparePopoverOnInformationButton(bouton){
     $(bouton).popover({
         html:true
@@ -33,10 +21,7 @@ function terminerCommande(id){
     commandeATerminer.lastElementChild.lastElementChild.lastElementChild.remove();
     let commandes = document.getElementById("commandesRealisees");
     let commande = null;
-    for(let i = 0; i<commandes.childElementCount;i++){/*
-        console.log(commandeATerminer.id+' et '+commandes.childNodes[i].id);
-        console.log(new Number(commandeATerminer.id)<new Number(commandes.childNodes[i].id));
-        console.log(commandes.childNodes[i]);*/
+    for(let i = 0; i<commandes.childElementCount;i++){
         if(new Number(commandeATerminer.id)<new Number(commandes.childNodes[i].id)){
             commande=commandes.childNodes[i];
             break;
@@ -110,7 +95,7 @@ function creerCommandeHTML(commande, booleanBoutonTerminer){
     "                    <div class=\"card-text card-bottom text-center p-2\">" +
     "                        <button type=\"button\" class=\"col-5 btn btn-info border-dark mr-1 ml-0\" data-trigger=\"focus\" data-container=\"body\" " +
     "                                data-toggle=\"popover\" data-placement=\"bottom\" title=\""+commande.Entreprise+"\" " +
-    "                                data-content=\""+commande.Nom+" "+commande.Prenom+"<br/>"+commande.Telephone+"\">" +
+    "                                data-content=\""+commande.Nom+" "+commande.Prenom+"<br/>"+telephoneFormat(commande.Telephone)+"\">" +
     "                            <i class=\"fas fa-info-circle\"></i>" +
     "                        </button>";
     if(booleanBoutonTerminer){
@@ -141,8 +126,18 @@ function creerProduits(commande){
     return produits;
 }
 
+function telephoneFormat(numero){
+    let numeroFormate="";
+    for(let i = 0; i<numero.length; i++){
+        if(i%2==0 && i!=0){
+            numeroFormate+=" ";
+        }
+        numeroFormate+=numero.charAt(i);
+    }
+    return numeroFormate;
+}
+
 $(document).ready(function(){
-    preparePopover();
     commandesNonTerminees();
     commandesTerminees();
 })
