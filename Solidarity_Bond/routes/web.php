@@ -33,6 +33,9 @@ Route::namespace('WEB')->group(function (){
         Route::get('produit/{ID_Produit}', 'BoutiqueController@produit')->name('produit');
         Route::get('panier', 'BoutiqueController@panier')->name('panier');
     });
+
+    Route::get('fablab', 'FablabController@commandes')->name('fablab');
+
 });
 
 

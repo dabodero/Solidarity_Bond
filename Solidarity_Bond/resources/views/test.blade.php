@@ -5,8 +5,7 @@
 
     <div>
         @foreach($data as $d)
-            @php $user = $d->utilisateur(); @endphp
-            <p>Commande {{$d->ID}} par {{$user->Nom}} {{$user->Prenom}} chez {{$user->Entreprise}}</p>
+            <p>Le {{$d->Date}} : Commande {{$d->ID_Commande}} par {{$d->Nom}} {{$d->Prenom}} chez {{$d->Entreprise}}</p>
         <ul>
             @foreach($d->produits() as $produit)
                 <li>{{$produit->Quantite}} {{$produit->Nom}}</li>

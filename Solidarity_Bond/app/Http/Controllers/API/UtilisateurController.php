@@ -62,4 +62,8 @@ class UtilisateurController extends Controller
     {
         $utilisateur->delete();
     }
+
+    public function commandes(Utilisateur $utilisateur){
+        return $utilisateur->commandes()->get();
+    }
 }

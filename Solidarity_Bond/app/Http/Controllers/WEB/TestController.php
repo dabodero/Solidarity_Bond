@@ -17,6 +17,17 @@ class TestController extends Controller
 
 
         //dd($data->first()->utilisateur());
+        $data = Commande::commandesNonTerminees();/*
+        $data->each(function($item, $key){
+           $item['Produits'] = $item->produits();
+            //dd($item, $key);
+        });*/
+        /*$dataProduit = [];
+        foreach($data as $d){
+            dd($d);
+            $dataProduit[$d->ID] = $d->produits();
+        }*/
+        dd($data->first()->Produits);
         return view('test', compact('data'));
     }
 }

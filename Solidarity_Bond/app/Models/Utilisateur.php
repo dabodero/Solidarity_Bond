@@ -18,20 +18,22 @@ class Utilisateur extends Model implements Authenticatable
 
     protected $fillable = ['ID_Role', 'Nom', 'Prenom', 'Mail', 'MotDePasse', 'Entreprise', 'Telephone', 'SIRET'];
 
+    protected $hidden = ['MotDePasse', 'SIRET'];
+
     public function role(){
-        return $this->hasOne(\App\Models\Role::class);
+        return $this->hasOne(Role::class);
     }
 
     public function commentaires(){
-        return $this->hasMany(\App\Models\Commentaire::class);
+        return $this->hasMany(Commentaire::class);
     }
 
     public function commandes(){
-        return $this->hasMany(\App\Models\Commande::class);
+        return $this->hasMany(Commande::class, 'ID_Utilisateur');
     }
 
     public function likes(){
-        return $this->hasMany(\App\Models\Liker::class);
+        return $this->hasMany(Liker::class);
     }
 
 }
