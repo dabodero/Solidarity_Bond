@@ -75,4 +75,8 @@ class CommandeController extends Controller
         return $commande->produitsFormates();
     }
 
+    public function terminer(Commande $commande){
+        $commande->terminer();
+    }
+
 }

@@ -8,7 +8,7 @@
 <!-- Titre -->
 <title>@yield('title', 'Solidarity Bond')</title>
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
+<script href="{{ asset('js/app.js') }}" defer></script>
 <!-- Polices & Styles -->
 @include('layouts.css-communs')
 

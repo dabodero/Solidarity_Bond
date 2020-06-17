@@ -5,7 +5,7 @@
 
 .card-middle{
     background-color: #FAFAFF;
-    min-height: 7rem;
+    min-height: 7.4rem;
 }
 
 .card-bottom{
@@ -18,4 +18,26 @@
 
 .produit{
     font-weight: bold;
+}
+
+.separation-fine{
+    border: none;
+    border-top: 3px double #333;
+    color: #333;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+}
+
+.separation-epaisse{
+    border: none;
+    border-top: 8px double #333;
+    color: #333;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+}
+
+.date{
+    color: #888888;
 }

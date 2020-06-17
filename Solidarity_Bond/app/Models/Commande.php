@@ -40,6 +40,10 @@ class Commande extends Model
         return $this->hasMany(\App\Models\Composer::class, 'ID_Commande');
     }
 
+    public function terminer(){
+        $this->update(['Terminee' => 1]);
+    }
+
     public static function commandeNumero($ID){
         return self::liaisonCommandesProduits(self::liaisonCommandesUtilisateursSelonID($ID)->get());
     }
@@ -68,7 +72,7 @@ class Commande extends Model
     private static function liaisonCommandesUtilisateurs(){
         return Commande::join('utilisateurs','utilisateurs.ID','=','commandes.ID_Utilisateur')
             ->select('commandes.Date', 'commandes.ID_Utilisateur', 'utilisateurs.Nom', 'utilisateurs.Prenom',
-                'utilisateurs.Entreprise', 'commandes.ID');
+                'utilisateurs.Entreprise', 'utilisateurs.Telephone', 'commandes.ID');
     }
 
     private static function liaisonCommandesUtilisateursSelonTerminees($intBoolean){
