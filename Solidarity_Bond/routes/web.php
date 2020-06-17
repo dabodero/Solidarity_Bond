@@ -24,6 +24,7 @@ Route::namespace('WEB')->group(function (){
         Route::get('contact', 'GeneralController@contact')->name('contact');
         Route::get('cgv', 'GeneralController@cgv')->name('cgv');
         Route::get('partenaires', 'GeneralController@partenaires')->name('partenaires');
+        Route::get('profile', 'ProfileController@ShowDataProfile')->name('profile');
     });
 
     Route::prefix('boutique')->group(function(){
@@ -33,13 +34,8 @@ Route::namespace('WEB')->group(function (){
         Route::get('panier', 'BoutiqueController@panier')->name('panier');
     });
 });
-<<<<<<< HEAD
-Route::get('/profile', function () {
-    return view('profile');
-});
-=======
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
->>>>>>> 03cbf5dd31edb93b2de5cca7f3a31ef935effa59
