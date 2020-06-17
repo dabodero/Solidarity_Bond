@@ -1,6 +1,12 @@
 @extends('layouts.app')
-@section('content')
 
+@section('title', 'Fablab')
+
+@section('ajoutsHead')
+    <link rel="stylesheet" href="{{ asset('assets/css/produit.css') }}">
+@endsection
+
+@section('content')
 
     <div class="row no-gutters">
         <div class="col-12 col-sm-5 col-md-1 ">

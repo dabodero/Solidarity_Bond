@@ -1,4 +1,4 @@
-    <!-- Footer -->
+<!-- Footer -->
 <footer class="page-footer font-small indigo text-cesi bg-light">
 
   <!-- Footer Links -->
@@ -49,12 +49,6 @@
     <!-- Grid row-->
 
     <!-- Grid row-->
-      <!-- Grid column -->
-
-  </div>
-  <!-- Grid row-->
-
-    <!-- Grid row-->
     <div class="row pb-3 mt-5 text-center">
 
       <!-- Grid column -->
@@ -69,10 +63,6 @@
           <!-- Twitter -->
           <a class="tw-ic">
             <i class="fab fa-twitter fa-lg white-text mr-4"> </i>
-          </a>
-          <!-- Google +-->
-          <a class="gplus-ic">
-            <i class="fab fa-google-plus-g fa-lg white-text mr-4"> </i>
           </a>
           <!--Linkedin -->
           <a class="li-ic">

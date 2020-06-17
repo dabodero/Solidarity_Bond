@@ -2,6 +2,10 @@
 
 @section('title', 'Fablab')
 
+@section('ajoutsHead')
+    <link rel="stylesheet" href="{{ asset('assets/css/fablab.css') }}">
+@endsection
+
 @section('content')
     <div class="row justify-content-center m-2">
         @foreach($commandesNonTerminees as $commandeNonTerminee)
