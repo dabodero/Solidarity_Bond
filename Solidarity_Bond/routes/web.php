@@ -25,6 +25,9 @@ Route::namespace('WEB')->group(function (){
         Route::get('cgv', 'GeneralController@cgv')->name('cgv');
         Route::get('partenaires', 'GeneralController@partenaires')->name('partenaires');
         Route::get('profile', 'ProfileController@ShowDataProfile')->name('profile');
+       //Route::get('profile', 'ProfileController@update_profile')->name('profile');
+
+
     });
 
     Route::prefix('boutique')->group(function(){
