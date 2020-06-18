@@ -14,32 +14,41 @@ function prepareTerminerButton(bouton){
     });
 }
 
-function terminerCommande(id){
-    inscrireCommandeTerminee(id);
+async function terminerCommande(id) {
+    try {
+        await inscrireCommandeTerminee(id);
+        insertionDansCommandesRealisees(retirerCommandeRealisee(id));
+    }catch(err){
+        alert("Une erreur s'est produite et la commande n'a pas pu être terminée.")
+    }
+}
+
+function retirerCommandeRealisee(id){
     let commandeATerminer = document.getElementById(id);
     commandeATerminer.remove();
     commandeATerminer.lastElementChild.lastElementChild.lastElementChild.remove();
-    let commandes = document.getElementById("commandesRealisees");
-    let commande = null;
+    return commandeATerminer;
+}
+
+function insertionDansCommandesRealisees(commandeAInscrire){
+    let commande = null, commandes = document.getElementById("commandesRealisees");
     for(let i = 0; i<commandes.childElementCount;i++){
-        if(new Number(commandeATerminer.id)<new Number(commandes.childNodes[i].id)){
+        if(new Number(commandeAInscrire.id)<new Number(commandes.childNodes[i].id)){
             commande=commandes.childNodes[i];
             break;
         }
     }
-    document.getElementById("commandesRealisees").insertBefore(commandeATerminer, commande);
+    document.getElementById("commandesRealisees").insertBefore(commandeAInscrire, commande);
 }
 
 function inscrireCommandeTerminee(id){
-    $.ajax({
+    return $.ajax({
         url: '/api/commande/'+id+'/terminer',
-        type: 'get',
-        dataType: 'json'
+        type: 'put',
     });
 }
 
 function commandesNonTerminees(){
-    $("#commandesARealiser").empty();
     $.ajax({
         url: '/api/commande/nonterminees',
         type: 'get',
@@ -47,7 +56,7 @@ function commandesNonTerminees(){
         success: function(response){
             if(response.length!=0){
                 response.map(function(commande){
-                    creerElementCommande(commande, "commandesARealiser", true);
+                    refreshElementCommande(commande, "commandesARealiser", true);
                 });
             } else {
                 $("#commandesARealiser").append("Aucune commande à réaliser !");
@@ -57,18 +66,29 @@ function commandesNonTerminees(){
 };
 
 function commandesTerminees(){
-    $("#commandesRealisees").empty();
     $.ajax({
         url: '/api/commande/terminees',
         type: 'get',
         dataType: 'json',
         success: function(response){
             response.map(function(commande){
-                creerElementCommande(commande, "commandesRealisees", false);
+                refreshElementCommande(commande, "commandesRealisees", false);
             });
         }
     });
 };
+
+function refreshElementCommande(commande, stringElementParent="", booleanBoutonTerminer=false){
+    supprimerElementCommandeSiExiste(commande);
+    creerElementCommande(commande, stringElementParent, booleanBoutonTerminer);
+}
+
+function supprimerElementCommandeSiExiste(commande) {
+    let element = document.getElementById(commande.ID_Commande);
+    if(element!=null){
+        element.remove();
+    }
+}
 
 function creerElementCommande(commande, stringElementParent="", booleanBoutonTerminer=false){
     $(document.getElementById(stringElementParent)).append(creerCommandeHTML(commande, booleanBoutonTerminer));
@@ -140,5 +160,7 @@ function telephoneFormat(numero){
 $(document).ready(function(){
     commandesNonTerminees();
     commandesTerminees();
+
+    window.setInterval(commandesNonTerminees, 5000);
 })
 
