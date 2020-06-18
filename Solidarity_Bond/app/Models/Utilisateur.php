@@ -36,4 +36,9 @@ class Utilisateur extends Model implements Authenticatable
         return $this->hasMany(Liker::class);
     }
 
+    public function getAuthPassword()
+    {
+        return $this->attributes['MotDePasse'];
+    }
+
 }

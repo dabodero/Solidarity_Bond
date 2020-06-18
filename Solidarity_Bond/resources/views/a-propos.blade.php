@@ -1,4 +1,12 @@
 @extends('layouts.app')
+
+@section('title', 'À propos de nous')
+
+@section('ajoutsHead')
+    <link rel="stylesheet" href="{{ asset('assets/css/a-propos.css') }}">
+@endsection
+
+
 @section('content')
     <link href="{{ asset('assets/css/apropros.css') }}" rel="stylesheet">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

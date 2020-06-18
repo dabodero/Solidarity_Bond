@@ -12,7 +12,7 @@ class GeneralController extends Controller
     }
 
     public function a_propos(){
-        return view('apropos');
+        return view('a-propos');
     }
 
     public function mentions_legales(){

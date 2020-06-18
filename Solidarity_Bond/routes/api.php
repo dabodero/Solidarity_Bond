@@ -24,6 +24,8 @@ Route::namespace('API')->group(function (){
         Route::get('terminees', 'CommandeController@terminees')->name('commande.terminees');
         Route::get('nonterminees', 'CommandeController@nonTerminees')->name('commande.nonterminees');
         Route::get('{commande}/produits', 'CommandeController@produitsCommande')->name('commande.produits');
+        Route::match(['put','patch'],'{commande}/terminer', 'CommandeController@terminer')->name('commande.terminer');
+
     });
 
     Route::group(['prefix'=>'utilisateur'], function (){

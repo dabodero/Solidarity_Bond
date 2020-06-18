@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Commande;
+use http\Client\Response;
 use Illuminate\Http\Request;
 
 class CommandeController extends Controller
@@ -73,6 +74,10 @@ class CommandeController extends Controller
 
     public function produitsCommande(Commande $commande){
         return $commande->produitsFormates();
+    }
+
+    public function terminer(Commande $commande){
+        $commande->terminer();
     }
 
 }

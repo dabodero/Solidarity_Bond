@@ -13,7 +13,7 @@ $factory->define(Utilisateur::class, function (Faker $faker) {
         'Mail' => $faker->unique()->email,
         'MotDePasse' => $faker->password,
         'Entreprise' => $faker->company,
-        'Telephone' => $faker->text(10),
+        'Telephone' => $faker->regexify("0[0-9]{9}"),
         'SIRET' => $faker->unique()->text(20)
     ];
 });
