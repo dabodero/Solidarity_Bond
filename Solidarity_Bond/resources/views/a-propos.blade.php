@@ -6,9 +6,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/a-propos.css') }}">
 @endsection
 
-
 @section('content')
-    <link href="{{ asset('assets/css/apropros.css') }}" rel="stylesheet">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>

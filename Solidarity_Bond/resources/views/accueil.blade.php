@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('title',"Accueil")
-@section('meta-description',"Page d'acceuil du site")
+@section('meta-description',"Page d'accueil du site")
 @section('content')
 
 <div class="container col-11">
 	<!--Carousel Wrapper-->
 	<div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
 	  	<!--Slides-->
-	  	<div class="carousel-inner" role="listbox">   
+	  	<div class="carousel-inner" role="listbox">
 	    	<div class="carousel-item active text-center">
 	        	<img class="d-block mx-auto w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(135).jpg" alt="First slide">
 	    	</div>
@@ -74,7 +74,7 @@
 	          		<!--Commentary-->
 	          		<p><i class="fas fa-quote-left"></i> Un produit incroyable, qui à guérit mon cancer.</p>
 	        	</div>
-	      	</div>	    
+	      	</div>
 	    </div>
 	    <div class="col-lg-4 col-md-12 mb-4">
 	      	<!--Card-->
@@ -90,14 +90,14 @@
 	          		<!--Commentary-->
 	          		<p><i class="fas fa-quote-left"></i> Un produit incroyable, qui à guérit mon cancer.</p>
 	        	</div>
-	      	</div>	     
+	      	</div>
 	    </div>
-	</div>	
+	</div>
 </section>
 
 
 <!--Section: partnership-->
-<section class="section pb-3 text-center container col-11">
+<section id="Partenaires" class="section pb-3 text-center container col-11">
 
   	<!--Section heading-->
  	 <h1 class="section-heading h1 pt-4">Partenaires</h1>
@@ -109,7 +109,7 @@
         		<!--Background color-->
         		<div class="card-up deep-purple lighten-2"></div>
         		<!--Avatar-->
-        		<div class="avatar mx-auto w-100 white"><img src="{{ asset('assets/img/logo_cesi.png') }}" alt="avatar mx-auto white" class="rounded img-fluid"></div> 
+        		<div class="avatar mx-auto w-100 white"><img src="{{ asset('assets/img/logo_cesi.png') }}" alt="avatar mx-auto white" class="rounded img-fluid"></div>
         			<div class="card-body">
           				<!--Name-->
           				<h4 class="card-title mt-1"><a href="https://www.cesi.fr/">CESI</a></h4>
@@ -121,7 +121,7 @@
           					<p><i class="fas fa-home"></i> 19 Avenue Guy de Collongue, 69130 Écully</p>
           				</div>
         			</div>
-        </div>				
+        </div>
 		<div class="col-lg-4 col-md-12 mb-4">
         		<!--Background color-->
         		<div class="card-up deep-purple lighten-2"></div>
@@ -137,7 +137,7 @@
           				<p> <i class="fab fa-github"></i><a href="https://github.com/TitouanNarbey"> Github</a></p>
           			</div>
         		</div>
-		</div> 
+		</div>
 		<div class="col-lg-4 col-md-12 mb-4">
         		<!--Background color-->
         		<div class="card-up deep-purple lighten-2"></div>
@@ -154,8 +154,8 @@
           				<p><i class="fas fa-home"></i> 911 Chemin du Petit Fromentin, 69380 Chasselay</p>
           			</div>
         		</div>
-		</div> 
-	</div>	
+		</div>
+	</div>
 </section>
 <!--Section: partnership-->
 

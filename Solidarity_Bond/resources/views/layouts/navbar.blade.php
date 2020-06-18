@@ -16,7 +16,7 @@
                 <li class="nav-item">
                 <a class="nav-link" href="{{route('boutique')}}">Boutique</a>
                 <li class="nav-item">
-                <a class="nav-link" href="{{route('partenaires')}}">Nos partenaires</a>
+                <a class="nav-link" href="{{route('accueil').__('#Partenaires')}}">Nos partenaires</a>
                 <li class="nav-item">
                 <a class="nav-link" href="{{route('contact')}}">Contact</a>
 

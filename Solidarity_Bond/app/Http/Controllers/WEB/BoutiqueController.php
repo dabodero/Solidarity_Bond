@@ -10,13 +10,14 @@ use function GuzzleHttp\Promise\all;
 class BoutiqueController extends Controller
 {
     public function boutique(){
-       $Produits =Produit::all();
+       $Produits = Produit::all();
         return view('boutique', compact('Produits'));
     }
 
     public function produit(Request $request){
-        $ID_Produit = $request->ID_Produit;
-        return view('produit', compact('ID_Produit'));
+        $produit = Produit::find($request->ID_Produit);
+        $title = $produit->Nom;
+        return view('produit', compact('produit', 'title'));
     }
 
     public function commande(){

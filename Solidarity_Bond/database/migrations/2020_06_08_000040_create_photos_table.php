@@ -19,6 +19,7 @@ class CreatePhotosTable extends Migration
             $table->foreignId("ID_Produit")->references("ID")->on("produits")->cascadeOnDelete();
             $table->string("Nom", 50);
             $table->string("CheminAcces", 250);
+            $table->string("Description", 100);
         });
     }
 
