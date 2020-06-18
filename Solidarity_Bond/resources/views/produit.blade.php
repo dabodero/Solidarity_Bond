@@ -1,45 +1,58 @@
 @extends('layouts.app')
 
-@section('title', 'Fablab')
+@section('title', __('Produit : '.$title))
 
 @section('ajoutsHead')
     <link rel="stylesheet" href="{{ asset('assets/css/produit.css') }}">
 @endsection
 
 @section('content')
+@php $premiereImage=true; @endphp
 
-    <div class="row no-gutters">
-        <div class="col-12 col-sm-5 col-md-1 ">
+    <div class="row no-gutters mt-4 align-items-center">
+        <div class="col-xl-6 col-lg-12 offset-xl-1 offset-lg-0 mr-md-4">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach($produit->photos() as $photo)
+                        @if($premiereImage)
+                            <div class="carousel-item active text-center">
+                            @php $premiereImage=false; @endphp
+                        @else
+                            <div class="carousel-item text-center">
+                        @endif
+                                <img class="d-block mx-auto w-100" src="{{asset(__($photo->CheminAcces).__('/').__($photo->Nom))}}" alt="First slide">
+                            </div>
+                    @endforeach
+                </div>
+                <a class="carousel-control-prev side-navigator" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next side-navigator" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         </div>
-        <div class="col-12 col-sm-5 col-md-6  ">
-            <img class="card-img-top img-thumbnail ml-5 "
-                 src="{{ asset('assets/img/covid19-coronavirus-disease-concept-patient-600w-1671032311.png') }}"
-                 alt="Card image cap"></div>
-        <div class="col-8 col-md-4 float-left ">
-            <div class="ml-2">
-                <h4 class="ml-3 mt-3"><p>THE PRODUIT</p></h4>
+        <div class="col-xl-4 col-lg-12 ml-md-2 mb-lg-3">
+            <div class="row no-gutters">
+                <div class="col-12 no-gutters">
+                    <div class="ml-2">
+                        <h4 class="mt-3">{{$produit->Nom}}</h4>
 
-                <h6> Notre produit et ba franchement il est vraiment trop cool.Franchement il remplit de ouf l'est
-                    Notre produit et ba franchement il est vraiment trop cool.Franchement il remplit de ouf l'estNotre
-                    produit et ba franchement il est vraiment trop cool.Franchement il remplit de ouf l'estNotre produit
-                    et ba franchement il est vraiment trop cool.Franchement il remplit de ouf l'est
-
-                </h6>
-                <div class="prix"><h3>70$</h3></div>
-                <button type="button" class="btn btn-outline-primary ml-2 float-right ">Ajouter au panier</button>
+                        <p>{{$produit->Description}}</p>
+                        <button type="button" class="btn btn-outline-primary ml-2 float-right ">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-12 mt-lg-4">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Commentaire :</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="row no-gutters">
-        <div class="col-md-6"></div>
-        <div class="col-md-5">
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Commentaire :</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                dqsdqsdqsd
-            </div>
-            <div class="col-md-1">
-            </div>
-
-        </div>
 @endsection

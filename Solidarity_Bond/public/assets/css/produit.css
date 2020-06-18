@@ -1,12 +1,14 @@
-
-
-.prix{
-    color: #5A87DD;
-}
-
 .card-img-top{
     width : 40em;
     height: 30em;
 }
 
+.side-navigator{
+    /*margin-top: 14rem;*/
+    /*height: 5rem;*/
+    background-color: #BBBBBB;
+}
 
+.carousel{
+    background-color: #EEEEEE;
+}

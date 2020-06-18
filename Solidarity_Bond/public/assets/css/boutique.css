@@ -12,3 +12,29 @@
     -moz-box-shadow: 0px 8px 11px 1px rgba(204,204,204,1);
     box-shadow: 0px 8px 11px 1px rgba(204,204,204,1);
 }
+
+.inner-hidden-scrollbar{
+    overflow: auto;
+    margin: 0px -300px 0px 0px;
+    padding: 0px 300px 0px 0px;
+    max-height: 5em;
+}
+
+.hidden-scrollbar {
+    overflow:hidden;
+    text-align: justify;
+}
+
+.card-size-standard{
+    height: 6em;
+    overflow-y: hidden;
+}
+
+@media (max-width: 1127px){
+    .card-size-standard{
+        height: 9em;
+    }
+    .inner-hidden-scrollbar{
+        max-height: 5em;
+    }
+}
