@@ -1,10 +1,11 @@
 @extends('layouts.app')
-@section('title',"Accueil")
-@section('meta-description',"Page d'acceuil du site")
+
+@section('title',"Votre profil")
+
+@section('meta-description',"Page de profil")
+
 @section('content')
 
-
-        
 <div class="container col-11 mt-2 ">
 	<div class="row">
 		<div class="col-md-3 ">
@@ -12,7 +13,7 @@
               <a id="choice_1" class="list-group-item list-group-item-action ">Mon compte</a>
               <a id="choice_2" class="list-group-item list-group-item-action ">Commandes en cours</a>
               <a id="choice_3" class="list-group-item list-group-item-action ">Commandes terminées</a>
-            </div> 
+            </div>
 		</div>
 		<div class="col-md-9">
 		    <div class="card">
@@ -27,12 +28,12 @@
 		                <div class="col-md-12">
 
 <div id="historic">
-                              <form action="/updateData" method="post" class="mt-1">
+                              <form action="{{route('updateData')}}" method="post" class="mt-1">
                                         @csrf
                                        <input type="hidden" name="updateData"/>
 
                                        <div class="form-group row">
-                                <label class="col-4 col-form-label">Nom</label> 
+                                <label class="col-4 col-form-label">Nom</label>
                                 <div class="col-8">
                                   <input id="champs"  name="Nom" value="{{Auth::user()->Nom}}"  class="form-control here @error('Nom') is-invalid @enderror" required="required" type="text">
                                   @error('Nom')
@@ -43,7 +44,7 @@
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label class="col-4 col-form-label">Prénom</label> 
+                                <label class="col-4 col-form-label">Prénom</label>
                                 <div class="col-8">
                                   <input id="champs"  name="Prenom" value="{{Auth::user()->Prenom}}" class="form-control here @error('Prenom') is-invalid @enderror" required="required" type="text">
 @error('Prenom')
@@ -54,7 +55,7 @@
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label class="col-4 col-form-label">Mail</label> 
+                                <label class="col-4 col-form-label">Mail</label>
                                 <div class="col-8">
                                   <input id="champs"  name="Mail" value="{{Auth::user()->Mail}}" class="form-control here @error('Mail') is-invalid @enderror" required="required" type="text">
  @error('Mail')
@@ -65,7 +66,7 @@
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label class="col-4 col-form-label">Entreprise</label> 
+                                <label class="col-4 col-form-label">Entreprise</label>
                                 <div class="col-8">
                                   <input id="champs"  name="Entreprise" value="{{Auth::user()->Entreprise}}" class="form-control here @error('Entreprise') is-invalid @enderror" required="required" type="text">
 @error('Entreprise')
@@ -76,7 +77,7 @@
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label class="col-4 col-form-label">Téléphone</label> 
+                                <label class="col-4 col-form-label">Téléphone</label>
                                 <div class="col-8">
                                   <input id="champs"  name="Telephone" value="{{Auth::user()->Telephone}}" class="form-control here @error('Telephone') is-invalid @enderror" required="required" type="text">
  @error('Telephone')
@@ -87,7 +88,7 @@
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label class="col-4 col-form-label">SIRET</label> 
+                                <label class="col-4 col-form-label">SIRET</label>
                                 <div class="col-8">
                                   <input id="champs"  name="SIRET" value="{{Auth::user()->SIRET}}" class="form-control here @error('SIRET') is-invalid @enderror" required="required" type="text">
  @error('SIRET')
@@ -103,7 +104,7 @@
                                        <button type="submit" class="btn btn-primary btn-block mt-2">Modifier les données</button>
                             </form>
 
-                             <form action="/deleteUser" method="post" class="mt-1">
+                             <form action="{{route('deleteUser')}}" method="post" class="mt-1">
                                         @csrf
                                        <input type="hidden" name="User"/>
                                        <!-- Delete event -->
@@ -112,45 +113,32 @@
                             </div>
 		                </div>
 		            </div>
-		            
+
 		        </div>
 		    </div>
 		</div>
 	</div>
 </div>
+@endsection
 
+@section('ajoutsScripts')
+<script>
+    $(function() {
 
- 
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script> 
-$(function() {
+        $("#choice_1").click(function() {
+            location.reload();
+        });
 
-		$("#choice_1").click(function() {
-			
-location.reload();
-     	
-    
-});
+        $("#choice_2").click(function() {
+            document.getElementById('title').innerHTML = 'Commandes en cours';
+            document.getElementById('historic').innerHTML = '@foreach($commandesNonTerminees as $commandeNonTerminee)        <div class="card mb-2"> <h5 class="card-header">Commande n°{{$commandeNonTerminee->ID_Commande}} du {{\Carbon\Carbon::parse($commandeNonTerminee->Date)->translatedFormat('d/m/Y')}}</h5> <div class="card-body"><h5 class="card-title">Etat : En cours    </h5>    <p class="card-text"><ul>      @foreach($commandeNonTerminee->produitsPourCommandeFormatee() as $produit)                <li>{{$produit->Quantite}} {{$produit->Nom}}</li>            @endforeach     </div></div> @endforeach';
+        });
 
-
-
-     $("#choice_2").click(function() {
-
-     	document.getElementById('title').innerHTML = 'Commandes en cours';
-    document.getElementById('historic').innerHTML = '@foreach($data as $d)        <div class="card mb-2"> <h5 class="card-header">Commande n°{{$d->ID_Commande}} du {{$d->Date}}</h5> <div class="card-body"><h5 class="card-title">Etat : En cours    </h5>    <p class="card-text"><ul>      @foreach($help as $produit)                <li>{{$produit->Quantite}} {{$produit->Nom}}</li>            @endforeach     </div></div> @endforeach';
-  });
-
-            
-     $("#choice_3").click(function() {
-     	document.getElementById('title').innerHTML = 'Commandes terminées';
- document.getElementById('historic').innerHTML = '@foreach($data2 as $d)        <div class="card mb-2"> <h5 class="card-header">Commande n°{{$d->ID_Commande}} du {{$d->Date}}</h5> <div class="card-body"><h5 class="card-title">Etat : Terminée    </h5>    <p class="card-text"><ul>      @foreach($help2 as $produit)                <li>{{$produit->Quantite}} {{$produit->Nom}}</li>            @endforeach     </div></div> @endforeach';
-  });
-});
-
-
-  
+        $("#choice_3").click(function() {
+            document.getElementById('title').innerHTML = 'Commandes terminées';
+            document.getElementById('historic').innerHTML = '@foreach($commandesTerminees as $commandeTerminee)        <div class="card mb-2"> <h5 class="card-header">Commande n°{{$commandeTerminee->ID_Commande}} du {{\Carbon\Carbon::parse($commandeTerminee->Date)->translatedFormat('d/m/Y')}}</h5> <div class="card-body"><h5 class="card-title">Etat : Terminée    </h5>    <p class="card-text"><ul>      @foreach($commandeTerminee->produitsPourCommandeFormatee() as $produit)                <li>{{$produit->Quantite}} {{$produit->Nom}}</li>            @endforeach     </div></div> @endforeach';
+        });
+    });
 </script>
-
-
 
 @endsection

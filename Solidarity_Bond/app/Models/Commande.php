@@ -24,20 +24,24 @@ class Commande extends Model
         return $this->compositionEloquentBuilder()->get();
     }
 
-    public function produits(){
-        return $this->produitsBuilder()->get();
+    public function produitsPourCommandeFormatee(){
+        return $this->produits("ID_Commande");
     }
 
-    public function produitsFormates(){
-        return $this->produitsBuilder()->select('composer.ID_Produit','produits.Nom','composer.Quantite', 'produits.Description')->get();
+    public function produits($primaryKey='ID'){
+        return $this->produitsBuilder($primaryKey)->get();
     }
 
-    private function produitsBuilder(){
-        return $this->compositionEloquentBuilder()->join('produits', 'ID_Produit', '=', 'produits.ID');
+    public function produitsFormates($primaryKey='ID'){
+        return $this->produitsBuilder($primaryKey)->select('composer.ID_Produit','produits.Nom','composer.Quantite', 'produits.Description')->get();
     }
 
-    private function compositionEloquentBuilder(){
-        return $this->hasMany(\App\Models\Composer::class, 'ID_Commande');
+    private function produitsBuilder($primaryKey){
+        return $this->compositionEloquentBuilder($primaryKey)->join('produits', 'ID_Produit', '=', 'produits.ID');
+    }
+
+    private function compositionEloquentBuilder($primaryKey){
+        return $this->hasMany(\App\Models\Composer::class, 'ID_Commande', $primaryKey);
     }
 
     public function terminer(){
@@ -63,7 +67,7 @@ class Commande extends Model
     private static function liaisonCommandesProduits(\Illuminate\Support\Collection $collection){
         $collection->each(function($item, $key){
             $item['ID_Commande'] = $item->ID;
-            $item['Produits'] = $item->produitsFormates();
+            $item['Produits'] = $item->produitsFormates('ID_Commande');
             unset($item['ID']);
         });
         return $collection;

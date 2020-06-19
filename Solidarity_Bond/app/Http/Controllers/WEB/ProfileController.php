@@ -12,45 +12,26 @@ use App\Http\Controllers\API\UtilisateurController;
 use Illuminate\Foundation\Auth\User;
 use Redirect;
 
-// Controller de test permettant de ne pas modifier le fichier de routes tout en faisant les tests que nous souhaitons
-
 class ProfileController extends Controller
 {
     public function ShowDataProfile(){
-    	$ID = Auth::user()->ID;
-$data = Commande::commandesNonTerminees()->where('ID_Utilisateur',$ID);
-$data2 = Commande::commandesTerminees()->where('ID_Utilisateur',$ID);
-        $help = $data->first()->Produits;
-        $help2 = $data2->first()->Produits;
+    	$ID = Auth::id();
+        $commandesNonTerminees = Commande::commandesNonTerminees()->where('ID_Utilisateur',$ID);
+        $commandesTerminees = Commande::commandesTerminees()->where('ID_Utilisateur',$ID);
 
-        return view('profile', compact('data','data2','help','help2'));
-	
-}
+        return view('profile', compact('commandesNonTerminees','commandesTerminees'));
+    }
 
-public function deleteUser()
-	{
-    	$ID = Auth::user()->ID;
-		$obj = Utilisateur::find($ID);
-		$obj->delete();
-		return Redirect::route('accueil');
-}
-    
+    public function deleteUser()
+    {
+            Auth::user()->delete();
+            return Redirect::route('accueil');
+    }
 
-public function updateData(Request $request)
-{
-
-		$user = Auth::user();
-		$user->Nom = $request->input('Nom');
-		$user->Prenom = $request->input('Prenom');
-		$user->Mail = $request->input('Mail');
-		$user->Entreprise = $request->input('Entreprise'); 
-		$user->Telephone = $request->input('Telephone');
-		$user->SIRET = $request->input('SIRET');
-		$user->save();
-		return back();
-
-
-
-}
+    public function updateData(Request $request)
+    {
+            Auth::user()->update($request->all());
+            return back();
+    }
 
 }

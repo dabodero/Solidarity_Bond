@@ -25,8 +25,8 @@ Route::namespace('WEB')->group(function (){
         Route::get('cgv', 'GeneralController@cgv')->name('cgv');
         Route::get('fablab', 'FablabController@commandes')->name('fablab');
         Route::post('{Commentaire}/liker', 'GeneralController@liker')->middleware('auth')->name('liker');
-        Route::prefix('profile')->group(function(){
-            Route::get('/', 'ProfileController@ShowDataProfile')->name('profile');
+        Route::prefix('profil')->group(function(){
+            Route::get('/', 'ProfileController@ShowDataProfile')->name('profil');
             Route::post('deleteUser', 'ProfileController@deleteUser')->name('deleteUser');
             Route::post('updateData', 'ProfileController@updateData')->name('updateData');
         });

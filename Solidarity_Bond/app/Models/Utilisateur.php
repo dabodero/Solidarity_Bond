@@ -21,19 +21,19 @@ class Utilisateur extends Model implements Authenticatable
     protected $hidden = ['MotDePasse', 'SIRET'];
 
     public function role(){
-        return $this->hasOne(Role::class);
+        return $this->hasOne(Role::class)->first();
     }
 
     public function commentaires(){
-        return $this->hasMany(Commentaire::class);
+        return $this->hasMany(Commentaire::class)->get();
     }
 
     public function commandes(){
-        return $this->hasMany(Commande::class, 'ID_Utilisateur');
+        return $this->hasMany(Commande::class, 'ID_Utilisateur')->get();
     }
 
     public function likes(){
-        return $this->hasMany(Liker::class);
+        return $this->hasMany(Liker::class)->get();
     }
 
     public function getAuthPassword()
