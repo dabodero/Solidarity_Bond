@@ -24,6 +24,11 @@ Route::namespace('WEB')->group(function (){
         Route::get('contact', 'GeneralController@contact')->name('contact');
         Route::get('cgv', 'GeneralController@cgv')->name('cgv');
         Route::get('partenaires', 'GeneralController@partenaires')->name('partenaires');
+        Route::get('profile', 'ProfileController@ShowDataProfile')->name('profile');
+        Route::post('deleteUser', 'ProfileController@deleteUser');
+        Route::post('updateData', 'ProfileController@updateData');
+
+
     });
 
     Route::prefix('boutique')->group(function(){
@@ -40,6 +45,7 @@ Route::namespace('WEB')->group(function (){
     Route::get('fablab', 'FablabController@commandes')->name('fablab');
 
 });
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
