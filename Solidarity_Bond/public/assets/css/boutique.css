@@ -38,3 +38,10 @@
         max-height: 5em;
     }
 }
+
+.form-button{
+    color:#007bff;
+}
+.form-button:hover{
+    color:white;
+ }

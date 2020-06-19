@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Produit;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Mockery\Exception;
 
 class LoginController extends Controller
 {
@@ -20,6 +24,8 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+
+    private static $panier = "panier";
 
     protected $table = "utilisateurs";
 
@@ -43,6 +49,10 @@ class LoginController extends Controller
     public function username()
     {
         return "Mail";
+    }
+
+    public static function getNomPanier(){
+        return self::$panier;
     }
 
 }

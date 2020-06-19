@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\WEB;
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Models\Produit;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use function GuzzleHttp\Promise\all;
 
 class BoutiqueController extends Controller
 {
     public function boutique(){
-       $Produits = Produit::all();
-        return view('boutique', compact('Produits'));
+       $produits = Produit::all();
+        return view('boutique', compact('produits'));
     }
 
     public function produit(Request $request){
@@ -26,5 +28,13 @@ class BoutiqueController extends Controller
 
     public function panier(){
         return view('panier');
+    }
+
+    public function ajouterAuPanier(Request $request){
+        $ID_Produit = $request->ID_Produit;
+        session()-> put(LoginController::getNomPanier().'.'.__($ID_Produit).'.Quantite',
+                        session()->get(LoginController::getNomPanier().'.'.__($ID_Produit).'.Quantite')+$request->Quantite
+                    );
+        return back();
     }
 }

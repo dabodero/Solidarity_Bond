@@ -12,7 +12,7 @@
 
  <div class="container text-center">
     <div class="row">
-        @foreach($Produits as $produit)
+        @foreach($produits as $produit)
         <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="card mt-5">
                 <div class="card-header">{{$produit->Nom}}</div>
@@ -28,7 +28,10 @@
                         </div>
                     </div>
                     <a type="button" href="{{route('produit', ['ID_Produit' => $produit->ID])}}" class="btn btn-outline-primary mr-2">En savoir plus</a>
-                    <button type="button" class="btn btn-outline-primary ml-2">Ajouter au panier</button>
+                    <form action="{{route('ajouterAuPanier', ['ID_Produit' => $produit->ID, 'Quantite'=>1])}}" method="post" class="d-inline-block no-gutters form-button">
+                        @csrf
+                        <input type="submit" name="ajoutProduit" class="btn btn-outline-primary ml-2" value="Ajouter au panier"></input>
+                    </form>
 
                 </div>
             </div>

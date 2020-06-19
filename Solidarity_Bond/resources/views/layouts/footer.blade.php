@@ -10,7 +10,7 @@
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
         <h6 class="text-uppercase font-weight-bold">
-          <a href="{{route('partenaires')}}" class="text-cesi">Nos partenaires</a>
+          <a href="{{route('accueil').__('#Partenaires')}}" class="text-cesi">Nos partenaires</a>
         </h6>
       </div>
       <!-- Grid column -->

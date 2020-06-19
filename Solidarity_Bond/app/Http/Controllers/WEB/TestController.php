@@ -12,19 +12,7 @@ use Illuminate\Support\Facades\Http;
 class TestController extends Controller
 {
     public function sandbox(){
-        //$data = Commande::commandesNonTerminees();
-        /*
-        $data->each(function($item, $key){
-           $item['Produits'] = $item->produits();
-            //dd($item, $key);
-        });*/
-        /*$dataProduit = [];
-        foreach($data as $d){
-            dd($d);
-            $dataProduit[$d->ID] = $d->produits();
-        }*/
-        //dd($data->first()->Produits);
-        //dd(Http::get("http://solidaritybond/api/utilisateur")->json());
+        dd(session()->all());
         return view('test', compact('data'));
     }
 }

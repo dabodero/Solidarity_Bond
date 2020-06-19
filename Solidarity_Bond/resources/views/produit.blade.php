@@ -40,8 +40,11 @@
                     <div class="ml-2">
                         <h4 class="mt-3">{{$produit->Nom}}</h4>
 
-                        <p>{{$produit->Description}}</p>
-                        <button type="button" class="btn btn-outline-primary ml-2 float-right ">Ajouter au panier</button>
+                        <p class="text-justify">{{$produit->Description}}</p>
+                        <form action="{{route('ajouterAuPanier', ['ID_Produit' => $produit->ID, 'Quantite'=>1])}}" method="post" class="">
+                            @csrf
+                            <input type="submit" name="ajoutProduit" class="btn btn-outline-primary ml-2 float-right" value="Ajouter au panier"></input>
+                        </form>
                     </div>
                 </div>
             </div>

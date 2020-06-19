@@ -30,7 +30,11 @@ Route::namespace('WEB')->group(function (){
         Route::get('/', 'BoutiqueController@boutique')->name('boutique');
         Route::get('commande','BoutiqueController@commande')->name('commande');
         Route::get('produit/{ID_Produit}', 'BoutiqueController@produit')->name('produit');
-        Route::get('panier', 'BoutiqueController@panier')->name('panier');
+        Route::prefix('panier')->middleware('auth')->group(function(){
+            Route::get('/', 'BoutiqueController@panier')->name('panier');
+            Route::post('ajout/{ID_Produit}/{Quantite}', 'BoutiqueController@ajouterAuPanier')->name('ajouterAuPanier');
+        });
+
     });
 
     Route::get('fablab', 'FablabController@commandes')->name('fablab');
