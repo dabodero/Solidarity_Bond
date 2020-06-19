@@ -58,4 +58,33 @@
             </div>
         </div>
     </div>
+
+    <div class="row no-gutters mt-5">
+        @foreach($produit->commentaires() as $commentaire)
+            @php $utilisateur = $commentaire->utilisateur(); @endphp
+            <div class="col-lg-6 col-12 no-gutters mt-2 mb-2">
+                <div class="row col-10 offset-1 commentaire h-100">
+                    <div class="card-body col-md-10 col-sm-12">
+                        <h5 class="card-title">{{$utilisateur->Nom}}&nbsp;{{$utilisateur->Prenom}}, {{$utilisateur->Entreprise}}</h5>
+                        <p class="card-text">{{$commentaire->Commentaire}}</p>
+                    </div>
+                    <div class="col-md-2 col-sm-12 mb-3">
+                        <div class="row align-items-center h-100">
+                            <div class="col text-center">
+                                <form action="{{route("liker", ['Commentaire'=>$commentaire->ID])}}" method="post" class="no-gutters">
+                                    @csrf
+                                    <button type="submit" name="ajoutLike" class="input-like no-gutters" value={{$commentaire->ID}}>
+                                        <i class="fas fa-thumbs-up like pr-lg-2 pr-md-3"></i>
+                                    </button>
+                                    <div id="likeCount" class="like-number no-gutters">{{$commentaire->likesCount()}}</div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
 @endsection

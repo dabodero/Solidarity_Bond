@@ -23,12 +23,13 @@ Route::namespace('WEB')->group(function (){
         Route::get('mentions', 'GeneralController@mentions')->name('mentions');
         Route::get('contact', 'GeneralController@contact')->name('contact');
         Route::get('cgv', 'GeneralController@cgv')->name('cgv');
-        Route::get('partenaires', 'GeneralController@partenaires')->name('partenaires');
-        Route::get('profile', 'ProfileController@ShowDataProfile')->name('profile');
-        Route::post('deleteUser', 'ProfileController@deleteUser');
-        Route::post('updateData', 'ProfileController@updateData');
-
-
+        Route::get('fablab', 'FablabController@commandes')->name('fablab');
+        Route::post('{Commentaire}/liker', 'GeneralController@liker')->middleware('auth')->name('liker');
+        Route::prefix('profile')->group(function(){
+            Route::get('/', 'ProfileController@ShowDataProfile')->name('profile');
+            Route::post('deleteUser', 'ProfileController@deleteUser')->name('deleteUser');
+            Route::post('updateData', 'ProfileController@updateData')->name('updateData');
+        });
     });
 
     Route::prefix('boutique')->group(function(){
@@ -42,11 +43,7 @@ Route::namespace('WEB')->group(function (){
 
     });
 
-    Route::get('fablab', 'FablabController@commandes')->name('fablab');
-
 });
 
-
-Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 

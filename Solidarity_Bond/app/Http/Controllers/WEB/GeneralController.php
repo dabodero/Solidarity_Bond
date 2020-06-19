@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\WEB;
 
+use App\Models\Liker;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class GeneralController extends Controller
 {
@@ -29,6 +31,19 @@ class GeneralController extends Controller
 
     public function partenaires(){
         return view('partenaires');
+    }
+
+    public function liker(Request $request){
+        $like = Liker::where([['ID_Utilisateur','=', Auth::id()], ['ID_Commentaire', '=', $request->ajoutLike]])->first();
+        if($like==null){
+            Liker::create([
+                "ID_Utilisateur" => Auth::id(),
+                "ID_Commentaire" => $request->ajoutLike
+            ]);
+        } else {
+            $like->delete();
+        };
+        return back();
     }
 
 }

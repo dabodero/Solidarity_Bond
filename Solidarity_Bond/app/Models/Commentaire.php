@@ -16,7 +16,7 @@ class Commentaire extends Model
     protected $fillable = ['ID_Utilisateur', 'ID_Produit', 'Commentaire', 'Date'];
 
     public function utilisateur(){
-        return $this->belongsTo(\App\Models\Utilisateur::class, 'ID_Utilisateur')->get();
+        return $this->belongsTo(\App\Models\Utilisateur::class, 'ID_Utilisateur')->first();
     }
 
     public function produit(){
@@ -25,6 +25,10 @@ class Commentaire extends Model
 
     public function likes(){
         return $this->hasMany(\App\Models\Liker::class, 'ID_Commentaire')->get();
+    }
+
+    public function likesCount(){
+        return $this->likes()->count();
     }
 
 }
