@@ -50,7 +50,7 @@
             </div>
             <div class="row no-gutters">
                 <div class="col-12 mt-lg-4">
-                    <div class="form-group">
+                    <div class="form-group mb-5">
                         <label for="exampleFormControlTextarea1">Commentaire :</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
