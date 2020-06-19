@@ -32,7 +32,7 @@
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
         <h6 class="text-uppercase font-weight-bold">
-          <a href="{{route('mentions-legales')}}" class="text-cesi">Mentions légales</a>
+          <a href="{{route('mentions')}}" class="text-cesi">Mentions légales</a>
         </h6>
       </div>
       <!-- Grid column -->

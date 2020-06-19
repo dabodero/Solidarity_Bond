@@ -15,8 +15,8 @@ class GeneralController extends Controller
         return view('a-propos');
     }
 
-    public function mentions_legales(){
-        return view('mentionslegales');
+    public function mentions(){
+        return view('mentions');
     }
 
     public function contact(){

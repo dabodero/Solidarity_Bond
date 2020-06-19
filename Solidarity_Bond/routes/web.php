@@ -20,7 +20,7 @@ Route::namespace('WEB')->group(function (){
     Route::prefix('/')->group(function(){
         Route::get('/', 'GeneralController@accueil')->name('accueil');
         Route::get('a-propos', 'GeneralController@a_propos')->name('a-propos');
-        Route::get('mentions-legales', 'GeneralController@mentions_legales')->name('mentions-legales');
+        Route::get('mentions', 'GeneralController@mentions')->name('mentions');
         Route::get('contact', 'GeneralController@contact')->name('contact');
         Route::get('cgv', 'GeneralController@cgv')->name('cgv');
         Route::get('partenaires', 'GeneralController@partenaires')->name('partenaires');

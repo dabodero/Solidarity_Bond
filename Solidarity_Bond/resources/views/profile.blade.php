@@ -143,7 +143,7 @@ location.reload();
             
      $("#choice_3").click(function() {
      	document.getElementById('title').innerHTML = 'Commandes terminées';
- document.getElementById('historic').innerHTML = '@foreach($data2 as $d)        <div class="card mb-2"> <h5 class="card-header">Commande n°{{$d->ID_Commande}} du {{$d->Date}}</h5> <div class="card-body"><h5 class="card-title">Etat : En cours    </h5>    <p class="card-text"><ul>      @foreach($help2 as $produit)                <li>{{$produit->Quantite}} {{$produit->Nom}}</li>            @endforeach     </div></div> @endforeach';
+ document.getElementById('historic').innerHTML = '@foreach($data2 as $d)        <div class="card mb-2"> <h5 class="card-header">Commande n°{{$d->ID_Commande}} du {{$d->Date}}</h5> <div class="card-body"><h5 class="card-title">Etat : Terminée    </h5>    <p class="card-text"><ul>      @foreach($help2 as $produit)                <li>{{$produit->Quantite}} {{$produit->Nom}}</li>            @endforeach     </div></div> @endforeach';
   });
 });
 
