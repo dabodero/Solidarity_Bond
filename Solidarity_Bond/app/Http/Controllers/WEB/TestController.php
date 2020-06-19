@@ -14,7 +14,7 @@ class TestController extends Controller
 {
     public function sandbox(){
 
-        $data = Commande::nonTerminees();
+       // $data = Commande::nonTerminees();
       
 
 
@@ -31,8 +31,10 @@ class TestController extends Controller
             dd($d);
             $dataProduit[$d->ID] = $d->produits();
         }*/
-        //dd($data->first()->Produits);
+        $help = $data->first()->Produits;
+
+        //dd($help);
         //dd(Http::get("http://solidaritybond/api/utilisateur")->json());
-        return view('test', compact('data'));
+        return view('test', compact('help'),compact('data'));
     }
 }
