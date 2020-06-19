@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\WEB;
 
+use App\Models\Composer;
 use App\Models\Produit;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,6 +26,7 @@ class BoutiqueController extends Controller
     }
 
     public function panier(){
-        return view('panier');
+        $Composerde = Composer::all();
+        return view('panier',compact('Composerde'));
     }
 }

@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-md-1 ">
 
-                                    <a class="btn btn-link" href="">
+                                    <a class="btn btn-link" href="{{route('register')}}">
                                         {{ __('Inscription') }}
                                     </a>
 
@@ -66,7 +66,7 @@
                         <div class="form-group row mb-0 ml-3">
                             <div class="col-md-6 offset-md-5">
                                 <button type="submit" class="btn btn-outline-primary">
-                                    {{ __('Login') }}
+                                    {{ __('Connexion') }}
                                 </button>
 
                             </div>
