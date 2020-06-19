@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <div class="row justify-content-center" id="commandesRealisees">
+    <div class="row justify-content-center pb-4" id="commandesRealisees">
 
     </div>
 

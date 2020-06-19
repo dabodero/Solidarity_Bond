@@ -25,8 +25,8 @@ async function terminerCommande(id) {
 
 function retirerCommandeRealisee(id){
     let commandeATerminer = document.getElementById(id);
+    document.getElementById("buttonDiv"+id).lastElementChild.remove();
     commandeATerminer.remove();
-    commandeATerminer.lastElementChild.lastElementChild.lastElementChild.remove();
     return commandeATerminer;
 }
 
@@ -92,7 +92,7 @@ function supprimerElementCommandeSiExiste(commande) {
 
 function creerElementCommande(commande, stringElementParent="", booleanBoutonTerminer=false){
     $(document.getElementById(stringElementParent)).append(creerCommandeHTML(commande, booleanBoutonTerminer));
-    let buttonsDiv = ((document.getElementById(stringElementParent).lastElementChild).firstElementChild).lastElementChild;
+    let buttonsDiv = document.getElementById("buttonDiv"+commande.ID_Commande); //((document.getElementById(stringElementParent).lastElementChild).firstElementChild).lastElementChild;
     preparePopoverOnInformationButton(buttonsDiv.firstElementChild);
     if(booleanBoutonTerminer) {
         prepareTerminerButton(buttonsDiv.lastElementChild);
@@ -101,18 +101,19 @@ function creerElementCommande(commande, stringElementParent="", booleanBoutonTer
 
 function creerCommandeHTML(commande, booleanBoutonTerminer){
     let commandeHTML =
-    "<div class=\"col-xl-2 col-lg-3 col-md-4 m-2\" id=\""+commande.ID_Commande+"\">" +
-    "                <div class=\"card border-dark\">" +
+    "<div class=\"col-xl-2 col-lg-3 col-md-4 justify-content-center m-2\" id=\""+commande.ID_Commande+"\">" +
+    "            <div class=\"row justify-content-center h-100\">" +
+    "                <div class=\"card border-dark w-100\">" +
     "                    <div class=\"card-text card-head p-2\">" +
     "                        <h5 class=\"card-title text-center m-0\">Commande n°"+commande.ID_Commande+"</h5>" +
     "                    </div>" +
-    "                    <ul class=\"list-group card-middle list-group-flush m-0 p-0\">" +
+    "                    <ul class=\"list-group card-middle list-group-flush no-gutters h-100 pb-2\">" +
     "                        <div class=\"text-center no-gutters date mb-1\">"+(new Date(commande.Date)).toLocaleDateString('fr')+"</div>" +
-    "                        <div class=\"row col-12 m-0 pb-3 pr-3 pl-3\">" +
+    "                        <div class=\"row no-gutters pb-3 pr-3 pl-3\">" +
                                  creerProduits(commande)+
     "                        </div>" +
     "                    </ul>" +
-    "                    <div class=\"card-text card-bottom text-center p-2\">" +
+    "                    <div class=\"card-text card-bottom text-center p-2\" id=\"buttonDiv"+commande.ID_Commande+"\">" +
     "                        <button type=\"button\" class=\"col-5 btn btn-info border-dark mr-1 ml-0\" data-trigger=\"focus\" data-container=\"body\" " +
     "                                data-toggle=\"popover\" data-placement=\"bottom\" title=\""+commande.Entreprise+"\" " +
     "                                data-content=\""+commande.Nom+" "+commande.Prenom+"<br/>"+telephoneFormat(commande.Telephone)+"\">" +
@@ -124,7 +125,8 @@ function creerCommandeHTML(commande, booleanBoutonTerminer){
     commandeHTML+=
     "                    </div>" +
     "                </div>" +
-    "            </div>"
+    "            </div>" +
+    "</div>"
     return commandeHTML;
 }
 
@@ -136,10 +138,10 @@ function creerProduits(commande){
     let produits="";
     commande['Produits'].map(function(produit){
         produits+=
-            "<li class=\"list-group col-lg-10 col-md-9 col-sm-8 m-0 p-0 produit\">" +
+            "<li class=\"list-group col-lg-10 col-md-9 col-8 m-0 p-0 produit\">" +
                  produit.Nom +
             "</li>" +
-            "<li class=\"list-group col-lg-2 col-md-3 col-sm-4 text-right m-0 p-0 produit\">" +
+            "<li class=\"list-group col-lg-2 col-md-3 col-4 text-right m-0 p-0 produit\">" +
                  produit.Quantite +
             "</li>"
     });
@@ -161,6 +163,6 @@ $(document).ready(function(){
     commandesNonTerminees();
     commandesTerminees();
 
-    window.setInterval(commandesNonTerminees, 5000);
+    window.setInterval(commandesNonTerminees, 60000);
 })
 
