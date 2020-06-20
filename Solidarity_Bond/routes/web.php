@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::namespace('WEB')->group(function (){
 
-    Route::get('/test', 'TestController@sandbox')->name('test');
+    Route::any('/test', 'TestController@sandbox')->name('test');
 
     Route::prefix('/')->group(function(){
         Route::get('/', 'GeneralController@accueil')->name('accueil');

@@ -33,4 +33,19 @@ class Produit extends Model
     private function composeEloquentBuilder(){
         return $this->hasMany(\App\Models\Composer::class, 'ID_Produit');
     }
+
+    public function commentairesFormates(){
+        $likes = Liker::selectRaw('ID_Commentaire, COUNT(ID_Utilisateur) Likes_Count')->groupBy('ID_Commentaire');
+        $commentaires = Commentaire::where('ID_Produit', $this->ID)
+            ->join('utilisateurs', 'utilisateurs.ID','=','ID_Utilisateur')
+            ->leftJoinSub($likes, 'likes', function($join){
+                $join->on('commentaires.ID', '=', 'likes.ID_Commentaire');
+            })->select('commentaires.ID as ID_Commentaire', 'Commentaire', 'Likes_Count', 'ID_Utilisateur', 'Nom', 'Prenom', 'Entreprise');
+        $commentaires = $commentaires->get()->each(function($item, $key){
+            if($item['Likes_Count']==null){
+                $item['Likes_Count']=0;
+            }
+        });
+        return $commentaires;
+    }
 }
