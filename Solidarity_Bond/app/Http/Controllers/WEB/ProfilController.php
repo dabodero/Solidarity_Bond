@@ -12,14 +12,16 @@ use App\Http\Controllers\API\UtilisateurController;
 use Illuminate\Foundation\Auth\User;
 use Redirect;
 
-class ProfileController extends Controller
+class ProfilController extends Controller
 {
-    public function ShowDataProfile(){
+    private const nom_dossier = 'profil.';
+
+    public function profil(){
     	$ID = Auth::id();
         $commandesNonTerminees = Commande::commandesNonTerminees()->where('ID_Utilisateur',$ID);
         $commandesTerminees = Commande::commandesTerminees()->where('ID_Utilisateur',$ID);
 
-        return view('profile', compact('commandesNonTerminees','commandesTerminees'));
+        return view(self::nom_dossier.'profil', compact('commandesNonTerminees','commandesTerminees'));
     }
 
     public function deleteUser()

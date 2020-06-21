@@ -3,7 +3,7 @@
 @section('title', 'Boutique')
 
 @section('ajoutsHead')
-    <link rel="stylesheet" href="{{ asset('assets/css/boutique.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/boutique/panier.css') }}">
 @endsection
 
 @section('content')

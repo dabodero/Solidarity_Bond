@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\WEB;
+namespace App\Http\Controllers\Test;
 
 use App\Models\Commande;
 use App\Models\Commentaire;

@@ -9,41 +9,26 @@ use Illuminate\Support\Facades\Auth;
 
 class GeneralController extends Controller
 {
+    private const nom_dossier = 'general.';
+
     public function accueil(){
-        return view('accueil');
+        return view(self::nom_dossier.'accueil');
     }
 
     public function a_propos(){
-        return view('a-propos');
+        return view(self::nom_dossier.'a-propos');
     }
 
     public function mentions(){
-        return view('mentions');
+        return view(self::nom_dossier.'mentions-legales');
     }
 
     public function contact(){
-        return view('contact');
+        return view(self::nom_dossier.'contact');
     }
 
     public function cgv(){
-        return view('cgv');
-    }
-
-    public function partenaires(){
-        return view('partenaires');
-    }
-
-    public function liker(Request $request){
-        $like = Liker::where([['ID_Utilisateur','=', Auth::id()], ['ID_Commentaire', '=', $request->ajoutLike]])->first();
-        if($like==null){
-            Liker::create([
-                "ID_Utilisateur" => Auth::id(),
-                "ID_Commentaire" => $request->ajoutLike
-            ]);
-        } else {
-            $like->delete();
-        };
-        return back();
+        return view(self::nom_dossier.'cgv');
     }
 
 }

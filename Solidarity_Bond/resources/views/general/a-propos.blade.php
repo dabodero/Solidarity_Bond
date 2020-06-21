@@ -3,7 +3,7 @@
 @section('title', 'À propos de nous')
 
 @section('ajoutsHead')
-    <link rel="stylesheet" href="{{ asset('assets/css/a-propos.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/general/a-propos.css') }}">
 @endsection
 
 @section('content')

@@ -3,7 +3,7 @@
 @section('title', __('Produit : '.$title))
 
 @section('ajoutsHead')
-    <link rel="stylesheet" href="{{ asset('assets/css/produit.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/boutique/produit.css') }}">
     <input id="ID_Utilisateur" value="{{auth()->id()}}" hidden>
     <input id="ID_Produit" value="{{$produit->ID}}" hidden>
 @endsection

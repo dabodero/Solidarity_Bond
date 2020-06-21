@@ -11,23 +11,25 @@ use function GuzzleHttp\Promise\all;
 
 class BoutiqueController extends Controller
 {
+    private const nom_dossier = 'boutique.';
+
     public function boutique(){
        $produits = Produit::all();
-        return view('boutique', compact('produits'));
+        return view(self::nom_dossier.'boutique', compact('produits'));
     }
 
     public function produit(Request $request){
         $produit = Produit::find($request->ID_Produit);
         $title = $produit->Nom;
-        return view('produit', compact('produit', 'title'));
+        return view(self::nom_dossier.'produit', compact('produit', 'title'));
     }
 
     public function commande(){
-        return view('commande');
+        return view(self::nom_dossier.'commande');
     }
 
     public function panier(){
-        return view('panier');
+        return view(self::nom_dossier.'panier');
     }
 
     public function ajouterAuPanier(Request $request){
