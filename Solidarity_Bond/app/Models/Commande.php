@@ -14,7 +14,7 @@ class Commande extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['ID_Utilisateur', 'Terminee'];
+    protected $fillable = ['ID_Utilisateur', 'Date', 'Terminee'];
 
     public function utilisateur(){
         return $this->belongsTo(\App\Models\Utilisateur::class, 'ID_Utilisateur')->first();

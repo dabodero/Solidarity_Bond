@@ -6,6 +6,10 @@
 
 @section('content')
 
+@flash('commandeValidee')
+    @include('layouts.flash', ['variable'=>'commandeValidee'])
+@endflash
+
 <div class="container col-11 mt-2 ">
 	<div class="row">
 		<div class="col-md-3 ">

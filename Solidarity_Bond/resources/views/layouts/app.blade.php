@@ -14,6 +14,8 @@
 
         @include('layouts.scripts-communs')
         @yield('ajoutsScripts')
+
+        @stack('flashScripts')
     </body>
 </html>
 

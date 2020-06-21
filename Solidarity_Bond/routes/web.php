@@ -41,7 +41,9 @@ Route::namespace('WEB')->group(function (){
 
         Route::prefix('panier')->middleware('auth')->group(function(){
             Route::get('/', 'BoutiqueController@panier')->name('panier');
-            Route::post('ajout/{ID_Produit}/{Quantite}', 'BoutiqueController@ajouterAuPanier')->name('ajouterAuPanier');
+            Route::post('ajout/{ID_Produit}', 'BoutiqueController@ajouterAuPanier')->name('ajouterAuPanier');
+            Route::post('supprimer/{ID_Produit}', 'BoutiqueController@supprimerDuPanier')->name('supprimerDuPanier');
+            Route::post('valider', 'BoutiqueController@validerCommande')->name('validerCommande');
         });
 
     });

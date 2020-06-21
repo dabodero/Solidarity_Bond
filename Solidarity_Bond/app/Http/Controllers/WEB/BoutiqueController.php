@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\WEB;
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Models\Commande;
+use App\Models\Composer;
 use App\Models\Produit;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
 use function GuzzleHttp\Promise\all;
 
 class BoutiqueController extends Controller
@@ -29,14 +33,36 @@ class BoutiqueController extends Controller
     }
 
     public function panier(){
-        return view(self::nom_dossier.'panier');
+        $panier = session()->get('panier');
+        return view(self::nom_dossier.'panier', compact('panier'));
     }
 
     public function ajouterAuPanier(Request $request){
         $ID_Produit = $request->ID_Produit;
+        if(!session()->has(LoginController::getNomPanier().'.'.__($ID_Produit))){
+            session()->put(LoginController::getNomPanier().'.'.__($ID_Produit).'.ID', $ID_Produit);
+            session()->put(LoginController::getNomPanier().'.'.__($ID_Produit).'.Nom', $request->Produit);
+        }
         session()-> put(LoginController::getNomPanier().'.'.__($ID_Produit).'.Quantite',
                         session()->get(LoginController::getNomPanier().'.'.__($ID_Produit).'.Quantite')+$request->Quantite
                     );
         return back();
+    }
+
+    public function supprimerDuPanier(Request $request){
+        $ID_Produit = $request->ID_Produit;
+        session()->remove(LoginController::getNomPanier().'.'.__($ID_Produit));
+        return back();
+    }
+
+    public function validerCommande(Request $request){
+        $produits = $request->all();
+        unset($produits['_token']);
+        $ID_Commande = Commande::create(['ID_Utilisateur'=>Auth::id(), 'Date'=>Carbon::now()->translatedFormat('Y-m-d'), 'Terminee'=>0])->ID;
+        foreach($produits as $produit){
+            Composer::create(['ID_Produit'=>$produit['ID'], 'ID_Commande'=>$ID_Commande,'Quantite'=>$produit['Quantite']]);
+        }
+        session()->remove('panier');
+        return redirect(route('profil'))->with('commandeValidee', ['titre'=>'État de votre commande', 'message'=>'Votre commande a été prise en compte !']);
     }
 }

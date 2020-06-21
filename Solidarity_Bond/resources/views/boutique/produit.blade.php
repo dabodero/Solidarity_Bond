@@ -53,7 +53,8 @@
                         <a href="{{route('panier')}}" name="panier" class="btn btn-outline-success bouton-panier col-md-2 col-sm-3 col-4 mr-1"><i class="fas fa-shopping-basket"></i></a>
                         <form action="{{route('ajouterAuPanier', ['ID_Produit' => $produit->ID, 'Quantite'=>1])}}" method="post" class="col-md-2 col-sm-3 col-4">
                             @csrf
-                            <button type="submit" name="ajoutProduit" class="btn btn-warning btn-outline-warning col-12 ml-1 bouton-ajout-panier"><i class="fas fa-plus"></i><i class="fas fa-cart-arrow-down"></i></button>
+                            <button type="submit" class="btn btn-warning btn-outline-warning col-12 ml-1 bouton-ajout-panier"><i class="fas fa-plus"></i><i class="fas fa-cart-arrow-down"></i></button>
+                            <input type="text" name="Produit" value="{{$produit->Nom}}" hidden>
                         </form>
                     </div>
                 </div>
