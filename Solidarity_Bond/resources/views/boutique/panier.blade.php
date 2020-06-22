@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="{{ asset('assets/css/boutique/panier.css') }}">
 @endsection
 
+@section('ajoutsScripts')
+    <script src="{{asset('assets/js/panier.js')}}"></script>
+@endsection
+
 @section('content')
 
 <div class="container mt-5">
@@ -32,9 +36,8 @@
                 <tbody>
                 @foreach($panier as $produit)
                     <tr>
-                        <input name="{{$produit['Nom']}}[ID]" form="validation" type="text" value="{{$produit['ID']}}" hidden>
-                        <td  scope="row">{{$produit['Nom']}}</td>
-                        <td><input name="{{$produit['Nom']}}[Quantite]" form="validation" type="number" min=1 value="{{$produit['Quantite']}}" placeholder="1" required class="col-5 col-lg-2"></td>
+                        <td scope="row"><input id="ID_Produit_{{$produit['ID']}}" name="{{$produit['Nom']}}[ID]" form="validation" type="text" value="{{$produit['ID']}}" hidden>{{$produit['Nom']}}</td>
+                        <td><input id="Quantite_{{$produit['ID']}}" name="{{$produit['Nom']}}[Quantite]" form="validation" type="number" min=1 value="{{$produit['Quantite']}}" placeholder="1" onchange="changerQuantite(this.id, this.value)" required></td>
                         <td>
                             <form action="{{route('supprimerDuPanier', ['ID_Produit' => $produit['ID']])}}" method="post" class="d-inline-block no-gutters form-button">
                                 @csrf

@@ -60,6 +60,11 @@ class BoutiqueController extends Controller
             Composer::create(['ID_Produit'=>$produit['ID'], 'ID_Commande'=>$ID_Commande,'Quantite'=>$produit['Quantite']]);
         }
         session()->remove('panier');
-        return redirect(route('profil'))->with('commandeValidee', ['titre'=>'État de votre commande', 'message'=>'Votre commande a été prise en compte !']);
+        return redirect(route('profil'))->with('commandeValidee', ['titre'=>'État de votre commande', 'message'=>'Votre commande a été prise en compte !<br/>Vous recevrez un mail dès qu\'elle sera prête et que vous pourrez venir la retirer.']);
+    }
+
+    public function gererProduitEtQuantite(Request $request){
+        $ID_Produit = $request->ID_Produit;
+        session()->put(LoginController::getNomPanier().'.'.$ID_Produit.'.'.'Quantite', $request->Quantite);
     }
 }

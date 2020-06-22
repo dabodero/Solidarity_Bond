@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body test">
-                {{session()->get($variable)['message']}}
+                {!! session()->get($variable)['message'] !!}
             </div>
         </div>
     </div>
