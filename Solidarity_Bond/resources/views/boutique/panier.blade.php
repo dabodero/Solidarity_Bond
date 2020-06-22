@@ -27,7 +27,6 @@
             <table class="table table-hover text-center">
                 <thead>
                     <tr>
-
                         <th scope="col">Article</th>
                         <th scope="col" class=" mr-5">Quantité</th>
                         <th scope="col">Supprimer</th>
@@ -46,8 +45,6 @@
                         </td>
                     </tr>
                 @endforeach
-
-
 
                 </tbody>
             </table>

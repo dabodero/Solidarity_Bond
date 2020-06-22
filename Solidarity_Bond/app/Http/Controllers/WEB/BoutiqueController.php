@@ -40,10 +40,14 @@ class BoutiqueController extends Controller
             session()->put(LoginController::getNomPanier().'.'.__($ID_Produit).'.ID', $ID_Produit);
             session()->put(LoginController::getNomPanier().'.'.__($ID_Produit).'.Nom', $request->Produit);
         }
-        session()-> put(LoginController::getNomPanier().'.'.__($ID_Produit).'.Quantite',
-                        session()->get(LoginController::getNomPanier().'.'.__($ID_Produit).'.Quantite')+$request->Quantite
-                    );
-        return back();
+
+        if($request->has("Quantite")){
+            session()->put(LoginController::getNomPanier().'.'.$ID_Produit.'.'.'Quantite', $request->Quantite);
+        } else {
+            session()->put(LoginController::getNomPanier() . '.' . __($ID_Produit) . '.Quantite',
+                session()->get(LoginController::getNomPanier() . '.' . __($ID_Produit) . '.Quantite') + 1
+            );
+        }
     }
 
     public function supprimerDuPanier(Request $request){

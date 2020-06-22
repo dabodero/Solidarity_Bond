@@ -43,12 +43,11 @@ Route::namespace('WEB')->group(function (){
     Route::prefix('boutique')->group(function(){
         Route::get('/', 'BoutiqueController@boutique')->name('boutique');
         Route::get('produit/{ID_Produit}', 'BoutiqueController@produit')->name('produit');
-        
+
         Route::middleware('auth')->group(function(){
             Route::prefix('panier')->group(function(){
                 Route::get('/', 'BoutiqueController@panier')->name('panier');
-                Route::post('/', 'BoutiqueController@gererProduitEtQuantite')->name('gererPanier');
-                Route::post('ajout/{ID_Produit}', 'BoutiqueController@ajouterAuPanier')->name('ajouterAuPanier');
+                Route::post('/', 'BoutiqueController@ajouterAuPanier')->name('ajouterAuPanier');
                 Route::post('supprimer/{ID_Produit}', 'BoutiqueController@supprimerDuPanier')->name('supprimerDuPanier');
                 Route::post('valider', 'BoutiqueController@validerCommande')->name('validerCommande');
             });
