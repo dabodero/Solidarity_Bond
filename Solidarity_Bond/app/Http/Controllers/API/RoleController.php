@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
+
+    private const CLIENT = 1;
+    private const ADMIN = 2;
+    private const FABLAB = 3;
+
     /**
      * Display a listing of the resource.
      *
@@ -62,4 +67,8 @@ class RoleController extends Controller
     {
         $role->delete();
     }
+
+    public static function getNumeroRoleClient(){ return self::CLIENT; }
+    public static function getNumeroRoleAdmin(){ return self::ADMIN; }
+    public static function getNumeroRoleFablab(){ return self::FABLAB; }
 }

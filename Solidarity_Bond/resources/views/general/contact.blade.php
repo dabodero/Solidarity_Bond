@@ -21,7 +21,7 @@
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                           name="email" value="{{ old('email') }}" autofocus>
+                                           name="email" value=@auth"{{auth()->user()->Mail}}"@endauth @guest"{{ old('email') }}"@endguest autofocus>
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">

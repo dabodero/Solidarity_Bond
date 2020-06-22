@@ -44,16 +44,26 @@
                             <a class="dropdown-item" href="{{ route('profil') }}">
                                 {{ __('Votre profil') }}
                             </a>
-                            <a class="dropdown-item" href="{{ route('panier') }}">
-                                {{ __('Votre panier') }}
-                            </a>
+
+                            @client
+                                <a class="dropdown-item" href="{{ route('panier') }}">
+                                    {{ __('Votre panier') }}
+                                </a>
+                            @endclient
+
+                            @fablab
+                                <a class="dropdown-item" href="{{ route('fablab') }}">
+                                    {{ __('Les commandes') }}
+                                </a>
+                            @endfablab
+
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                                 {{ __('Déconnexion') }}
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" hidden>
                                 @csrf
                             </form>
 
