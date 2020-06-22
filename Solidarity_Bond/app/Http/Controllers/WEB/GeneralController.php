@@ -45,7 +45,7 @@ class GeneralController extends Controller
         $message->subject($data['subject']);
 
     });
-
+    return redirect('/');
     }
 
     public function cgv(){
