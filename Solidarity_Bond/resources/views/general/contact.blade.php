@@ -14,15 +14,16 @@
                     <div class="card-header text-center"><h3>{{ __('Contact') }}</h3></div>
 
                     <div class="card-body">
-                        <form method="POST" action="">
+                        <form method="POST" action="{{route('contact')}}">
+                            @csrf
                             <div class="form-group row">
-                                <label for="Nom" class="col-md-2 col-form-label text-md-right">{{ __('Adresse mail :') }}</label>
+                                <label for="email" class="col-md-2 col-form-label text-md-right">{{ __('Adresse mail :') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="Mail" type="email" class="form-control @error('Mail') is-invalid @enderror"
-                                           name="Mail" value="{{ old('Mail') }}" autofocus>
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                           name="email" value="{{ old('email') }}" autofocus>
 
-                                    @error('Mail')
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -31,13 +32,13 @@
 
                             </div>
                             <div class="form-group row">
-                                <label for="Nom" class="col-md-2 col-form-label text-md-right">{{ __('Motif :') }}</label>
+                                <label for="subject" class="col-md-2 col-form-label text-md-right">{{ __('Motif :') }}</label>
 
                                 <div class="col-md-9">
-                                    <input id="Motif" type="text" class="form-control @error('Motif') is-invalid @enderror"
-                                           name="Motif" value="{{ old('Motif') }}" autofocus>
+                                    <input id="subject" type="text" class="form-control @error('subject') is-invalid @enderror"
+                                           name="subject" value="{{ old('subject') }}" autofocus>
 
-                                    @error('Motif')
+                                    @error('subject')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -46,13 +47,13 @@
 
                             </div>
                             <div class="form-group row">
-                                <label for="Explication" class="col-md-2 col-form-label text-md-right">{{ __('Explication :') }}</label>
+                                <label for="message" class="col-md-2 col-form-label text-md-right">{{ __('Explication :') }}</label>
                                 <div class="col-md-9">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
 
                                     </div>
-                                    <textarea class="form-control"></textarea>
+                                    <textarea id="message" name="message" class="form-control"></textarea>
                                 </div>
                                 </div>
                             </div>

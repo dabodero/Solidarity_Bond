@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Mail\AvisMail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,8 +21,16 @@ Route::namespace('WEB')->group(function (){
     Route::prefix('/')->group(function(){
         Route::get('/', 'GeneralController@accueil')->name('accueil');
         Route::get('a-propos', 'GeneralController@a_propos')->name('a-propos');
+
+        Route::get('email', function (){
+            return new AvisMail();
+        });
+        Route::get('mentions', 'GeneralController@mentions')->name('mentions');
+
         Route::get('mentions-legales', 'GeneralController@mentions')->name('mentions-legales');
+
         Route::get('contact', 'GeneralController@contact')->name('contact');
+        Route::post('contact', 'GeneralController@postContact')->name('envoimail');
         Route::get('cgv', 'GeneralController@cgv')->name('cgv');
         Route::get('fablab', 'FablabController@commandes')->name('fablab');
 

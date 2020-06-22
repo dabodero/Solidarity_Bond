@@ -21,7 +21,7 @@
                             <label for="Nom" class="col-md-2 col-form-label text-md-right">{{ __('Nom') }}</label>
 
                             <div class="col-md-4">
-                                <input id="Nom" type="text" class="form-control @error('Nom') is-invalid @enderror" name="Nom" value="{{ old('Nom') }}"  autofocus>
+                                <input id="Nom" type="text" class="form-control @error('Nom') is-invalid @enderror" name="Nom" value="{{ old('Nom') }}" placeholder="Nom" autofocus>
 
                                 @error('Nom')
                                     <span class="invalid-feedback" role="alert">
@@ -32,7 +32,7 @@
                             <label for="Prenom" class="col-md-2 col-form-label text-md-right">{{ __('Prénom') }}</label>
 
                             <div class="col-md-4">
-                                <input id="Prenom" type="text" class="form-control @error('Prenom') is-invalid @enderror" name="Prenom" value="{{ old('Prenom') }}" >
+                                <input id="Prenom" type="text" class="form-control @error('Prenom') is-invalid @enderror" name="Prenom" value="{{ old('Prenom') }}" placeholder="Prenom" >
 
                                 @error('Prenom')
                                 <span class="invalid-feedback" role="alert">
@@ -45,7 +45,7 @@
                             <label for="Entreprise" class="col-md-2 col-form-label text-md-right">{{ __('Entreprise') }}</label>
 
                             <div class="col-md-4">
-                                <input id="Entreprise" type="text" class="form-control @error('Entreprise') is-invalid @enderror" name="Entreprise" value="{{ old('Entreprise') }}" autofocus>
+                                <input id="Entreprise" type="text" class="form-control @error('Entreprise') is-invalid @enderror" name="Entreprise" value="{{ old('Entreprise') }}" placeholder="Entreprise" autofocus>
 
                                 @error('Entreprise')
                                 <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
                             <label for="SIRET" class="col-md-2 col-form-label text-md-right">{{ __('SIRET') }}</label>
 
                             <div class="col-md-4">
-                                <input id="SIRET" type="text" class="form-control @error('SIRET') is-invalid @enderror" name="SIRET" value="{{ old('SIRET') }}" autofocus>
+                                <input id="SIRET" type="text" class="form-control @error('SIRET') is-invalid @enderror" name="SIRET" value="{{ old('SIRET') }}" placeholder="012345678901234" autofocus>
 
                                 @error('SIRET')
                                 <span class="invalid-feedback" role="alert">
@@ -70,7 +70,7 @@
                             <label for="Mail" class="col-md-2 col-form-label text-md-right">{{ __('Adresse mail') }}</label>
 
                             <div class="col-md-4">
-                                <input id="Mail" type="email" class="form-control @error('Mail') is-invalid @enderror" name="Mail" value="{{ old('Mail') }}">
+                                <input id="Mail" type="email" class="form-control @error('Mail') is-invalid @enderror" name="Mail" value="{{ old('Mail') }}" placeholder="exemple@exemple.exemple">
 
                                 @error('Mail')
                                     <span class="invalid-feedback" role="alert">
@@ -83,7 +83,7 @@
                             <label for="Telephone" class="col-md-2 col-form-label text-md-right">{{ __('Telephone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="Telephone" type="telephone" class="form-control @error('Telephone') is-invalid @enderror" name="Telephone" value="{{ old('Telephone') }}">
+                                <input id="Telephone" type="tel" class="form-control @error('Telephone') is-invalid @enderror" name="Telephone" value="{{ old('Telephone') }}" placeholder="0607080904">
 
                                 @error('Telephone')
                                 <span class="invalid-feedback" role="alert">

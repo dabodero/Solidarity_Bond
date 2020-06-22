@@ -31,7 +31,7 @@
 		            <div class="row">
 		                <div class="col-md-12">
 
-<div id="historic">
+<div id="corps">
                               <form action="{{route('updateData')}}" method="post" class="mt-1">
                                         @csrf
                                        <input type="hidden" name="updateData"/>
@@ -39,7 +39,7 @@
                                        <div class="form-group row">
                                 <label class="col-4 col-form-label">Nom</label>
                                 <div class="col-8">
-                                  <input id="champs"  name="Nom" value="{{Auth::user()->Nom}}"  class="form-control here @error('Nom') is-invalid @enderror" required="required" type="text">
+                                  <input id="Nom" name="Nom" value="{{Auth::user()->Nom}}"  class="form-control here @error('Nom') is-invalid @enderror" required="required" type="text">
                                   @error('Nom')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -50,7 +50,7 @@
                               <div class="form-group row">
                                 <label class="col-4 col-form-label">Prénom</label>
                                 <div class="col-8">
-                                  <input id="champs"  name="Prenom" value="{{Auth::user()->Prenom}}" class="form-control here @error('Prenom') is-invalid @enderror" required="required" type="text">
+                                  <input id="Prenom"  name="Prenom" value="{{Auth::user()->Prenom}}" class="form-control here @error('Prenom') is-invalid @enderror" required="required" type="text">
 @error('Prenom')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -61,7 +61,7 @@
                               <div class="form-group row">
                                 <label class="col-4 col-form-label">Mail</label>
                                 <div class="col-8">
-                                  <input id="champs"  name="Mail" value="{{Auth::user()->Mail}}" class="form-control here @error('Mail') is-invalid @enderror" required="required" type="text">
+                                  <input id="Mail"  name="Mail" value="{{Auth::user()->Mail}}" class="form-control here @error('Mail') is-invalid @enderror" required="required" type="text">
  @error('Mail')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -72,7 +72,7 @@
                               <div class="form-group row">
                                 <label class="col-4 col-form-label">Entreprise</label>
                                 <div class="col-8">
-                                  <input id="champs"  name="Entreprise" value="{{Auth::user()->Entreprise}}" class="form-control here @error('Entreprise') is-invalid @enderror" required="required" type="text">
+                                  <input id="Entreprise"  name="Entreprise" value="{{Auth::user()->Entreprise}}" class="form-control here @error('Entreprise') is-invalid @enderror" required="required" type="text">
 @error('Entreprise')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -83,7 +83,7 @@
                               <div class="form-group row">
                                 <label class="col-4 col-form-label">Téléphone</label>
                                 <div class="col-8">
-                                  <input id="champs"  name="Telephone" value="{{Auth::user()->Telephone}}" class="form-control here @error('Telephone') is-invalid @enderror" required="required" type="text">
+                                  <input id="Telephone"  name="Telephone" value="{{Auth::user()->Telephone}}" class="form-control here @error('Telephone') is-invalid @enderror" required="required" type="text">
  @error('Telephone')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -94,7 +94,7 @@
                               <div class="form-group row">
                                 <label class="col-4 col-form-label">SIRET</label>
                                 <div class="col-8">
-                                  <input id="champs"  name="SIRET" value="{{Auth::user()->SIRET}}" class="form-control here @error('SIRET') is-invalid @enderror" required="required" type="text">
+                                  <input id="SIRET"  name="SIRET" value="{{Auth::user()->SIRET}}" class="form-control here @error('SIRET') is-invalid @enderror" required="required" type="text">
  @error('SIRET')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -135,12 +135,12 @@
 
         $("#choice_2").click(function() {
             document.getElementById('title').innerHTML = 'Commandes en cours';
-            document.getElementById('historic').innerHTML = '@foreach($commandesNonTerminees as $commandeNonTerminee)        <div class="card mb-2"> <h5 class="card-header">Commande n°{{$commandeNonTerminee->ID_Commande}} du {{\Carbon\Carbon::parse($commandeNonTerminee->Date)->translatedFormat('d/m/Y')}}</h5> <div class="card-body"><h5 class="card-title">Etat : En cours    </h5>    <p class="card-text"><ul>      @foreach($commandeNonTerminee->produitsPourCommandeFormatee() as $produit)                <li>{{$produit->Quantite}} {{$produit->Nom}}</li>            @endforeach     </div></div> @endforeach';
+            document.getElementById('corps').innerHTML = '@foreach($commandesNonTerminees as $commandeNonTerminee)        <div class="card mb-2"> <h5 class="card-header">Commande n°{{$commandeNonTerminee->ID_Commande}} du {{\Carbon\Carbon::parse($commandeNonTerminee->Date)->translatedFormat('d/m/Y')}}</h5> <div class="card-body"><h5 class="card-title">Etat : En cours    </h5>    <p class="card-text"><ul>      @foreach($commandeNonTerminee->produitsPourCommandeFormatee() as $produit)                <li>{{$produit->Quantite}} {{$produit->Nom}}</li>            @endforeach     </div></div> @endforeach';
         });
 
         $("#choice_3").click(function() {
             document.getElementById('title').innerHTML = 'Commandes terminées';
-            document.getElementById('historic').innerHTML = '@foreach($commandesTerminees as $commandeTerminee)        <div class="card mb-2"> <h5 class="card-header">Commande n°{{$commandeTerminee->ID_Commande}} du {{\Carbon\Carbon::parse($commandeTerminee->Date)->translatedFormat('d/m/Y')}}</h5> <div class="card-body"><h5 class="card-title">Etat : Terminée    </h5>    <p class="card-text"><ul>      @foreach($commandeTerminee->produitsPourCommandeFormatee() as $produit)                <li>{{$produit->Quantite}} {{$produit->Nom}}</li>            @endforeach     </div></div> @endforeach';
+            document.getElementById('corps').innerHTML = '@foreach($commandesTerminees as $commandeTerminee)        <div class="card mb-2"> <h5 class="card-header">Commande n°{{$commandeTerminee->ID_Commande}} du {{\Carbon\Carbon::parse($commandeTerminee->Date)->translatedFormat('d/m/Y')}}</h5> <div class="card-body"><h5 class="card-title">Etat : Terminée    </h5>    <p class="card-text"><ul>      @foreach($commandeTerminee->produitsPourCommandeFormatee() as $produit)                <li>{{$produit->Quantite}} {{$produit->Nom}}</li>            @endforeach     </div></div> @endforeach';
         });
     });
 </script>

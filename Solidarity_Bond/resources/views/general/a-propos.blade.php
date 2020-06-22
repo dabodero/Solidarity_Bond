@@ -128,3 +128,73 @@
 </div>
 
 @endsection
+
+    <div class="row text-center">
+      <!-- Team item-->
+      <div class="col-xl-3 col-sm-6 mb-5">
+        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556834132/avatar-4_ozhrib.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+          <h5 class="mb-0">Bruno Clappe</h5><span class="small text-uppercase text-muted">Chef de projet</span>
+          <ul class="social mb-0 list-inline mt-3">
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- End-->
+
+      <!-- Team item-->
+      <div class="col-xl-3 col-sm-6 mb-5">
+        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556834130/avatar-3_hzlize.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+          <h5 class="mb-0">Gaultier Geelen</h5><span class="small text-uppercase text-muted">Webmaster</span>
+          <ul class="social mb-0 list-inline mt-3">
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- End-->
+
+      <!-- Team item-->
+      <div class="col-xl-3 col-sm-6 mb-5">
+        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556834133/avatar-2_f8dowd.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+          <h5 class="mb-0">Loïs Cèbe</h5><span class="small text-uppercase text-muted">Directeur Financier</span>
+          <ul class="social mb-0 list-inline mt-3">
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+      <!-- End-->
+<div class="bg-white">
+  <div class="container py-5">
+    <div class="row h-100 align-items-center py-5">
+        <h2 class="display-4 font-weight-light mb-5">Le projet</h2>
+        <h4 class="font-weight-light"> En ce temps de Covid-19 nous devions réaliser un dispositif permettant d’aider à lutter contre sa
+        propagation. Il s’agissait de répondre à un besoin à l‘échelle locale ou régionale pour des établissements
+        qui en font la demande.<br><br>
+        Ce produit devait être réalisé, soit en l’ayant pensé nous-même soit en démarchant les entreprises
+        pour obtenir leurs besoins en termes de protection. Il nous a fallu ensuite mettre en place une
+        plateforme pour mettre en relation les entreprises demandeuses et le FabLab (fabricant) tout en
+        répondant à leurs besoins respectifs au niveau des commandes.<br>
+
+        Nous nous sommes très vite penchés sur le principe d'une vitre de protection, car c'était l'équipement de protection dont le marché
+        n'avait pas encore été envahi. Afin d'ajouter une valeur à notre produit, nous l'avons pensé modulable, pour être utilisable sur
+        n'importe quelle surface. C'est donc dans cette optique que nous avons commencé notre travail pour en arriver à sa production et
+        sa distribution.
+        </h4>
+    </div>
+  </div>
+</div>
+
+</div>
+
+@endsection

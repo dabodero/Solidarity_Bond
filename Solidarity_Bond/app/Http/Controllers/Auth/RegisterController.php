@@ -54,11 +54,16 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'Nom' => ['required', 'string', 'max:40'],
-            'Prenom' => ['required', 'string', 'max:40'],
+            'Nom' => ['required', 'string', 'max:40', function($attribute, $value, $fail){
+                if(!preg_match('/^[A-Za-z]{1,40}$/',$value)){ $fail("Ce champ semble incorrect."); }
+            }],
+            'Prenom' => ['required', 'string', 'max:40', function($attribute, $value, $fail){
+                if(!preg_match('/^[A-Za-z]{1,40}$/',$value)){ $fail("Ce champ semble incorrect."); }
+            }],
             'Entreprise' => ['required', 'string', 'max:100'],
             'Mail' => ['required', 'string', 'email', 'max:100', 'unique:utilisateurs'],
-            'Telephone' => ['required', 'string', 'max:10', 'regex:/(^[0-9]{10}$)/'],
+            'Telephone' => ['required', 'string', 'max:10', 'regex:/(^(0[1-9])[0-9]{8}$)/'],
+            'SIRET' => ['required', 'string', 'regex:/^[0-9]{14}$/'],
             'MotDePasse' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }

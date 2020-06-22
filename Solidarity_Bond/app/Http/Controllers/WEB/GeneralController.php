@@ -6,6 +6,7 @@ use App\Models\Liker;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class GeneralController extends Controller
 {
@@ -25,6 +26,26 @@ class GeneralController extends Controller
 
     public function contact(){
         return view(self::nom_dossier.'contact');
+    }
+    public function postContact(Request $request){
+    $this->validate($request, [
+        'email'=> 'required|email',
+        'subject' => 'min:3',
+        'message' => 'min:10']);
+
+    $data = array(
+        'email' => $request ->email,
+        'subject' => $request->subject,
+        'bodyMessage' => $request->message
+    );
+
+    Mail::send('emails.contact', $data, function($message) use($data){
+        $message ->from($data['email']);
+        $message->to('contact@solidaritybond.fr');
+        $message->subject($data['subject']);
+
+    });
+    return redirect('/');
     }
 
     public function cgv(){
