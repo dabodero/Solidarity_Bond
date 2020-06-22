@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('title',"Accueil")
 @section('meta-description',"Page d'accueil du site")
+
+@flash('mailEnvoye')
+    @include('layouts.flash', ['variable'=>'mailEnvoye'])
+@endflash
+
 @section('content')
 
 <div class="container col-11">

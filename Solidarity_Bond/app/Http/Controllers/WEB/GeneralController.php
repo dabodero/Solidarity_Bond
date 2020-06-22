@@ -45,7 +45,8 @@ class GeneralController extends Controller
         $message->subject($data['subject']);
 
     });
-    return redirect('/');
+
+    return redirect('/')->with('mailEnvoye', ['titre'=>'Votre mail a été envoyé !', 'message'=>'Notre équipe va prendre en compte votre mail.']);
     }
 
     public function cgv(){
