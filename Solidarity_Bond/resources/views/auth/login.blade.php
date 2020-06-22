@@ -3,7 +3,7 @@
 @section('title', 'Authentification')
 
 @section('ajoutsHead')
-    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/auth/login.css') }}">
 @endsection
 
 @section('content')

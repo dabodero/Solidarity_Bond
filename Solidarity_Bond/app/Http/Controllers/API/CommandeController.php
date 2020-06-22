@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Commande;
+use Carbon\Carbon;
 use http\Client\Response;
 use Illuminate\Http\Request;
 
@@ -27,6 +28,12 @@ class CommandeController extends Controller
      */
     public function store(Request $request)
     {
+        if(! $request->has('Date')){
+            $request['Date']=Carbon::now()->translatedFormat('Y-m-d');
+        }
+        if(! $request->has('Terminee')){
+            $request['Terminee']=0;
+        }
         Commande::create($request->all());
     }
 

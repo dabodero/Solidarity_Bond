@@ -3,7 +3,7 @@
 @section('title', 'Fablab')
 
 @section('ajoutsHead')
-    <link rel="stylesheet" href="{{ asset('assets/css/fablab.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/fablab/fablab.css') }}">
 @endsection
 
 @section('ajoutsScripts')

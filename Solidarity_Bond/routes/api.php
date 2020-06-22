@@ -32,6 +32,18 @@ Route::namespace('API')->group(function (){
         Route::get('{utilisateur}/commandes', 'UtilisateurController@commandes')->name('utilisateur.commandes');
     });
 
+    Route::group(['prefix'=>'produit'], function(){
+       Route::get('{produit}/commentaires', 'ProduitController@commentaires')->name('produit.commentaires');
+    });
+
+    Route::group(['prefix'=>'commentaire'], function(){
+        Route::prefix('{commentaire}')->group(function(){
+            Route::get('likesCount', 'CommentaireController@likesCount')->name('commentaire.likescount');
+            Route::post('liker-unliker', 'CommentaireController@liker')->name('commentaire.liker-unliker');
+        });
+
+    });
+
     Route::apiResource('role', 'RoleController');
     Route::apiResource('produit', 'ProduitController');
     Route::apiResource('utilisateur', 'UtilisateurController');

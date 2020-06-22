@@ -3,7 +3,7 @@
 @section('title', 'Inscription')
 
 @section('ajoutsHead')
-    <link rel="stylesheet" href="{{ asset('assets/css/register.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/auth/register.css') }}">
 @endsection
 
 @section('content')

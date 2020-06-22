@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\QueryException;
 
 class Commentaire extends Model
 {
@@ -29,6 +30,18 @@ class Commentaire extends Model
 
     public function likesCount(){
         return $this->likes()->count();
+    }
+
+    public function likeOuUnlikePar($ID_Utilisateur)
+    {
+        try {
+            Liker::create([
+                'ID_Utilisateur' => $ID_Utilisateur,
+                'ID_Commentaire' => $this->ID
+            ]);
+        }catch (QueryException $queryException){
+            Liker::where([['ID_Utilisateur','=',$ID_Utilisateur],['ID_Commentaire','=', $this->ID]])->first()->delete();
+        }
     }
 
 }

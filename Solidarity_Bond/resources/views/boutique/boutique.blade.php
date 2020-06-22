@@ -3,7 +3,7 @@
 @section('title', 'Boutique')
 
 @section('ajoutsHead')
-    <link rel="stylesheet" href="{{ asset('assets/css/boutique.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/boutique/boutique.css') }}">
 @endsection
 
 @section('content')
@@ -28,9 +28,11 @@
                         </div>
                     </div>
                     <a type="button" href="{{route('produit', ['ID_Produit' => $produit->ID])}}" class="btn btn-outline-primary mr-2">En savoir plus</a>
-                    <form action="{{route('ajouterAuPanier', ['ID_Produit' => $produit->ID, 'Quantite'=>1])}}" method="post" class="d-inline-block no-gutters form-button">
+                    <form action="{{route('ajouterAuPanier', ['ID_Produit' => $produit->ID])}}" method="post" class="d-inline-block no-gutters form-button">
                         @csrf
-                        <input type="submit" name="ajoutProduit" class="btn btn-outline-primary ml-2" value="Ajouter au panier"></input>
+                        <input type="submit" class="btn btn-outline-primary ml-2" value="Ajouter au panier">
+                        <input type="text" name="Produit" value="{{$produit->Nom}}" hidden>
+                        <input type="number" name="Quantite" value=1 hidden>
                     </form>
 
                 </div>

@@ -1,0 +1,111 @@
+.side-navigator{
+    background-color: #BBBBBB;
+}
+
+.carousel{
+    background-color: #EEEEEE;
+}
+
+.presentation-produit{
+    border-color: lightgray;
+    border-style: double;
+    border-width: 15px;
+    border-top-right-radius: 60px;
+    border-bottom-left-radius: 60px;
+    border-top: none;
+    border-bottom: none;
+}
+
+.nom-produit{
+    font-size: xx-large;
+}
+
+.bouton-panier{
+    color: black;
+    background-color: #0E9A00;
+}
+
+.bouton-panier:hover{
+    color: #0E9A00;
+    background-color: black;
+    border-color: black;
+}
+
+.bouton-ajout-panier{
+    color: black;
+}
+
+.bouton-ajout-panier:hover{
+    color: #FFD433;
+    background-color: black;
+    border-color: black;
+}
+
+.accroche-commentaire{
+    font-size: medium;
+    font-style: italic;
+}
+
+#aireCommentaire{
+    border-color: rgb(60,80,100);
+    background-color: #FAFAFF;
+}
+
+.bouton-commentaire{
+    background-color: rgba(20, 160, 200, 0.2);
+    border-color: rgb(60,80,100);
+    color: #444444;
+}
+
+.bouton-commentaire:hover{
+    background-color: rgba(20,160,200, 0.4);
+    border-color: rgb(20,40,60);
+    color: black;
+}
+
+.separation{
+
+}
+
+.titre-section-commentaire{
+    font-size: 4rem;
+    font-weight: bold;
+    color: #221144;
+    text-decoration: underline;
+}
+
+.commentaire{
+    border: solid;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 30px;
+}
+
+.like{
+    color: #5A87DD;
+    font-size: 3em;
+    position: relative;
+    top: 1rem;
+}
+
+@media (max-width: 767px) {
+    .like{
+        position: static;
+    }
+}
+
+.like-number{
+    position: relative;
+    top: 0.8rem
+}
+
+.input-like{
+    color: rgba(255,255,255,0);
+    background-color: rgba(255,255,255,0);
+    border: none;
+    position: relative;
+}
+
+.input-like:focus{
+    outline: none;
+}

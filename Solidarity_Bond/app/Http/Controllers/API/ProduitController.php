@@ -62,4 +62,9 @@ class ProduitController extends Controller
     {
         $produit->delete();
     }
+
+    public function commentaires(Produit $produit){
+        return $produit->commentairesFormates();
+    }
+
 }

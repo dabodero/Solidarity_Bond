@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Commentaire;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class CommentaireController extends Controller
@@ -26,6 +27,9 @@ class CommentaireController extends Controller
      */
     public function store(Request $request)
     {
+        if(! $request->has('Date')){
+            $request['Date']=Carbon::now()->translatedFormat('Y-m-d');
+        }
         Commentaire::create($request->all());
     }
 
@@ -61,5 +65,14 @@ class CommentaireController extends Controller
     public function destroy(Commentaire $commentaire)
     {
         $commentaire->delete();
+    }
+
+    public function liker(Request $request, Commentaire $commentaire){
+        $commentaire->likeOuUnlikePar($request->ID_Utilisateur);
+        return response('');
+    }
+
+    public function likesCount(Commentaire $commentaire){
+        return $commentaire->likesCount();
     }
 }
