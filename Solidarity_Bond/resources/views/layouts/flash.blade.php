@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body bg-success">
+            <div class="modal-body test">
                 {{session()->get($variable)['message']}}
             </div>
         </div>

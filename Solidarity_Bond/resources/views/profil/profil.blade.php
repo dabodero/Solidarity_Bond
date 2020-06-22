@@ -3,7 +3,9 @@
 @section('title',"Votre profil")
 
 @section('meta-description',"Page de profil")
-
+@section('ajoutsHead')
+    <link rel="stylesheet" href="{{ asset('assets/css/profil/profil.css') }}">
+@endsection
 @section('content')
 
 @flash('commandeValidee')
