@@ -50,11 +50,8 @@
                     <p class="text-justify">{{$produit->Description}}</p>
                     <div class="row justify-content-end no-gutters pb-2">
                         <a href="{{route('panier')}}" name="panier" class="btn btn-outline-success bouton-panier col-md-2 col-sm-3 col-4 mr-1"><i class="fas fa-shopping-basket"></i></a>
-                        <form action="{{route('ajouterAuPanier', ['ID_Produit' => $produit->ID, 'Quantite'=>1])}}" method="post" class="col-md-2 col-sm-3 col-4">
-                            @csrf
-                            <button type="submit" class="btn btn-warning btn-outline-warning col-12 ml-1 bouton-ajout-panier"><i class="fas fa-plus"></i><i class="fas fa-cart-arrow-down"></i></button>
-                            <input type="text" name="Produit" value="{{$produit->Nom}}" hidden>
-                        </form>
+                        <button id="{{$produit->ID}}" type="submit" class="btn btn-warning btn-outline-warning col-md-2 col-sm-3 col-4 ml-1 bouton-ajout-panier" onclick="incrementerQuantite(this.id)"><i class="fas fa-plus"></i><i class="fas fa-cart-arrow-down"></i></button>
+                        <input id="Nom" type="text" name="Produit" value="{{$produit->Nom}}" hidden>
                     </div>
                 </div>
             </div>
@@ -79,10 +76,10 @@
             Qu'en pensent nos utilisateurs ?
         </div>
     </div>
-    <div id="espaceCommentaires" class="row no-gutters mt-5">
+    <div id="espaceCommentaires" class="row no-gutters my-5">
         @if($produit->commentaires()->isEmpty())
 
-            <div class="col-12">
+            <div id="no-comment" class="col-12 text-center">
                 Pas de commentaire à afficher... Soyez le premier visiteur à en laisser un !
             </div>
 

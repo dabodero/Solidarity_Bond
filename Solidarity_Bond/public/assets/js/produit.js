@@ -12,6 +12,10 @@ async function posterCommentaire() {
             document.getElementById('aireCommentaire').value="";
         }
     });
+    let noComment = document.getElementById("no-comment");
+    if(noComment!=null){
+        noComment.remove();
+    }
 
 }
 
@@ -35,7 +39,7 @@ function chargerCommentaires(){
                 });
             } else if($("#espaceCommentaires").isEmpty()){
                 $("#espaceCommentaires").append(
-                    "<div class=\"col-12\">" +
+                    "<div id=\"no-comment\" class=\"col-12 text-center\">" +
                         "Pas de commentaire à afficher... Soyez le premier visiteur à en laisser un !" +
                     "</div>"
                 );
@@ -108,6 +112,16 @@ function setNombreLikesElement(ID){
     });
 }
 
+function incrementerQuantite(ID_Produit) {
+    let Produit = document.getElementById("Nom").value;
+    let Token = $('meta[name="csrf-token"]').attr('content');
+    let donnees = "ID_Produit=" + ID_Produit + "&Produit=" + Produit + "&_token=" + Token;
+    $.ajax({
+        url: '/boutique/panier',
+        type: 'post',
+        data: donnees
+    });
+}
 
 $(document).ready(function() {
    window.setInterval(chargerCommentaires, 60000);
