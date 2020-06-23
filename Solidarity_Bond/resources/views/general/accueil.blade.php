@@ -112,10 +112,10 @@
         		<div class="avatar mx-auto w-100 white"><img src="{{ asset('assets/img/logo_cesi.png') }}" alt="avatar mx-auto white" class="rounded img-fluid"></div>
         			<div class="card-body">
           				<!--Name-->
-          				<h4 class="card-title mt-1"><a href="https://www.cesi.fr/">CESI</a></h4>
+          				<h4 class="card-title mt-1"><a href="https://www.cesi.fr/" class="text-dark">CESI</a></h4>
           				<hr>
           				<!--Quotation-->
-          				<div class="bg-light">
+          				<div class="bg-light border">
           					<p>Ecole d'ingénieurs</p>
           					<p><i class="fas fa-phone"> </i> 04 72 18 89 89</p>
           					<p><i class="fas fa-home"></i> 19 Avenue Guy de Collongue, 69130 Écully</p>
@@ -129,10 +129,10 @@
         		<div class="avatar mx-auto w-100 white"><img src="{{ asset('assets/img/titi3.jpg.png') }}" alt="avatar mx-auto white" class="rounded img-fluid"></div>
         		<div class="card-body">
           			<!--Name-->
-          			<h4 class="card-title mt-1"><a href="https://www.linkedin.com/in/titouan-narbey-7b63a4188/">Titouan Narbey</a></h4>
+          			<h4 class="card-title mt-1"><a href="https://www.linkedin.com/in/titouan-narbey-7b63a4188/" class="text-dark">Titouan Narbey</a></h4>
           			<hr>
           			<!--Quotation-->
-          			<div class="bg-light">
+          			<div class="bg-light border">
           				<p>Freelancer </p>
           				<p> <i class="fab fa-github"></i><a href="https://github.com/TitouanNarbey"> Github</a></p>
           			</div>
@@ -145,10 +145,10 @@
         		<div class="avatar mx-auto w-100 white"><img src="{{ asset('assets/img/sponso2.jpg') }}" alt="avatar mx-auto white" class="rounded img-fluid"></div>
         		<div class="card-body ">
           			<!--Name-->
-          			<h4 class="card-title mt-1"><a href="http://www.vinsdecrenisse.com/">Vins decrenisses</a></h4>
+          			<h4 class="card-title mt-1"><a href="http://www.vinsdecrenisse.com/" class="text-dark">Vins decrenisses</a></h4>
           			<hr>
           			<!--Quotation-->
-          			<div class="bg-light">
+          			<div class="bg-light border">
           				<p>Exploitation viticole</p>
           				<p><i class="fas fa-phone"> </i> 04 72 18 94 67</p>
           				<p><i class="fas fa-home"></i> 911 Chemin du Petit Fromentin, 69380 Chasselay</p>

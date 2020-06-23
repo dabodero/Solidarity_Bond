@@ -11,7 +11,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header text-center"><h3>{{ __('Contact') }}</h3></div>
+                    <div class="card-header text-center btn-cesi"><h3>{{ __('Contact') }}</h3></div>
 
                     <div class="card-body">
                         <form method="POST" action="{{route('contact')}}">
