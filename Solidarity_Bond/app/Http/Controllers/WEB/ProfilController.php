@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\WEB;
 
+use App\Http\Controllers\Auth\ValidatorConstants;
 use App\Models\Commande;
 use App\Models\Utilisateur;
 use Illuminate\Http\Request;
@@ -42,15 +43,14 @@ class ProfilController extends Controller
     {
         return Validator::make($data, [
             'Nom' => ['required', 'string', 'max:40', function($attribute, $value, $fail){
-                if(!preg_match('/^[A-Za-z]{1,40}$/',$value)){ $fail("Ce champ semble incorrect."); }
+                if(!preg_match('/^['.ValidatorConstants::REGEX_ALPHABET_AVEC_ACCENTS.']{1,40}$/',$value)){ $fail("Ce champ semble incorrect."); }
             }],
             'Prenom' => ['required', 'string', 'max:40', function($attribute, $value, $fail){
-                if(!preg_match('/^[A-Za-z]{1,40}$/',$value)){ $fail("Ce champ semble incorrect."); }
+                if(!preg_match('/^['.ValidatorConstants::REGEX_ALPHABET_AVEC_ACCENTS.']{1,40}$/',$value)){ $fail("Ce champ semble incorrect."); }
             }],
             'Entreprise' => ['required', 'string', 'max:100'],
-            'Mail' => ['required', 'string', 'email', 'max:100'],
+            'Mail' => ['required', 'string', 'unique:utilisateurs', 'max:100'],
             'Telephone' => ['required', 'string', 'max:10', 'regex:/(^(0[1-9])[0-9]{8}$)/'],
-            'SIRET' => ['required', 'string', 'regex:/^[0-9]{14}$/']
         ]);
     }
 

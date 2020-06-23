@@ -23,7 +23,6 @@ class CreateUtilisateursTable extends Migration
             $table->string("MotDePasse", 60);
             $table->string('Entreprise', 100)->nullable();
             $table->string("Telephone", 10)->nullable();
-            $table->string("SIRET", 20)->unique()->nullable();
         });
     }
 

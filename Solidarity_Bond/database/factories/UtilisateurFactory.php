@@ -14,6 +14,5 @@ $factory->define(Utilisateur::class, function (Faker $faker) {
         'MotDePasse' => $faker->password,
         'Entreprise' => $faker->company,
         'Telephone' => $faker->regexify("0[0-9]{9}"),
-        'SIRET' => $faker->unique()->text(20)
     ];
 });

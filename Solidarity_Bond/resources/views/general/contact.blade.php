@@ -17,13 +17,13 @@
                         <form method="POST" action="{{route('contact')}}">
                             @csrf
                             <div class="form-group row">
-                                <label for="email" class="col-md-2 col-form-label text-md-right">{{ __('Adresse mail :') }}</label>
+                                <label for="mail" class="col-md-2 col-form-label text-md-right">{{ __('Adresse mail :') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                           name="email" value=@auth"{{auth()->user()->Mail}}"@endauth @guest"{{ old('email') }}"@endguest autofocus>
+                                    <input id="mail" type="email" class="form-control @error('mail') is-invalid @enderror"
+                                           name="mail" value=@auth"{{auth()->user()->Mail}}"@endauth @guest"{{ old('mail') }}"@endguest autofocus>
 
-                                    @error('email')
+                                    @error('mail')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -32,13 +32,13 @@
 
                             </div>
                             <div class="form-group row">
-                                <label for="subject" class="col-md-2 col-form-label text-md-right">{{ __('Motif :') }}</label>
+                                <label for="motif" class="col-md-2 col-form-label text-md-right">{{ __('Motif :') }}</label>
 
                                 <div class="col-md-9">
-                                    <input id="subject" type="text" class="form-control @error('subject') is-invalid @enderror"
-                                           name="subject" value="{{ old('subject') }}" autofocus>
+                                    <input id="motif" type="text" class="form-control @error('motif') is-invalid @enderror"
+                                           name="motif" value="{{ old('motif') }}" autofocus>
 
-                                    @error('subject')
+                                    @error('motif')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

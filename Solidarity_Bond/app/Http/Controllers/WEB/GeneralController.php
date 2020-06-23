@@ -30,20 +30,19 @@ class GeneralController extends Controller
 
     public function postContact(Request $request){
     $this->validate($request, [
-        'email'=> 'required|email',
-        'subject' => 'min:3',
-        'message' => 'min:10']);
+        'mail'=> 'required|email',
+        'motif' => 'required']);
 
     $data = array(
-        'email' => $request ->email,
-        'subject' => $request->subject,
+        'mail' => $request ->mail,
+        'motif' => $request->subject,
         'bodyMessage' => $request->message
     );
 
     Mail::send('emails.contact', $data, function($message) use($data){
-        $message->from($data['email']);
+        $message->from($data['mail']);
         $message->to('solidaritybondcesilyon@gmail.com');
-        $message->subject('Contact : '.$data['subject']);
+        $message->subject('Contact : '.$data['motif']);
 
     });
 

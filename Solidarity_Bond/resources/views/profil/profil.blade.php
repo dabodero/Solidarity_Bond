@@ -74,7 +74,7 @@
                               <div class="form-group row">
                                 <label class="col-4 col-form-label">Entreprise</label>
                                 <div class="col-8">
-                                  <input id="Entreprise"  name="Entreprise" value="{{Auth::user()->Entreprise}}" class="form-control here @error('Entreprise') is-invalid @enderror" required="required" type="text">
+                                  <input id="Entreprise"  name="Entreprise" @if(Auth::user()->Entreprise!=null)value="{{Auth::user()->Entreprise}}" @else value="" placeholder="Vide" @endif class="form-control here @error('Entreprise') is-invalid @enderror" required="required" type="text">
 @error('Entreprise')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -85,7 +85,7 @@
                               <div class="form-group row">
                                 <label class="col-4 col-form-label">Téléphone</label>
                                 <div class="col-8">
-                                  <input id="Telephone"  name="Telephone" value="{{Auth::user()->Telephone}}" class="form-control here @error('Telephone') is-invalid @enderror" required="required" type="text">
+                                  <input id="Telephone"  name="Telephone" @if(Auth::user()->Telephone!=null)value="{{Auth::user()->Telephone}}" @else value="" placeholder="Vide" @endif class="form-control here @error('Telephone') is-invalid @enderror" required="required" type="text">
  @error('Telephone')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -93,19 +93,6 @@
                                 @enderror
                                 </div>
                               </div>
-                              <div class="form-group row">
-                                <label class="col-4 col-form-label">SIRET</label>
-                                <div class="col-8">
-                                  <input id="SIRET"  name="SIRET" value="{{Auth::user()->SIRET}}" class="form-control here @error('SIRET') is-invalid @enderror" required="required" type="text">
- @error('SIRET')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                </div>
-                              </div>
-
-
 
                                        <button type="submit" class="btn btn-primary btn-block mt-2">Modifier les données</button>
                             </form>

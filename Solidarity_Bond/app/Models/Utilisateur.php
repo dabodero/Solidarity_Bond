@@ -16,9 +16,9 @@ class Utilisateur extends Model implements Authenticatable
 
     public $timestamps = false;
 
-    protected $fillable = ['ID_Role', 'Nom', 'Prenom', 'Mail', 'MotDePasse', 'Entreprise', 'Telephone', 'SIRET'];
+    protected $fillable = ['ID_Role', 'Nom', 'Prenom', 'Mail', 'MotDePasse', 'Entreprise', 'Telephone'];
 
-    protected $hidden = ['MotDePasse', 'SIRET'];
+    protected $hidden = ['MotDePasse'];
 
     public function role(){
         return $this->hasOne(Role::class)->first();
