@@ -20,7 +20,7 @@
         @foreach($produits as $produit)
         <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="card mt-5">
-                <div class="card-header">{{$produit->Nom}}</div>
+                <div class="card-header btn-cesi">{{$produit->Nom}}</div>
                 @php $premierePhoto = $produit->photos()->first(); @endphp
                 <img class="card-img-top" src="{{asset(__($premierePhoto->CheminAcces).__($premierePhoto->Nom))}}" alt="{{$premierePhoto->Description}}">
                 <div class="card-body">
@@ -41,6 +41,7 @@
         @endforeach
     </div>
  </div>
+
 
 
 @endsection

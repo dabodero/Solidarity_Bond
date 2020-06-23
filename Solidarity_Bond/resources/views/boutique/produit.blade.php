@@ -26,7 +26,7 @@
                         @else
                             <div class="carousel-item text-center">
                         @endif
-                                <img class="d-block mx-auto w-100" src="{{asset(__($photo->CheminAcces).__('/').__($photo->Nom))}}" alt="First slide">
+                                <img class="d-block mx-auto w-100" src="{{asset(__($photo->CheminAcces).__('/').__($photo->Nom))}}" alt="{{asset($photo->Description)}}">
                             </div>
                     @endforeach
                 </div>
@@ -46,9 +46,8 @@
                 <div class="col-12 presentation-produit pt-2 pb-2">
                     <div class="row justify-content-start no-gutters">
                         <h4 class="mt-3 nom-produit">{{$produit->Nom}}</h4>
-
-                        <p class="text-justify">{{$produit->Description}}</p>
                     </div>
+                    <p class="text-justify">{{$produit->Description}}</p>
                     <div class="row justify-content-end no-gutters pb-2">
                         <a href="{{route('panier')}}" name="panier" class="btn btn-outline-success bouton-panier col-md-2 col-sm-3 col-4 mr-1"><i class="fas fa-shopping-basket"></i></a>
                         <form action="{{route('ajouterAuPanier', ['ID_Produit' => $produit->ID, 'Quantite'=>1])}}" method="post" class="col-md-2 col-sm-3 col-4">
@@ -64,7 +63,7 @@
                 <div class="col-12 pb-lg-4">
                     <label for="aireCommentaire" class="col-10 m-0 p-0 pl-2 accroche-commentaire">Exprimez-vous sur le produit :</label>
                     <textarea class="form-control" id="aireCommentaire" rows="4" maxlength="500" placeholder="Saisissez votre commentaire ici..."></textarea>
-                    <input type="submit" onclick="posterCommentaire()" class="col-12 btn btn-outline-primary bouton-commentaire" value="Envoyer le commentaire"></input>
+                    <input type="submit" onclick="posterCommentaire()" class="col-12 btn btn-outline-primary bouton-commentaire mt-2" value="Envoyer le commentaire"></input>
                 </div>
             </div>
             @endauth
@@ -76,7 +75,7 @@
         </div>
     </div>
     <div class="row no-gutters">
-        <div class="col-12 titre-section-commentaire text-center">
+        <div class="col-12 titre-section-commentaire text-center text-dark">
             Qu'en pensent nos utilisateurs ?
         </div>
     </div>

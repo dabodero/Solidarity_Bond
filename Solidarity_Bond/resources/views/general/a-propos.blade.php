@@ -18,11 +18,10 @@
         <p class="lead text-muted mb-0">Réduisons ensemble les risques de contaminations</p>
 
       </div>
-      <div class="col-lg-6 d-none d-lg-block"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/illus_kftyh4.png" alt="" class="img-fluid"></div>
+      <div class="col-lg-6 d-none d-lg-block"><img src="{{asset('assets/img/Produit_Fini/Produit_Fini_1.png')}}" alt="illustration du produit" class="img-fluid"></div>
     </div>
   </div>
 </div>
-
 <div class="bg-white py-5">
   <div class="container py-5">
     <div class="row align-items-center mb-5">
@@ -30,10 +29,10 @@
         <h2 class="font-weight-light">Modulable</h2>
         <p class="font-italic text-muted mb-4">Vous avez un grand comptoir ? Un petit bureau ? Pas de panique. Notre produit est conçu pour être utilisé avec plusieurs vitres ou une seule afin d'ajuster la protection à son lieu d'utilisation.</p>
       </div>
-      <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556834139/img-1_e25nvh.jpg" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+      <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="{{asset('assets/img/a_propos/no_money.png')}}" alt="" class="img-fluid mb-4 mb-lg-0"></div>
     </div>
     <div class="row align-items-center">
-      <div class="col-lg-5 px-5 mx-auto"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/img-2_vdgqgn.jpg" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+      <div class="col-lg-5 px-5 mx-auto"><img src="{{asset('assets/img/a_propos/no-money.png')}}" alt="illustration N°1 : no money" class="img-fluid mb-4 mb-lg-0"></div>
       <div class="col-lg-6"><i class="fas fa-comments-dollar fa-2x mb-3 text-primary"></i>
         <h2 class="font-weight-light">Gratuite</h2>
         <p class="font-italic text-muted mb-4">Dans le but de lutter activement contre le COVID-19, le CESI s'engage à offrir grâcieusement tous les produits disponibles sur ce site.</p><a href="https://www.cesi.fr/covid-19-cesi-sengage-a-travers-son-reseau-de-labcesi-pour-venir-en-aide-aux-professionnels-mobilises/" class="btn btn-light px-5 rounded-pill shadow-sm">En savoir plus</a>
@@ -44,7 +43,7 @@
         <h2 class="font-weight-light">Facile à utiliser</h2>
         <p class="font-italic text-muted mb-4">Notre produit est très simple d'utilisation. En effet, il suffit de relier les différentes vitres avec les attaches fournies et de poser l'ensemble sur les supports. Enfantin non ?</p>
       </div>
-      <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556834139/img-1_e25nvh.jpg" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+      <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="{{asset('assets/img/a_propos/easy.png')}}" alt="illustration N°2 : Check" class="img-fluid mb-4 mb-lg-0"></div>
     </div>
 
   </div>
@@ -62,42 +61,24 @@
     <div class="row text-center">
       <!-- Team item-->
       <div class="col-xl-3 col-sm-6 mb-5">
-        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556834132/avatar-4_ozhrib.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{{asset('assets/img/groupe/bruno.jpg')}}" alt="Photo de Bruno Clappe" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
           <h5 class="mb-0">Bruno Clappe</h5><span class="small text-uppercase text-muted">Chef de projet</span>
-          <ul class="social mb-0 list-inline mt-3">
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-          </ul>
         </div>
       </div>
       <!-- End-->
 
       <!-- Team item-->
       <div class="col-xl-3 col-sm-6 mb-5">
-        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556834130/avatar-3_hzlize.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{{asset('assets/img/groupe/gaultier.jpg')}}" alt="Photo de Gaultier Geelen" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
           <h5 class="mb-0">Gaultier Geelen</h5><span class="small text-uppercase text-muted">Webmaster</span>
-          <ul class="social mb-0 list-inline mt-3">
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-          </ul>
         </div>
       </div>
       <!-- End-->
 
       <!-- Team item-->
       <div class="col-xl-3 col-sm-6 mb-5">
-        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556834133/avatar-2_f8dowd.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{{asset('assets/img/groupe/lois.png')}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
           <h5 class="mb-0">Loïs Cèbe</h5><span class="small text-uppercase text-muted">Directeur Financier</span>
-          <ul class="social mb-0 list-inline mt-3">
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-          </ul>
         </div>
       </div>
   </div>
@@ -128,3 +109,4 @@
 </div>
 
 @endsection
+
