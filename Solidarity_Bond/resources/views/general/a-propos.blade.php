@@ -18,7 +18,7 @@
         <p class="lead text-muted mb-0">Réduisons ensemble les risques de contaminations</p>
 
       </div>
-      <div class="col-lg-6 d-none d-lg-block"><img src="{{asset('assets/img/Produit_Fini/Produit_Fini_1.png')}}" alt="illustration du produit" class="img-fluid"></div>
+      <div class="col-lg-6 d-none d-lg-block"><img src="{{asset('assets/img/Produit_Fini/Produit_Fini_1.png')}}" alt="Photo du produit" class="img-fluid"></div>
     </div>
   </div>
 </div>
@@ -28,8 +28,7 @@
       <div class="col-lg-6 order-2 order-lg-1"><i class="fas fa-cogs fa-2x mb-3 text-primary"></i>
         <h2 class="font-weight-light">Modulable</h2>
         <p class="font-italic text-muted mb-4">Vous avez un grand comptoir ? Un petit bureau ? Pas de panique. Notre produit est conçu pour être utilisé avec plusieurs vitres ou une seule afin d'ajuster la protection à son lieu d'utilisation.</p>
-      </div>
-      <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="{{asset('assets/img/a_propos/no_money.png')}}" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+      </div> 
     </div>
     <div class="row align-items-center">
       <div class="col-lg-5 px-5 mx-auto"><img src="{{asset('assets/img/a_propos/no-money.png')}}" alt="illustration N°1 : no money" class="img-fluid mb-4 mb-lg-0"></div>
@@ -77,7 +76,7 @@
 
       <!-- Team item-->
       <div class="col-xl-3 col-sm-6 mb-5">
-        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{{asset('assets/img/groupe/lois.png')}}" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{{asset('assets/img/groupe/lois.png')}}" alt="Photo de Loïs Cèbe" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
           <h5 class="mb-0">Loïs Cèbe</h5><span class="small text-uppercase text-muted">Directeur Financier</span>
         </div>
       </div>

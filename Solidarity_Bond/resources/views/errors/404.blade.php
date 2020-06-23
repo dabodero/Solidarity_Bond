@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-lg-12 text-center mt-5">
-        <img src="http://image.noelshack.com/fichiers/2020/25/7/1592763216-404.jpg">
+        <img src="{{asset('assets/img/404/404.jpg')}}" alt="Erreur 404">
     </div>
     <div class="col-lg-12 text-center text-bold">
         Erreur 404...
