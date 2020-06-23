@@ -75,4 +75,8 @@ class CommentaireController extends Controller
     public function likesCount(Commentaire $commentaire){
         return $commentaire->likesCount();
     }
+
+    public function topTrois(){
+        return Commentaire::topTroisCommentaires();
+    }
 }

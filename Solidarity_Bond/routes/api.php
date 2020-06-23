@@ -40,6 +40,7 @@ Route::namespace('API')->group(function (){
         Route::prefix('{commentaire}')->group(function(){
             Route::get('likesCount', 'CommentaireController@likesCount')->name('commentaire.likescount');
             Route::post('liker-unliker', 'CommentaireController@liker')->name('commentaire.liker-unliker');
+            Route::get('topTrois', 'CommentaireController@topTrois')->name('commentaire.toptrois');
         });
 
     });

@@ -44,4 +44,11 @@ class Commentaire extends Model
         }
     }
 
+    public static function topTroisCommentaires(){
+        $table = Commentaire::all()->each(function($commentaire){
+            $commentaire['Likes']=$commentaire->likesCount();
+        })->sortByDesc('Likes')->take(3);
+        return $table;
+    }
+
 }
