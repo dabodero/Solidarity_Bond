@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Mail\CommandeTerminee;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Mail;
 use phpDocumentor\Reflection\Types\Boolean;
 use Ramsey\Collection\Collection;
 
@@ -46,6 +48,7 @@ class Commande extends Model
 
     public function terminer(){
         $this->update(['Terminee' => 1]);
+        Mail::to($this->utilisateur()->Mail)->send(new CommandeTerminee($this));
     }
 
     public static function commandeNumero($ID){

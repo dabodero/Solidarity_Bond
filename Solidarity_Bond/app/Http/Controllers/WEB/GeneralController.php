@@ -27,6 +27,7 @@ class GeneralController extends Controller
     public function contact(){
         return view(self::nom_dossier.'contact');
     }
+
     public function postContact(Request $request){
     $this->validate($request, [
         'email'=> 'required|email',
@@ -40,9 +41,9 @@ class GeneralController extends Controller
     );
 
     Mail::send('emails.contact', $data, function($message) use($data){
-        $message ->from($data['email']);
-        $message->to('contact@solidaritybond.fr');
-        $message->subject($data['subject']);
+        $message->from($data['email']);
+        $message->to('solidaritybondcesilyon@gmail.com');
+        $message->subject('Contact : '.$data['subject']);
 
     });
 
