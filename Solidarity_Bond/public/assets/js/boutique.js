@@ -8,3 +8,8 @@ function incrementerQuantite(ID_Produit) {
         data: donnees
     });
 }
+
+function pageProduit(ID_Produit_Span){
+    let ID_Produit = ID_Produit_Span.split('_')[1];
+    document.location.href='/boutique/produit/'+ID_Produit;
+}
