@@ -28,7 +28,7 @@
       <div class="col-lg-6 order-2 order-lg-1"><i class="fas fa-cogs fa-2x mb-3 text-primary"></i>
         <h2 class="font-weight-light">Modulable</h2>
         <p class="font-italic text-muted mb-4">Vous avez un grand comptoir ? Un petit bureau ? Pas de panique. Notre produit est conçu pour être utilisé avec plusieurs vitres ou une seule afin d'ajuster la protection à son lieu d'utilisation.</p>
-      </div> 
+      </div>
     </div>
     <div class="row align-items-center">
       <div class="col-lg-5 px-5 mx-auto"><img src="{{asset('assets/img/a_propos/no-money.png')}}" alt="illustration N°1 : no money" class="img-fluid mb-4 mb-lg-0"></div>
@@ -86,7 +86,7 @@
       <!-- End-->
 <div class="bg-white">
   <div class="container py-5">
-    <div class="row h-100 align-items-center py-5">
+    <div class="row h-100 align-items-center py-5 mx-5">
         <h2 class="display-4 font-weight-light mb-5">Le projet</h2>
         <h4 class="font-weight-light"> En ce temps de Covid-19 nous devions réaliser un dispositif permettant d’aider à lutter contre sa
         propagation. Il s’agissait de répondre à un besoin à l‘échelle locale ou régionale pour des établissements
