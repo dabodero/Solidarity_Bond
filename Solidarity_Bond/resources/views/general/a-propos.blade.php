@@ -15,7 +15,7 @@
     <div class="row h-100 align-items-center py-5">
       <div class="col-lg-6">
         <h1 class="display-4">Vitre Anti Covid</h1>
-        <p class="lead text-muted mb-0">Réduisons ensemble les risques de contaminations</p>
+        <p class="lead text-muted mb-0">Réduisons ensemble les risques de contamination</p>
 
       </div>
       <div class="col-lg-6 d-none d-lg-block"><img src="{{asset('assets/img/Produit_Fini/Produit_Fini_1.png')}}" alt="Photo du produit" class="img-fluid"></div>

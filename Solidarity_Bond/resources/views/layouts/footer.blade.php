@@ -18,14 +18,14 @@
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
         <h6 class="text-uppercase font-weight-bold ">
-          <a href="https://www.cesi.fr/" class="text-cesi">Site officiel CESI</a>
+          <a href="cgv" class="text-cesi">CGV</a>
         </h6>
       </div>
       <!-- Grid column -->
 
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
-        <a href="/"><img src="{{ asset('assets/img/logo_cesi_cropped.png') }}"></a>
+        <a href="https://www.cesi.fr/"><img src="{{ asset('assets/img/logo_cesi_cropped.png') }}"></a>
       </div>
       <!-- Grid column -->
 
