@@ -29,6 +29,7 @@ class BoutiqueController extends Controller
         return view(self::nom_dossier.'produit', compact('produit', 'title'));
     }
 
+
     public function panier(){
         $panier = session()->get('panier');
         return view(self::nom_dossier.'panier', compact('panier'));

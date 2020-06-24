@@ -5,15 +5,24 @@ namespace App\Http\Controllers\WEB;
 use App\Models\Liker;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\CommentaireController;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Produit;
+use App\Models\Commentaire;
+
 
 class GeneralController extends Controller
 {
     private const nom_dossier = 'general.';
 
     public function accueil(){
-        return view(self::nom_dossier.'accueil');
+
+        $top3 = Commentaire::topTroisCommentaires();
+       // $title = $produit->Nom;
+        return view(self::nom_dossier.'accueil', compact('top3'));
+       
     }
 
     public function a_propos(){

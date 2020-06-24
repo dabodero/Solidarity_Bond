@@ -8,31 +8,29 @@
 
 @section('content')
 
-<div class="container col-11">
+<div class="container col-11 mt-5">
 	<!--Carousel Wrapper-->
 	<div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
 	  	<!--Slides-->
 	  	<div class="carousel-inner" role="listbox">
 	    	<div class="carousel-item active text-center">
-	        	<img class="d-block mx-auto w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(135).jpg" alt="First slide">
+	        	<img class="d-block mx-auto w-75" src="{{asset('assets/img/Produit_Fini/Produit_Fini_1.png')}}" alt="Produit final">
 	    	</div>
 	    	<div class="carousel-item">
-	      		<img class="d-block mx-auto w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg" alt="Second slide">
+	      		<img class="d-block mx-auto w-75" src="{{asset('assets/img/Attache/Attache_1.png')}}" alt="Exemple d'attache">
 	    	</div>
 	   		<div class="carousel-item">
-	      		<img class="d-block mx-auto w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" alt="Third slide">
+	      		<img class="d-block mx-auto w-75" src="{{asset('assets/img/livraison.png')}}" alt="Livraison">
 	    	</div>
 	  	</div>
 	  	<!--/.Slides-->
 	</div>
 	<!--/.Carousel Wrapper-->
+
+	  <h1 class="section-heading font-weight-light text-center mt-2 mb-5">Equipez votre lieu de travail gratuitement afin de lutter contre le COVID-19</h1>
+
 </div>
 
-
-
-
-
-<!-- à remplacer la section commentary par un foreach qui affiche le top 3 like-->
 
 
 
@@ -41,65 +39,42 @@
 
 
 <!--Section: Commentary-->
-<section class="section pb-3 text-center container col-11">
+<div class="bg-light">
+<section class="section pb-3 text-center container col-11 ">
   <!--Section heading-->
   <h1 class="section-heading h1 pt-4">Commentaires</h1>
   <!--Section description-->
   <p class="section-description">Les avis les plus pertinents, pour vous aider à faire le meilleur choix</p>
 	<div class="row">
 	    <!--Grid column-->
+	    	      	@foreach($top3 as $top)
+                @php $utilisateur = $top->utilisateur(); @endphp
+
 	    <div class="col-lg-4 col-md-12 mb-4">
 	      	<!--Card-->
+	      	
+            
+
+
 	      	<div class="card testimonial-card">
 	        	<!--Background color-->
 	        	<div class="card-up deep-purple lighten-2"></div>
 	        	<!--Avatar-->
-	        	<div class="avatar mx-auto white"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" alt="avatar mx-auto white" class="rounded-circle img-fluid"></div>
+	        	<div class="avatar mx-auto white"></div>
 	        	<div class="card-body">
 	          		<!--Name-->
-	          		<h4 class="card-title mt-1">Maria Kate</h4>
+	          		<h4 class="card-title mt-1">{{$utilisateur->Nom}} {{$utilisateur->Prenom}}, {{$utilisateur->Entreprise}}</h4>
 	          		<hr>
 	          		<!--Commentary-->
-	          		<p><i class="fas fa-quote-left"></i> Un produit incroyable, qui à guérit mon cancer.</p>
+	          		<p><i class="fas fa-quote-left"></i> {{$top->Commentaire}}</p>
 	        	</div>
 	      	</div>
 	    </div>
-	    <!--Grid column-->
-	    <div class="col-lg-4 col-md-12 mb-4">
-	      	<!--Card-->
-	      	<div class="card testimonial-card">
-	        	<!--Background color-->
-	        	<div class="card-up deep-purple lighten-2"></div>
-	        	<!--Avatar-->
-	        	<div class="avatar mx-auto white"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" alt="avatar mx-auto white" class="rounded-circle img-fluid"></div>
-	        	<div class="card-body">
-	          		<!--Name-->
-	          		<h4 class="card-title mt-1">Maria Kate</h4>
-	          		<hr>
-	          		<!--Commentary-->
-	          		<p><i class="fas fa-quote-left"></i> Un produit incroyable, qui à guérit mon cancer.</p>
-	        	</div>
-	      	</div>
-	    </div>
-	    <div class="col-lg-4 col-md-12 mb-4">
-	      	<!--Card-->
-	      	<div class="card testimonial-card">
-	        	<!--Background color-->
-	        	<div class="card-up deep-purple lighten-2"></div>
-	        	<!--Avatar-->
-	        	<div class="avatar mx-auto white"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" alt="avatar mx-auto white" class="rounded-circle img-fluid"></div>
-	        	<div class="card-body">
-	          		<!--Name-->
-	          		<h4 class="card-title mt-1">Maria Kate</h4>
-	          		<hr>
-	          		<!--Commentary-->
-	          		<p><i class="fas fa-quote-left"></i> Un produit incroyable, qui à guérit mon cancer.</p>
-	        	</div>
-	      	</div>
-	    </div>
+	    
+@endforeach
 	</div>
 </section>
-
+</div>
 
 <!--Section: partnership-->
 <section id="Partenaires" class="section pb-3 text-center container col-11">
