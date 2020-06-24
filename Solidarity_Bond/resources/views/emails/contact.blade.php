@@ -3,6 +3,6 @@
     {{$bodyMessage}}
 </div>
 <hr/>
-<p>Envoyé par {{$email}}</p>
+<p>Envoyé par {{$mail}}</p>
 
 
