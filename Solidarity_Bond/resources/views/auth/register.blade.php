@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
@@ -103,7 +103,19 @@
 
                             </div>
                         </div>
-
+                        <div class="form-group ml-5">
+                            <div class="form-check ml-5">
+                                <input class="form-check-input @error('cgv') is-invalid @enderror" type="checkbox" id="cgv" name="cgv">
+                                <label class="form-check-label" for="cgv">
+                                    <a href="{{route('cgv')}}">Conditions générales de vente </a>
+                                </label>
+                                @error('cgv')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="form-group row mb-0 ml-3">
                             <div class="col-md-6 offset-md-5">
                                 <button type="submit" class="btn btn-primary">

@@ -63,8 +63,8 @@ class RegisterController extends Controller
             'Entreprise' => ['required', 'string', 'max:100'],
             'Mail' => ['required', 'string', 'email', 'max:100', 'unique:utilisateurs'],
             'Telephone' => ['required', 'string', 'max:10', 'regex:/(^(0[1-9])[0-9]{8}$)/'],
-            'SIRET' => ['required', 'string', 'regex:/^[0-9]{14}$/'],
             'MotDePasse' => ['required', 'string', 'min:8', 'confirmed'],
+            'cgv' => ['accepted']
         ]);
     }
 
