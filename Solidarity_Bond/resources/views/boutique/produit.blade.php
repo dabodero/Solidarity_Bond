@@ -48,11 +48,13 @@
                         <h4 class="mt-3 nom-produit">{{$produit->Nom}}</h4>
                     </div>
                     <p class="text-justify">{{$produit->Description}}</p>
+                    @auth
                     <div class="row justify-content-end no-gutters pb-2">
                         <a href="{{route('panier')}}" name="panier" class="btn btn-outline-success bouton-panier col-md-2 col-sm-3 col-4 mr-1"><i class="fas fa-shopping-basket"></i></a>
                         <button id="{{$produit->ID}}" type="submit" class="btn btn-warning btn-outline-warning col-md-2 col-sm-3 col-4 ml-1 bouton-ajout-panier" onclick="incrementerQuantite(this.id)"><i class="fas fa-plus"></i><i class="fas fa-cart-arrow-down"></i></button>
                         <input id="Nom" type="text" name="Produit" value="{{$produit->Nom}}" hidden>
                     </div>
+                    @endauth
                 </div>
             </div>
             @auth
