@@ -4,7 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class ResetPasswordController extends Controller
 {
@@ -27,4 +31,44 @@ class ResetPasswordController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+
+    public function showResetForm(Request $request, $token = null)
+    {
+        return view('auth.passwords.reset')->with(
+            ['token' => $token, 'Mail' => $request->Mail]
+        );
+    }
+
+    protected function rules()
+    {
+        return [
+            'token' => 'required',
+            'Mail' => 'required|email',
+            'password' => 'required|confirmed|min:8',
+        ];
+    }
+
+    protected function setUserPassword($user, $password)
+    {
+        $user->MotDePasse = Hash::make($password);
+    }
+
+    protected function credentials(Request $request)
+    {
+        return $request->only(
+            'Mail', 'password', 'password_confirmation', 'token'
+        );
+    }
+
+    protected function resetPassword($user, $password)
+    {
+        $this->setUserPassword($user, $password);
+
+        $user->save();
+
+        event(new PasswordReset($user));
+
+        $this->guard()->login($user);
+    }
+
 }

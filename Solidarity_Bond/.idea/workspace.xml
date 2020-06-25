@@ -1,29 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b76a27c-01e8-4106-ab7b-ca0700b1d124" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/css/apropos.css" afterDir="false" />
+    <list default="true" id="57821cc0-1bf0-41fb-b1c4-a5ad512c25e9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/apropos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/apropos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Utilisateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Utilisateur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UtilisateurFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UtilisateurFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_08_000030_create_utilisateurs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_08_000030_create_utilisateurs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,7 +139,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Mail" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -160,18 +148,12 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
-<<<<<<< Updated upstream
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\wamp\www\Lab\Solidarity_Bond\Solidarity_Bond\app\Models" />
-      <recent name="D:\wamp\www\Lab\Solidarity_Bond\Solidarity_Bond\app" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\wamp\www\Lab\Solidarity_Bond\Solidarity_Bond\resources\views" />
+      <recent name="D:\wamp\www\Lab\Solidarity_Bond\Solidarity_Bond\app\Mail" />
+      <recent name="D:\wamp\www\Lab\Solidarity_Bond\Solidarity_Bond\resources\views\emails" />
     </key>
   </component>
-=======
->>>>>>> Stashed changes
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -195,14 +177,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9b76a27c-01e8-4106-ab7b-ca0700b1d124" name="Default Changelist" comment="" />
+      <changelist id="57821cc0-1bf0-41fb-b1c4-a5ad512c25e9" name="Default Changelist" comment="" />
       <created>1591693757749</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1591693757749</updated>
-      <workItem from="1591693762078" duration="6712000" />
-      <workItem from="1591706412847" duration="5477000" />
-      <workItem from="1591773432653" duration="230000" />
+      <workItem from="1591693762078" duration="4619000" />
+      <workItem from="1593108073835" duration="231000" />
+      <workItem from="1593108313909" duration="6054000" />
     </task>
     <servers />
   </component>
@@ -221,27 +203,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/routes/web.php</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

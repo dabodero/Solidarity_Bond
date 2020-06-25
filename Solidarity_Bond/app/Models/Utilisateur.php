@@ -2,13 +2,17 @@
 
 namespace App\Models;
 
+use App\Mail\ResetMotDePasse;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as BasicAuthenticatable;
+use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Mail;
 
-class Utilisateur extends Model implements Authenticatable
+class Utilisateur extends Model implements Authenticatable, CanResetPassword
 {
-    use BasicAuthenticatable;
+    use BasicAuthenticatable, Notifiable;
 
     protected $table = 'utilisateurs';
 
@@ -41,4 +45,24 @@ class Utilisateur extends Model implements Authenticatable
         return $this->attributes['MotDePasse'];
     }
 
+    /**
+     * Get the e-mail address where password reset links are sent.
+     *
+     * @return string
+     */
+    public function getEmailForPasswordReset()
+    {
+        return $this->Mail;
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param string $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        Mail::to($this->Mail)->send(new ResetMotDePasse($token));
+    }
 }
