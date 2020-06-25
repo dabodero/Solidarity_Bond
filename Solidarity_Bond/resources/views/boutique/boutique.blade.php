@@ -23,7 +23,7 @@
                 <span class="span_{{$produit->ID}}" onclick="pageProduit(this.className)">
                     <div class="card-header btn-cesi">{{$produit->Nom}}</div>
                     @php $premierePhoto = $produit->photos()->first(); @endphp
-                    <img class="card-img-top" src="{{asset(__($premierePhoto->CheminAcces).__($premierePhoto->Nom))}}" alt="{{$premierePhoto->Description}}">
+                    <img class="card-img-top" src="{{asset(__($premierePhoto['CheminAcces']).__($premierePhoto['Nom']))}}" alt="{{$premierePhoto['Description']}}">
                 </span>
                 <div class="card-body">
                     <h5 class="card-title">{{$produit->Nom}}</h5>

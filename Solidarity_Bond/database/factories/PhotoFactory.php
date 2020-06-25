@@ -13,3 +13,7 @@ $factory->define(Photo::class, function (Faker $faker) {
         'Description' => $faker->text(100)
     ];
 });
+
+$factory->state(Photo::class, "Vitre", function(){
+    return ['ID_Produit'=>1, 'Nom'=>'Vitre_1.png', 'CheminAcces'=>'assets/img/Vitre'];
+});

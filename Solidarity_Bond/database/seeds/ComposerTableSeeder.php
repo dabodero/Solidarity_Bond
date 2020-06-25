@@ -14,18 +14,18 @@ class ComposerTableSeeder extends Seeder
         $faker = Faker\Factory::create();
 
         factory(\App\Models\Composer::class, 20)->make()->each(function($composer) use ($faker){
-            $autoIncrementProduit = autoIncrement();
+            static $autoIncrementProduit = 1;
 
             $limit = $faker->numberBetween(0,3);
             $tour=0;
             while($tour<$limit){
-                $autoIncrementProduit->next();
-                $composer->setAttribute('ID_Produit', $autoIncrementProduit->current());
+                $composer->setAttribute('ID_Produit', $autoIncrementProduit++);
                 $composer->setAttribute('Quantite', $faker->numberBetween(1,20));
                 $composerSave = clone $composer;
                 $composerSave->save();
                 $tour++;
             }
+            $autoIncrementProduit = 1;
 
         });
     }
