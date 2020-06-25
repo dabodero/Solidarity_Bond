@@ -32,7 +32,7 @@
                             <label for="Prenom" class="col-md-2 col-form-label text-md-right">{{ __('Prénom') }}</label>
 
                             <div class="col-md-4">
-                                <input id="Prenom" type="text" class="form-control @error('Prenom') is-invalid @enderror" name="Prenom" value="{{ old('Prenom') }}" placeholder="Prenom" >
+                                <input id="Prenom" type="text" class="form-control @error('Prenom') is-invalid @enderror" name="Prenom" value="{{ old('Prenom') }}" placeholder="Prénom" >
 
                                 @error('Prenom')
                                 <span class="invalid-feedback" role="alert">
@@ -103,21 +103,23 @@
 
                             </div>
                         </div>
-                        <div class="form-group ml-5">
-                            <div class="form-check ml-5">
-                                <input class="form-check-input @error('cgv') is-invalid @enderror" type="checkbox" id="cgv" name="cgv">
-                                <label class="form-check-label" for="cgv">
-                                    <a href="{{route('cgv')}}">Conditions générales de vente </a>
-                                </label>
-                                @error('cgv')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        <div class="form-group row">
+                            <div class="col-12 ml-1">
+                                <div class="form-check offset-md-2">
+                                    <input class="form-check-input @error('cgv') is-invalid @enderror" type="checkbox" id="cgv" name="cgv">
+                                    <label class="form-check-label" for="cgv">
+                                        J'accepte les <a href="{{route('cgv')}}">conditions générales de vente</a>.
+                                    </label>
+                                    @error('cgv')
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row mb-0 ml-3">
-                            <div class="col-md-6 offset-md-5">
+                            <div class="col-md-6 offset-md-4 offset-lg-5">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Envoyer') }}
                                 </button>

@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top mb-3">
     <div class="container">
         <a class="navbar-brand" href="{{ route('accueil') }}">
         <img src="{{ asset('assets/img/logo_cesi_cropped.png') }}">
