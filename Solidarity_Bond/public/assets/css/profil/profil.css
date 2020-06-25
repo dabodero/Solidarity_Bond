@@ -1,3 +1,10 @@
 .test{
     background-color: #BDED98;
 }
+
+.backcolor{
+    background: linear-gradient(#F7F7F7 5% ,#EBEBEB 95%);
+}
+.backcolor:hover{
+    cursor: pointer;
+}
