@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class WEBRoutesTest extends TestCase
 {
-
+/*
     public function testAccueilGET()
     {
         $response = $this->get('/');
@@ -117,5 +117,5 @@ class WEBRoutesTest extends TestCase
         $response = $this->get('/');
         $response->assertStatus(200);
     }
-
+*/
 }
