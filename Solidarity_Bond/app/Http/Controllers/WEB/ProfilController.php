@@ -49,7 +49,7 @@ class ProfilController extends Controller
                 if(!preg_match('/^['.ValidatorConstants::REGEX_ALPHABET_AVEC_ACCENTS.']{1,40}$/',$value)){ $fail("Ce champ semble incorrect."); }
             }],
             'Entreprise' => ['required', 'string', 'max:100'],
-            'Mail' => ['required', 'string', 'unique:utilisateurs', 'max:100'],
+            'Mail' => ['required', 'string', 'max:100'],
             'Telephone' => ['required', 'string', 'max:10', 'regex:/(^(0[1-9])[0-9]{8}$)/'],
         ]);
     }

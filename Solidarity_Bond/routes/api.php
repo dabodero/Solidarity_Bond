@@ -45,15 +45,14 @@ Route::namespace('API')->group(function (){
 
     });
 
-    Route::apiResource('role', 'RoleController');
+    //Route::apiResource('role', 'RoleController');
     Route::apiResource('produit', 'ProduitController');
     Route::apiResource('utilisateur', 'UtilisateurController');
-    Route::apiResource('photo', 'PhotoController');
+    //Route::apiResource('photo', 'PhotoController');
     Route::apiResource('commande', 'CommandeController');
-    Route::apiResource('composer', 'ComposerController');
+    //Route::apiResource('composer', 'ComposerController');
     Route::apiResource('commentaire', 'CommentaireController');
-    Route::apiResource('liker', 'LikerController');
-    Route::apiResource('image', 'ImageController');
+    //Route::apiResource('liker', 'LikerController');
 });
 
 

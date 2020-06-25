@@ -19,6 +19,5 @@ class DatabaseSeeder extends Seeder
         $this->call(ComposerTableSeeder::class);
         $this->call(CommentaireTableSeeder::class);
         $this->call(LikerTableSeeder::class);
-        $this->call(ImageTableSeeder::class);
     }
 }
