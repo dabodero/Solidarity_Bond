@@ -22,8 +22,8 @@ class Commande extends Model
         return $this->belongsTo(\App\Models\Utilisateur::class, 'ID_Utilisateur')->first();
     }
 
-    public function composition(){
-        return $this->compositionEloquentBuilder()->get();
+    public function composition($primaryKey = 'ID'){
+        return $this->compositionEloquentBuilder()->get($primaryKey);
     }
 
     public function produitsPourCommandeFormatee(){

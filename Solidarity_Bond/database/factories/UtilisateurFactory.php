@@ -16,3 +16,15 @@ $factory->define(Utilisateur::class, function (Faker $faker) {
         'Telephone' => $faker->regexify("0[0-9]{9}"),
     ];
 });
+
+$factory->state(Utilisateur::class, 'Client', function(){
+    return ['ID_Role'=>1];
+});
+
+$factory->state(Utilisateur::class, 'Admin', function(){
+    return ['ID_Role'=>2];
+});
+
+$factory->state(Utilisateur::class, 'Fablab', function(){
+    return ['ID_Role'=>3];
+});

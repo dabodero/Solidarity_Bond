@@ -22,7 +22,7 @@ class GeneralController extends Controller
         $top3 = Commentaire::topTroisCommentaires();
        // $title = $produit->Nom;
         return view(self::nom_dossier.'accueil', compact('top3'));
-       
+
     }
 
     public function a_propos(){
@@ -44,7 +44,7 @@ class GeneralController extends Controller
 
     $data = array(
         'mail' => $request ->mail,
-        'motif' => $request->subject,
+        'motif' => $request->motif,
         'bodyMessage' => $request->message
     );
 

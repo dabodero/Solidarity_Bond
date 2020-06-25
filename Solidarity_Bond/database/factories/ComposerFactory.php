@@ -5,13 +5,10 @@
 use App\Models\Composer;
 use Faker\Generator as Faker;
 
-$autoIncrementCommande = autoIncrement();
-
-$factory->define(Composer::class, function (Faker $faker) use ($autoIncrementCommande) {
-
-    $autoIncrementCommande->next();
+$factory->define(Composer::class, function (Faker $faker) {
+    static $autoIncrement = 1;
 
     return [
-        'ID_Commande' => $autoIncrementCommande->current(),
+        'ID_Commande' => $autoIncrement++,
     ];
 });

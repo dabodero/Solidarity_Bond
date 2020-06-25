@@ -13,12 +13,12 @@
     @endflash
 
     <div class="container col-11">
-        <div class="row mt-5">
+        <div class="row mt-5 ">
             <div class="col-md-3 ">
-                <div class="list-group mt-2  ">
-                    <a id="choice_1" class="list-group-item list-group-item-action ">Mon compte</a>
-                    <a id="choice_2" class="list-group-item list-group-item-action ">Commandes en cours</a>
-                    <a id="choice_3" class="list-group-item list-group-item-action ">Commandes terminées</a>
+                <div class="list-group mt-2 ">
+                    <a id="choice_1" class="list-group-item list-group-item-action backcolor ">Mon compte</a>
+                    <a id="choice_2" class="list-group-item list-group-item-action backcolor">Commandes en cours</a>
+                    <a id="choice_3" class="list-group-item list-group-item-action backcolor">Commandes terminées</a>
                 </div>
             </div>
             <div class="col-md-9">
