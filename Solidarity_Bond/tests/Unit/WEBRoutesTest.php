@@ -13,7 +13,6 @@ use Tests\TestCase;
 
 class WEBRoutesTest extends TestCase
 {
-    //use RefreshDatabase;
 
     public function testAccueilGET()
     {
@@ -54,15 +53,15 @@ class WEBRoutesTest extends TestCase
         $response = $this->get(route('contact'));
         $response->assertStatus(200);
     }
-/*
+
     public function testContactPOST()
     {
         $response = $this->post('/contact');
-        $response->assertStatus(302);
+        $response->assertRedirect('/');
         $response = $this->post(route('envoimail'));
-        $response->assertStatus(302);
+        $response->assertRedirect('/');
     }
-*/
+
     public function testProfilGET()
     {
         $response = $this->get('/profil');
@@ -73,7 +72,6 @@ class WEBRoutesTest extends TestCase
 
     public function testProfilConnecteGET()
     {
-        $this->createRoles();
         $utilisateur = factory(Utilisateur::class)->make()->first();
         $response = $this->actingAs($utilisateur)->get('/profil');
         $response->assertStatus(200);
@@ -84,32 +82,42 @@ class WEBRoutesTest extends TestCase
     public function testProfilDeleteUserPOST()
     {
         $response = $this->post('/profil/deleteUser');
-        $response->assertStatus(302);
+        $response->assertRedirect(route('login'));
         $response = $this->post(route('deleteUser'));
-        $response->assertStatus(302);
+        $response->assertRedirect(route('login'));
     }
-/*
+
     public function testProfilDeleteUserConnectePOST()
     {
-        $this->createRoles();
         $utilisateur = factory(Utilisateur::class)->create();
         $response = $this->actingAs($utilisateur)->post('/profil/deleteUser');
-        $response->assertStatus(200);
-        if(Utilisateur::find($utilisateur)->get()==$utilisateur){fail("L'utilisateur n'a pas été supprimé.");}
+        $response->assertRedirect();
+        if(Utilisateur::find($utilisateur->ID)!=null){self::fail("L'utilisateur n'a pas été supprimé.");}
         $utilisateur = factory(Utilisateur::class)->create();
-        $response = $this->actingAs($utilisateur)->post(route('deleteUser', [$utilisateur]));
-        $response->assertStatus(200);
-        if(Utilisateur::find($utilisateur)->get()==$utilisateur){fail("L'utilisateur n'a pas été supprimé.");}
+        $response = $this->actingAs($utilisateur)->post(route('deleteUser'));
+        $response->assertRedirect();
+        if(Utilisateur::find($utilisateur->ID)!=null){self::fail("L'utilisateur n'a pas été supprimé.");}
     }
 
     public function testProfilUpdateDataPOST()
     {
-        $this->createRoles();
-        $utilisateur = factory(Utilisateur::class)->create();
-        $response = $this->actingAs($utilisateur)->post('/profil/updateData');
-        $response->assertStatus(200);
+        $response = $this->post('/profil/updateData');
+        $response->assertRedirect(route('login'));
+        $response = $this->post(route('updateData'));
+        $response->assertRedirect(route('login'));
     }
-*/
+
+    public function testProfilUpdateDataConnectePOST()
+    {
+        $utilisateur = Utilisateur::first();
+        $response = $this->actingAs($utilisateur)->post('/profil/updateData'.'?Nom=Test&Prenom=Test&Mail=test@test.test&Entreprise=Test&Telephone=0600000000');
+        if((Utilisateur::find($utilisateur->ID))['Nom']!='Test'){self::fail("Le nom de l'utilisateur n'a pas été changé.");}
+        $response->assertRedirect();
+        $response = $this->actingAs($utilisateur)->post(route('updateData'), ['Nom'=>'Testing', 'Prenom'=>'Testing', 'Mail'=>'testing@testing.testing', 'Entreprise'=>'Testing', 'Telephone'=>'0606060606']);
+        if((Utilisateur::find($utilisateur->ID))['Nom']!='Testing'){self::fail("Le nom de l'utilisateur n'a pas été changé.");}
+        $response->assertRedirect();
+    }
+
     public function testFablabGET()
     {
         $response = $this->get('/fablab');
@@ -118,7 +126,16 @@ class WEBRoutesTest extends TestCase
         $response->assertStatus(302);
     }
 
-    public function testFablabConnecteGET()
+    public function testFablabConnecteClientGET()
+    {
+        $utilisateur = factory(Utilisateur::class, 1)->states('Client')->make()->first();
+        $response = $this->actingAs($utilisateur)->get('/fablab');
+        $response->assertStatus(404);
+        $response = $this->actingAs($utilisateur)->get(route('fablab'));
+        $response->assertStatus(404);
+    }
+
+    public function testFablabConnecteFablabGET()
     {
         $utilisateur = factory(Utilisateur::class, 1)->states('Fablab')->make()->first();
         $response = $this->actingAs($utilisateur)->get('/fablab');
@@ -129,8 +146,6 @@ class WEBRoutesTest extends TestCase
 
     public function testBoutiqueGET()
     {
-//        factory(Produit::class, 1)->states('Vitre')->create();
-//        factory(Photo::class,2)->states('Vitre')->create();
         $response = $this->get('/boutique');
         $response->assertStatus(200);
         $response = $this->get(route('boutique'));
@@ -139,8 +154,6 @@ class WEBRoutesTest extends TestCase
 
     public function testProduitGET()
     {
-//        factory(Produit::class, 1)->states('Vitre')->create();
-//        factory(Photo::class,1)->states('Vitre')->create();
         $response = $this->get('/boutique/produit/1');
         $response->assertStatus(200);
         $response = $this->get(route('produit', 1));
@@ -150,9 +163,9 @@ class WEBRoutesTest extends TestCase
     public function testPanierGET()
     {
         $response = $this->get('/boutique/panier');
-        $response->assertStatus(302);
+        $response->assertRedirect(route('login'));
         $response = $this->get(route('panier'));
-        $response->assertStatus(302);
+        $response->assertRedirect(route('login'));
     }
 
     public function testPanierConnecteGET()
@@ -163,27 +176,22 @@ class WEBRoutesTest extends TestCase
         $response = $this->actingAs($utilisateur)->get(route('panier'));
         $response->assertStatus(200);
     }
-/*
+
     public function testAjoutPanierPOST()
     {
-        $response = $this->get('/');
-        $response->assertStatus(200);
+        $response = $this->post('/boutique/panier'.'?ID=1&Nom=Vitre de Protection&Quantite=1');
+        $response->assertRedirect(route('login'));
     }
 
-    public function testSupprimerDuPanierPOST()
+    public function testAjoutPanierConnectePOST()
     {
-        $response = $this->get('/');
+        $utilisateur = Utilisateur::first();
+        $response = $this->actingAs($utilisateur)->post('/boutique/panier'.'?ID=1&Nom=Vitre de Protection&Quantite=1');
         $response->assertStatus(200);
-    }
-
-    public function testValiderPanierPOST()
-    {
-        $response = $this->get('/');
+        $response->assertSessionHas('panier');
+        $response = $this->actingAs($utilisateur)->post(route('ajouterAuPanier'), ['ID'=>2, 'Nom'=>'Attache', 'Quantite'=>2]);
         $response->assertStatus(200);
+        $response->assertSessionHas('panier');
     }
-*/
-    private function createRoles(){
-        factory(Role::class, 3)->create();
-    }
-
+    
 }
