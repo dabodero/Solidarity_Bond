@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::namespace('API')->group(function (){
 
     Route::group(['prefix'=>'commande'], function (){
@@ -37,10 +32,11 @@ Route::namespace('API')->group(function (){
     });
 
     Route::group(['prefix'=>'commentaire'], function(){
+        Route::get('topTrois', 'CommentaireController@topTrois')->name('commentaire.toptrois');
+
         Route::prefix('{commentaire}')->group(function(){
             Route::get('likesCount', 'CommentaireController@likesCount')->name('commentaire.likescount');
             Route::post('liker-unliker', 'CommentaireController@liker')->name('commentaire.liker-unliker');
-            Route::get('topTrois', 'CommentaireController@topTrois')->name('commentaire.toptrois');
         });
 
     });

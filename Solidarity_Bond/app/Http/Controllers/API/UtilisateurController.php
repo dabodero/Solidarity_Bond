@@ -64,6 +64,6 @@ class UtilisateurController extends Controller
     }
 
     public function commandes(Utilisateur $utilisateur){
-        return $utilisateur->commandes()->get();
+        return $utilisateur->commandes();
     }
 }
