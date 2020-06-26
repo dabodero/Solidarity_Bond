@@ -12,9 +12,7 @@ use App\Mail\AvisMail;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::namespace('Test')->group(function(){
-    Route::any('/test', 'TestController@sandbox')->name('test');
-});
+
 
 Route::namespace('WEB')->group(function (){
 
