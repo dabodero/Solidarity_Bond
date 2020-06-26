@@ -1,4 +1,5 @@
 <body>
+    <!-- Message Commande Terminées-->
     <div class="container-md">
         <h1>Votre commande est terminée !</h1>
         <div>

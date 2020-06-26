@@ -27,7 +27,7 @@
 
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
-        <a href="https://www.cesi.fr/"><img src="{{ asset('assets/img/logo_cesi_cropped.png') }}"></a>
+        <a href="https://www.cesi.fr/"><img src="{{ asset('assets/img/logo_cesi_cropped.png') }}" alt="Logo CESI"></a>
       </div>
       <!-- Grid column -->
 
