@@ -1,4 +1,9 @@
 @extends('layouts.app')
+
+@section('title', 'Redéfinition du mot de passa')
+
+@section('meta-description',"Page de redéfinition du mot de passe")
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

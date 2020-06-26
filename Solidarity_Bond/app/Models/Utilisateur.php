@@ -24,30 +24,49 @@ class Utilisateur extends Model implements Authenticatable, CanResetPassword
 
     protected $hidden = ['MotDePasse'];
 
+    /**
+     * Retourne le rôle de l'utilisateur
+     * @return Model|\Illuminate\Database\Eloquent\Relations\HasOne|object|null
+     */
     public function role(){
         return $this->hasOne(Role::class)->first();
     }
 
+    /**
+     * Retourne tous les commentaires de l'utilisateur
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
     public function commentaires(){
         return $this->hasMany(Commentaire::class)->get();
     }
 
+    /**
+     * Retourne toutes les commandes de l'utilisateur
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
     public function commandes(){
         return $this->hasMany(Commande::class, 'ID_Utilisateur')->get();
     }
 
+    /**
+     * Retourne tous les likes que l'utilisateur à réalisés
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
     public function likes(){
         return $this->hasMany(Liker::class)->get();
     }
 
+    /**
+     * Retourne le mot de passe de l'utilisateur
+     * @return string
+     */
     public function getAuthPassword()
     {
         return $this->attributes['MotDePasse'];
     }
 
     /**
-     * Get the e-mail address where password reset links are sent.
-     *
+     * Retourne l'adresse mail à laquelle le mail de redéfinition du mot de passe doit être envoyé
      * @return string
      */
     public function getEmailForPasswordReset()
@@ -56,7 +75,7 @@ class Utilisateur extends Model implements Authenticatable, CanResetPassword
     }
 
     /**
-     * Send the password reset notification.
+     * Envoie la notification de redéfinition de mot de passe
      *
      * @param string $token
      * @return void

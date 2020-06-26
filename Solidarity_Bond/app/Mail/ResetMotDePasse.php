@@ -14,7 +14,7 @@ class ResetMotDePasse extends Mailable
     private $token;
 
     /**
-     * Create a new message instance.
+     * Crée une nouvelle instance du mail pour redéfinir son mot de passe.
      *
      * @param infos
      * @return void
@@ -25,7 +25,7 @@ class ResetMotDePasse extends Mailable
     }
 
     /**
-     * Build the message.
+     * Prépare le mail
      *
      * @return $this
      */

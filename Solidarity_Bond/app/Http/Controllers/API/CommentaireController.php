@@ -10,8 +10,7 @@ use Illuminate\Http\Request;
 class CommentaireController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * Retourne tous les commentaires
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -20,8 +19,7 @@ class CommentaireController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
+     * Crée un nouveau commentaire
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -34,8 +32,7 @@ class CommentaireController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
+     * Retourne un commentaire spécifique
      * @param  \App\Models\Commentaire  $commentaire
      * @return \Illuminate\Http\Response
      */
@@ -45,8 +42,7 @@ class CommentaireController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
+     * Met à jour un commentaire spécifique
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Commentaire  $commentaire
      * @return \Illuminate\Http\Response
@@ -57,8 +53,7 @@ class CommentaireController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
+     * Supprime un commentaire spécifique
      * @param  \App\Models\Commentaire  $commentaire
      * @return \Illuminate\Http\Response
      */
@@ -67,15 +62,30 @@ class CommentaireController extends Controller
         $commentaire->delete();
     }
 
+    /**
+     * Like un commentaire spécifique
+     * @param Request $request
+     * @param Commentaire $commentaire
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function liker(Request $request, Commentaire $commentaire){
         $commentaire->likeOuUnlikePar($request->ID_Utilisateur);
         return response('');
     }
 
+    /**
+     * Retourne le nombre de likes d'un commentaire spécifique
+     * @param Commentaire $commentaire
+     * @return int
+     */
     public function likesCount(Commentaire $commentaire){
         return $commentaire->likesCount();
     }
 
+    /**
+     * Retourne les 3 commentaires les plus likés
+     * @return Commentaire[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function topTrois(){
         return Commentaire::topTroisCommentaires();
     }

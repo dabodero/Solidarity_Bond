@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 class ComposerController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * Retourne toutes les compositions
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -19,8 +18,7 @@ class ComposerController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
+     * Crée une nouvelle composition
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -30,8 +28,7 @@ class ComposerController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
+     * Retourne une composition spécifique
      * @param  \App\Models\Composer  $composer
      * @return \Illuminate\Http\Response
      */
@@ -41,8 +38,7 @@ class ComposerController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
+     * Met à jour une composition spécifique
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Composer  $composer
      * @return \Illuminate\Http\Response
@@ -53,8 +49,7 @@ class ComposerController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
+     * Supprime une composition spécifique
      * @param  \App\Models\Composer  $composer
      * @return \Illuminate\Http\Response
      */

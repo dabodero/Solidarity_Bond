@@ -14,7 +14,7 @@ class CommandeTerminee extends Mailable
     private $commande;
 
     /**
-     * Create a new message instance.
+     * Crée une nouvelle instance du mail de commande terminée.
      *
      * @param infos
      * @return void
@@ -25,7 +25,7 @@ class CommandeTerminee extends Mailable
     }
 
     /**
-     * Build the message.
+     * Prépare le mail.
      *
      * @return $this
      */

@@ -2,6 +2,8 @@
 
 @section('title', 'Boutique')
 
+@section('meta-description', 'Le boutique du site')
+
 @section('ajoutsHead')
     <link rel="stylesheet" href="{{ asset('assets/css/boutique/boutique.css') }}">
 @endsection

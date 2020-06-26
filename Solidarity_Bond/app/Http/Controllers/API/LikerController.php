@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 class LikerController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * Retourne tous les enregistrements de like
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -19,8 +18,7 @@ class LikerController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
+     * Crée un nouveau like
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -30,8 +28,7 @@ class LikerController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
+     * Retourne un like spécifique
      * @param  \App\Models\Liker  $liker
      * @return \Illuminate\Http\Response
      */
@@ -41,8 +38,7 @@ class LikerController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
+     * Met à jour un like spécifique
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Liker  $liker
      * @return \Illuminate\Http\Response
@@ -53,8 +49,7 @@ class LikerController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
+     * Supprime un like spécifique
      * @param  \App\Models\Liker  $liker
      * @return \Illuminate\Http\Response
      */

@@ -14,6 +14,10 @@ class Photo extends Model
 
     public $timestamps = false;
 
+    /**
+     * Retourne le produit lié à la photo
+     * @return Model|\Illuminate\Database\Eloquent\Relations\BelongsTo|object|null
+     */
     public function produit(){
         return $this->belongsTo(\App\Models\Produit::class, 'ID_Produit')->first();
     }

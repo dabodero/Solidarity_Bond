@@ -16,10 +16,18 @@ class Composer extends Model
 
     public $timestamps = false;
 
+    /**
+     * Retourne le commande que la composition concerne
+     * @return Model|\Illuminate\Database\Eloquent\Relations\BelongsTo|object|null
+     */
     public function commande(){
         return $this->belongsTo(\App\Models\Commande::class, 'ID_Commande')->first();
     }
 
+    /**
+     * Retourne le produit que la composition concerne
+     * @return Model|\Illuminate\Database\Eloquent\Relations\BelongsTo|object|null
+     */
     public function produit(){
         return $this->belongsTo(\App\Models\Produit::class, 'ID_Produit')->first();
     }

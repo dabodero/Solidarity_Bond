@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 class PhotoController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * Retourne toutes les photos
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -19,8 +18,7 @@ class PhotoController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
+     * Crée une nouvelle photo
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -30,8 +28,7 @@ class PhotoController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
+     * Retourne une photo spécifique
      * @param  \App\Models\Photo  $photo
      * @return \Illuminate\Http\Response
      */
@@ -41,8 +38,7 @@ class PhotoController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
+     * Met à jour une photo spécifique
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Photo  $photo
      * @return \Illuminate\Http\Response
@@ -53,8 +49,7 @@ class PhotoController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
+     * Supprime une photo spécifique
      * @param  \App\Models\Photo  $photo
      * @return \Illuminate\Http\Response
      */

@@ -11,8 +11,7 @@ use Illuminate\Http\Request;
 class CommandeController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * Retourne toutes les commandes
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -21,8 +20,7 @@ class CommandeController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
+     * Crée une nouvelle commande
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -38,8 +36,7 @@ class CommandeController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
+     * Retourne une commande spécifique
      * @param  \App\Models\Commande  $commande
      * @return \Illuminate\Http\Response
      */
@@ -49,8 +46,7 @@ class CommandeController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
+     * Met à jour une commande
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Commande  $commande
      * @return \Illuminate\Http\Response
@@ -61,8 +57,7 @@ class CommandeController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
+     * Efface une commande
      * @param  \App\Models\Commande  $commande
      * @return \Illuminate\Http\Response
      */
@@ -71,18 +66,35 @@ class CommandeController extends Controller
         $commande->delete();
     }
 
+    /**
+     * Retourne toutes les commandes terminées
+     * @return \Illuminate\Support\Collection
+     */
     public function terminees(){
         return Commande::commandesTerminees();
     }
 
+    /**
+     * Reoturne toutes les commandes non terminées
+     * @return \Illuminate\Support\Collection
+     */
     public function nonTerminees(){
         return Commande::commandesNonTerminees();
     }
 
+    /**
+     * Retourne les produits de la commande
+     * @param Commande $commande
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
     public function produitsCommande(Commande $commande){
         return $commande->produitsFormates();
     }
 
+    /**
+     * Termine la commande
+     * @param Commande $commande
+     */
     public function terminer(Commande $commande){
         $commande->terminer();
     }
