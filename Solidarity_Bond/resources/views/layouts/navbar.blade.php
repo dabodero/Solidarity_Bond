@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top mb-3">
     <div class="container">
         <a class="navbar-brand" href="{{ route('accueil') }}">
-        <img src="{{ asset('assets/img/logo_cesi_cropped.png') }}">
+        <img src="{{ asset('assets/img/logo_cesi_cropped.png') }}" alt="Logo CESI">
         {{env('APP_NAME')}}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

@@ -34,6 +34,8 @@
                             <div class="col-md-12">
 
                                 <div id="corps">
+
+                                    <!-- Formulaire pour modifier ses données-->
                                     <form action="{{route('updateData')}}" method="post" class="mt-1">
                                         @csrf
                                         <input type="hidden" name="updateData"/>
@@ -132,6 +134,7 @@
     </div>
 @endsection
 
+<!-- Scripts JS pour actualisation en direct -->
 @section('ajoutsScripts')
     <script>
         $(function () {

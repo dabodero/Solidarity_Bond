@@ -1,4 +1,5 @@
 <body>
+	<!--Page reset password-->
     <div class="container-md">
         <h1>Vous avez demandé à changer votre mot de passe.</h1>
         <div>
