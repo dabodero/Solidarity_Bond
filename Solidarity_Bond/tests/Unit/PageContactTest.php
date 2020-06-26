@@ -8,22 +8,22 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 
-class ExampleTest extends TestCase
+class PageContactTest extends TestCase
 {
     /**
      * A basic test example.
      *
      * @return void
      */
-    
+
 
     public function testFormOnContact()
 {
     $this->get('/contact')
         ->assertSee('form');
 }
-	
+
 }
 
- 
+
 
