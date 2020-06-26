@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\User;
 use App\Models\Utilisateur;
 
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -27,7 +28,7 @@ class LoginTest extends TestCase
 
     public function test_user_cannot_login_with_incorrect_password()
     {
-        $user = Utilisateur::create([
+        $user = factory(Utilisateur::class)->create([
         	'Mail' => 'lodi5h5s.cebe@gmail.com',
             'MotDePasse' => Hash::make('password-valide'),
         ]);
