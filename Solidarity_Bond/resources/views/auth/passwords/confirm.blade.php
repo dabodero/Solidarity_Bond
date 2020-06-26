@@ -9,11 +9,12 @@
 
                 <div class="card-body">
                     {{ __('Please confirm your password before continuing.') }}
-
+                    <!-- Création du formulaire -->
                     <form method="POST" action="{{ route('password.confirm') }}">
                         @csrf
 
                         <div class="form-group row">
+
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -32,7 +33,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Confirm Password') }}
                                 </button>
-
+                                <!-- Bouton d'envoi du formulaire -->
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
