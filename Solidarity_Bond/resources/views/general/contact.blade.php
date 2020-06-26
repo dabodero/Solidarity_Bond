@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Boutique')
+@section('title', 'Contact')
+@section('meta-description',"Page contact envers le groupe")
 
 @section('ajoutsHead')
     <link rel="stylesheet" href="{{ asset('assets/css/general/contact.css') }}">

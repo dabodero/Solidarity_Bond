@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Inscription')
+@section('meta-description',"Page d'inscription du site")
 
 @section('ajoutsHead')
     <link rel="stylesheet" href="{{ asset('assets/css/auth/register.css') }}">

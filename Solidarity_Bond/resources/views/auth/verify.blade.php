@@ -1,6 +1,8 @@
 @extends('layouts.app')
+@section('meta-description',"Page de vérification de mail")
 
 @section('content')
+
     <!-- Page de verification de mail -->
 <div class="container">
     <div class="row justify-content-center">

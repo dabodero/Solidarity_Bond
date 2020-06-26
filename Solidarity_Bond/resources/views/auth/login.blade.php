@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Authentification')
+@section('meta-description',"Page d'authentification du site")
 
 @section('ajoutsHead')
     <link rel="stylesheet" href="{{ asset('assets/css/auth/login.css') }}">

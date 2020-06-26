@@ -2,6 +2,7 @@
 
 @section('title', 'Mentions Légales')
 
+@section('meta-description',"Mentions légales du site")
 @section('ajoutsHead')
     <link rel="stylesheet" href="{{asset('assets/css/general/mentions-legales.css')}}">
 @endsection
