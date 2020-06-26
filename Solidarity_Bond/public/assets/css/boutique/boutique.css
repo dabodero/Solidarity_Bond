@@ -30,15 +30,6 @@
     overflow-y: hidden;
 }
 
-@media (max-width: 1127px){
-    .card-size-standard{
-        height: 9em;
-    }
-    .inner-hidden-scrollbar{
-        max-height: 5em;
-    }
-}
-
 .form-button{
     color:#007bff;
 }

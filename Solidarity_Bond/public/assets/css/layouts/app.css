@@ -28,12 +28,12 @@ html {
 }
 
 body {
-    margin-bottom: 300px; /*Marge de la taille du footer +10px supplémentaires*/
+    margin-bottom: 150px;
 }
 
 @media (max-width: 767px) {
     body {
-        margin-bottom: 785px; /*Marge de la taille du footer +10px supplémentaires*/
+        margin-bottom: 300px;
     }
 }
 
