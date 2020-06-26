@@ -1,8 +1,12 @@
 <?php
 
 namespace Tests\Unit;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase
 {
@@ -11,8 +15,15 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function testBasicTest()
-    {
-        $this->assertTrue(true);
-    }
+    
+
+    public function testFormOnContact()
+{
+    $this->get('/contact')
+        ->assertSee('form');
 }
+	
+}
+
+ 
+

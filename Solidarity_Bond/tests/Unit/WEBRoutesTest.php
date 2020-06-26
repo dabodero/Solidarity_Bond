@@ -193,5 +193,6 @@ class WEBRoutesTest extends TestCase
         $response->assertStatus(200);
         $response->assertSessionHas('panier');
     }
+
     
 }
