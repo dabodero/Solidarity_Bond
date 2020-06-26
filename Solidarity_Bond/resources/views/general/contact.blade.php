@@ -14,7 +14,7 @@
                     <div class="card-header text-center btn-cesi"><h3>{{ __('Contact') }}</h3></div>
                     <div class="card-body">
 
-<!-- Formulaire de contact -->
+                    <!-- Formulaire de contact -->
 
                         <form method="POST" action="{{route('contact')}}">
                             @csrf

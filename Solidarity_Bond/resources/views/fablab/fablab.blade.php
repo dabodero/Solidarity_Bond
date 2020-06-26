@@ -12,7 +12,7 @@
 
 @section('content')
 
-<!-- Affichage du pannel des commandes en cours -->
+    <!-- Affichage du pannel des commandes en cours -->
     <div class="row justify-content-center m-1 mt-5">
         <h1 class="text-center">Commandes à réaliser</h1>
     </div>

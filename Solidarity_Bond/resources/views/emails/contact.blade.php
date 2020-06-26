@@ -1,4 +1,3 @@
-
 <div>
     {{$bodyMessage}}
 </div>
