@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ProduitController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Retourne tout les produits
      *
      * @return \Illuminate\Http\Response
      */
@@ -19,7 +19,7 @@ class ProduitController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Créer un produits
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -30,7 +30,7 @@ class ProduitController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Retourne un produit
      *
      * @param  \App\Models\Produit  $produit
      * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class ProduitController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Met à jour les produits
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Produit  $produit
@@ -53,7 +53,7 @@ class ProduitController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Supprime un produit
      *
      * @param  \App\Models\Produit  $produit
      * @return \Illuminate\Http\Response
@@ -63,6 +63,11 @@ class ProduitController extends Controller
         $produit->delete();
     }
 
+    /**
+     * Retourne les commentaires d'un produit
+     * @param Produit $produit
+     * @return mixed
+     */
     public function commentaires(Produit $produit){
         return $produit->commentairesFormates();
     }

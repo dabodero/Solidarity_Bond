@@ -14,7 +14,7 @@ class RoleController extends Controller
     private const FABLAB = 3;
 
     /**
-     * Display a listing of the resource.
+     * Retourne tout les Roles.
      *
      * @return \Illuminate\Http\Response
      */
@@ -24,7 +24,7 @@ class RoleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Crer un nouveau role.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -35,7 +35,7 @@ class RoleController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Retourne un role
      *
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
@@ -46,7 +46,7 @@ class RoleController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Met à jour les roles.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Role  $role
@@ -58,7 +58,7 @@ class RoleController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Supprime un role.
      *
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
@@ -68,7 +68,21 @@ class RoleController extends Controller
         $role->delete();
     }
 
+    /**
+     * Retourne le role client
+     * @return int
+     */
     public static function getNumeroRoleClient(){ return self::CLIENT; }
+
+    /**
+     * Retourne le role admin
+     * @return int
+     */
     public static function getNumeroRoleAdmin(){ return self::ADMIN; }
+
+    /**
+     * Retourne le role fablab
+     * @return int
+     */
     public static function getNumeroRoleFablab(){ return self::FABLAB; }
 }

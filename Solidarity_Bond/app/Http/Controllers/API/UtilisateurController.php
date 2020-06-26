@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class UtilisateurController extends Controller
 {
     /**
-     * Display a listing of the resource.
      *
+     * Affiche une liste des ressources
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -19,8 +19,8 @@ class UtilisateurController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
      *
+     * Enregistre une nouvelle entrée dans les ressources.
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -30,8 +30,8 @@ class UtilisateurController extends Controller
     }
 
     /**
-     * Display the specified resource.
      *
+     * Affiche une ressource précise.
      * @param  \App\Models\Utilisateur  $utilisateur
      * @return \Illuminate\Http\Response
      */
@@ -41,8 +41,8 @@ class UtilisateurController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
      *
+     * Met à jour une ressource précise.
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Utilisateur  $utilisateur
      * @return \Illuminate\Http\Response
@@ -53,7 +53,7 @@ class UtilisateurController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Supprime une ressource précise
      *
      * @param  \App\Models\Utilisateur  $utilisateur
      * @return \Illuminate\Http\Response
@@ -63,6 +63,11 @@ class UtilisateurController extends Controller
         $utilisateur->delete();
     }
 
+    /**
+     * Retourne toutes les commandes d'un utilisateur
+     * @param Utilisateur $utilisateur
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
     public function commandes(Utilisateur $utilisateur){
         return $utilisateur->commandes();
     }

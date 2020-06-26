@@ -18,6 +18,10 @@ class ProfilController extends Controller
 {
     private const nom_dossier = 'profil.';
 
+    /**
+     * Affichage du profil en prenant en compte les commandes non terminées et celle qui le son
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function profil(){
     	$ID = Auth::id();
         $commandesNonTerminees = Commande::commandesNonTerminees()->where('ID_Utilisateur',$ID);
@@ -26,12 +30,21 @@ class ProfilController extends Controller
         return view(self::nom_dossier.'profil', compact('commandesNonTerminees','commandesTerminees'));
     }
 
+    /**
+     * Suppression d'utilisateur avec une redirection sur l'accueil
+     * @return mixed
+     */
     public function deleteUser()
     {
             Auth::user()->delete();
             return Redirect::route('accueil');
     }
 
+    /**
+     * Modification des données personnelles
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateData(Request $request)
     {
         $this->validator($request->all())->validate();
@@ -39,6 +52,11 @@ class ProfilController extends Controller
         return back();
     }
 
+    /**
+     * Vérification de la modification de données personnelles
+     * @param array $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
     protected function validator(array $data)
     {
         return Validator::make($data, [

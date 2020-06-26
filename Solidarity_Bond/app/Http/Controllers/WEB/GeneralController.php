@@ -17,6 +17,10 @@ class GeneralController extends Controller
 {
     private const nom_dossier = 'general.';
 
+    /**
+     * Affichage de la page accueil avec les 3 commentaires les plus populaires
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function accueil(){
 
         $top3 = Commentaire::topTroisCommentaires();
@@ -25,18 +29,36 @@ class GeneralController extends Controller
 
     }
 
+    /**
+     * Affichage de la page a-propos
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function a_propos(){
         return view(self::nom_dossier.'a-propos');
     }
 
+    /**
+     * Affichage de la page mentions-legales
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function mentions(){
         return view(self::nom_dossier.'mentions-legales');
     }
 
+    /**
+     * Affichage de la page contact
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function contact(){
         return view(self::nom_dossier.'contact');
     }
 
+    /**
+     * Validation du formulaire de contact et envoi à l'adresse solidaritybondcesilyon@gmail.com
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function postContact(Request $request){
     $this->validate($request, [
         'mail'=> 'required|email',
@@ -58,6 +80,10 @@ class GeneralController extends Controller
     return redirect('/')->with('mailEnvoye', ['titre'=>'Votre mail a été envoyé !', 'message'=>'Notre équipe va prendre en compte votre mail.']);
     }
 
+    /**
+     * Affichage des cgv
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function cgv(){
         return view(self::nom_dossier.'cgv');
     }
