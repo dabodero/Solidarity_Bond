@@ -28,13 +28,13 @@
                 @guest
                     <li class="nav-item ">
                         <a href="{{ route('login') }}" class="btn btn-cesi mb-2 ml-1"
-                           role="button">{{ __('Login') }}</a>
+                           role="button">{{ __("S'identifier") }}</a>
                     </li>
                     @if (Route::has('register'))
 
                         <li class="nav-item">
                             <a href="{{ route('register') }}" class="btn btn-cesi ml-1 mt-auto"
-                               role="button">{{ __('Register') }}</a>
+                               role="button">{{ __("S'inscrire") }}</a>
                         </li>
                     @endif
                 @else
