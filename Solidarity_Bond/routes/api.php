@@ -13,7 +13,15 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::namespace('API')->group(function (){
+
+Route::middleware('api')->namespace('Auth')->group(function() {
+    Route::post('login', 'APIController@login')->name('api.login');
+    Route::post('logout', 'APIController@logout')->name('api.logout');
+    Route::post('refresh', 'APIController@refresh')->name('api.refresh');
+});
+
+
+Route::namespace('API')->middleware('auth:api')->group(function (){
 
     Route::group(['prefix'=>'commande'], function (){
         Route::get('terminees', 'CommandeController@terminees')->name('commande.terminees');

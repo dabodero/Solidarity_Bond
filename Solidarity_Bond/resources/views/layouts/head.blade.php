@@ -5,6 +5,10 @@
 
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<!-- API Token -->
+@auth
+    <meta name="api-token" content="{{session()->get('token')}}">
+@endauth
 <!-- Titre -->
 <title>@yield('title', 'Solidarity Bond')</title>
 <!-- Scripts -->

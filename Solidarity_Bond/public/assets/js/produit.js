@@ -2,7 +2,7 @@ async function posterCommentaire() {
     let ID_Utilisateur = document.getElementById('ID_Utilisateur').value;
     let ID_Produit = document.getElementById('ID_Produit').value;
     let Commentaire = document.getElementById('aireCommentaire').value;
-    let donnees = "ID_Utilisateur=" + ID_Utilisateur + "&ID_Produit=" + ID_Produit + "&Commentaire=" + Commentaire;
+    let donnees = "ID_Utilisateur=" + ID_Utilisateur + "&ID_Produit=" + ID_Produit + "&Commentaire=" + Commentaire + '&token='+getAPIToken();
     await $.ajax({
         url: '/api/commentaire',
         type: 'post',
@@ -22,7 +22,7 @@ async function posterCommentaire() {
 function chargerCommentaires(){
     let ID_Produit = document.getElementById('ID_Produit').value;
     $.ajax({
-        url: '/api/produit/'+ID_Produit+'/commentaires',
+        url: '/api/produit/'+ID_Produit+'/commentaires'+'?token='+getAPIToken(),
         type: 'get',
         datatype: 'json',
         success: function(response) {
@@ -91,7 +91,7 @@ function liker(value) {
     let ID_Utilisateur = document.getElementById('ID_Utilisateur').value;
 
     $.ajax({
-        url: '/api/commentaire/'+value+'/liker-unliker',
+        url: '/api/commentaire/'+value+'/liker-unliker'+'?token='+getAPIToken(),
         type: 'post',
         data: 'ID_Utilisateur='+ID_Utilisateur,
         success: function(response) {
@@ -103,7 +103,7 @@ function liker(value) {
 
 function setNombreLikesElement(ID){
     $.ajax({
-        url: '/api/commentaire/'+ID+'/likesCount',
+        url: '/api/commentaire/'+ID+'/likesCount'+'?token='+getAPIToken(),
         type: 'get',
         datatype: 'json',
         success: function(response) {
@@ -121,6 +121,10 @@ function incrementerQuantite(ID_Produit) {
         type: 'post',
         data: donnees
     });
+}
+
+function getAPIToken(){
+    return $('meta[name="api-token"]').attr('content');
 }
 
 $(document).ready(function() {

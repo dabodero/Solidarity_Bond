@@ -9,8 +9,9 @@ use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Mail;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class Utilisateur extends Model implements Authenticatable, CanResetPassword
+class Utilisateur extends Model implements Authenticatable, CanResetPassword, JWTSubject
 {
     use BasicAuthenticatable, Notifiable;
 
@@ -83,5 +84,24 @@ class Utilisateur extends Model implements Authenticatable, CanResetPassword
     public function sendPasswordResetNotification($token)
     {
         Mail::to($this->Mail)->send(new ResetMotDePasse($token));
+    }
+
+    /**
+     * Récupère l'identifiant JWT
+     * @return mixed
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 }

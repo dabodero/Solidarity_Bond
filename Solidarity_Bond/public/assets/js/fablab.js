@@ -43,14 +43,14 @@ function insertionDansCommandesRealisees(commandeAInscrire){
 
 function inscrireCommandeTerminee(id){
     return $.ajax({
-        url: '/api/commande/'+id+'/terminer',
+        url: '/api/commande/'+id+'/terminer'+'?token='+getAPIToken(),
         type: 'put',
     });
 }
 
 function commandesNonTerminees(){
     $.ajax({
-        url: '/api/commande/nonterminees',
+        url: '/api/commande/nonterminees'+'?token='+getAPIToken(),
         type: 'get',
         dataType: 'json',
         success: function(response){
@@ -67,7 +67,7 @@ function commandesNonTerminees(){
 
 function commandesTerminees(){
     $.ajax({
-        url: '/api/commande/terminees',
+        url: '/api/commande/terminees'+'?token='+getAPIToken(),
         type: 'get',
         dataType: 'json',
         success: function(response){
@@ -157,6 +157,10 @@ function telephoneFormat(numero){
         numeroFormate+=numero.charAt(i);
     }
     return numeroFormate;
+}
+
+function getAPIToken(){
+    return $('meta[name="api-token"]').attr('content');
 }
 
 $(document).ready(function(){

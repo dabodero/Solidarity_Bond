@@ -7,7 +7,9 @@ use App\Models\Utilisateur;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -82,4 +84,13 @@ class RegisterController extends Controller
         return Utilisateur::create($data);
 
     }
+
+    protected function registered(Request $request, $user)
+    {
+        try {
+            $api_token = Http::post(route('api.login'), ['Mail' => $request->Mail, 'password' => $request->MotDePasse])->object()->access_token;
+            session()->put("token", $api_token);
+        }catch (\Exception $e){}
+    }
+
 }
