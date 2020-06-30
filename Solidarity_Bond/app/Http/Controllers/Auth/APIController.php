@@ -64,4 +64,13 @@ class APIController extends Controller
             'expires_in' => auth('api')->factory()->getTTL() * 60
         ]);
     }
+
+    public static function forceLogin($mail, $password){
+        $controller = new APIController();
+        $credentials = ['Mail'=>$mail, 'password'=>$password];
+        if (! $token = auth('api')->attempt($credentials)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+        return $controller->respondWithToken($token);
+    }
 }

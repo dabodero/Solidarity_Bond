@@ -2,20 +2,35 @@
 
 namespace Tests\Unit;
 
+use App\Http\Controllers\Auth\APIController;
 use App\Models\Commande;
 use App\Models\Commentaire;
 use App\Models\Produit;
 use App\Models\Role;
 use App\Models\Utilisateur;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
 class APIRoutesTest extends TestCase
 {
     private const PREFIX = 'api';
+    private static $token = null;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        $password = 'password';
+        $user = factory(Utilisateur::class)->create([
+            'MotDePasse' => Hash::make($password),
+        ]);
+        self::$token = APIController::forceLogin($user->Mail, $password)->getData(true)['access_token'];
+    }
 
     public function testCommandeGET()
     {
         $response = $this->get(self::PREFIX.'/commande');
+        $response->dumpSession('token');
         $response->assertStatus(200);
     }
 
@@ -193,8 +208,10 @@ class APIRoutesTest extends TestCase
 
     public function testUtilisateurPOST()
     {
-        $utilisateur = ['ID_Role'=>Role::first()['ID'], 'Nom'=>"Nom", 'Prenom'=>"Prenom", 'Mail'=>"test@test.test", 'MotDePasse'=>"MotDePasse", 'Entreprise'=>"Entreprise", 'Telephone'=>"0600000000"];
-        $response = $this->post(self::PREFIX.'/utilisateur', $utilisateur);
+        $utilisateur = factory(Utilisateur::class)->make();
+        $utilisateurArray = $utilisateur->toArray();
+        $utilisateurArray['MotDePasse'] = $utilisateur->MotDePasse;
+        $response = $this->post(self::PREFIX.'/utilisateur', $utilisateurArray);
         $response->assertStatus(200);
         if(Utilisateur::all()->last()['Nom']!=$utilisateur['Nom']){self::fail("L'utilisateur n'a pas été créé.");}
     }
